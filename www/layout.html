@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page_title }}</title>
+
+   {{ headContent() }}      
+    {{ head_deps }}   
+  <link rel="stylesheet" href="www/esi.css">
+
+  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-20QL733ETT"></script>
+ <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-20QL733ETT');
+  </script> 
+</head>
+
+<script>
+Shiny.addCustomMessageHandler("dt-adjust", function(x){
+  setTimeout(function(){
+    var el = document.getElementById(x.id);
+    if (!el) return;
+    var tbl = $(el).find('table').DataTable();
+    if (tbl) { tbl.columns.adjust().draw(); }
+  }, 0);
+});
+</script>
+
+
+<body>
+
+
+  <!-- Top navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-lg px-3 px-md-5">
+      <a class="navbar-brand" href="#intro-section">ESI prototype tool</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav"
+              aria-controls="topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="topnav" class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about-section">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#showcase-section">Showcase</a></li>
+          <li class="nav-item"><a class="nav-link" href="#downloads-section">Downloads</a></li>
+          <li class="nav-item"><a class="nav-link" href="#map-section">Map</a></li>
+        </ul>
+        <a href="#intro-section" class="navbar-brand m-0 p-0">
+          <img src="esi_logo.png" class="navbar-logo" alt="ESI logo">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro -->
+ <section id="intro-section" class="section w-100 p-0 m-0">
+  {{ intro_ui }}
+</section>
+
+
+  <!-- Welcome -->
+  <section id="welcome-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ welcome_ui }}
+    </div>
+  </section>
+  
+    <!-- Disclaimer -->
+  <section id="disclaimer-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ disclaimer_ui }}
+    </div>
+  </section>
+  
+
+  <!-- Showcase / Table module -->
+  <section id="showcase-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ table_ui }}
+    </div>
+  </section>
+
+  <!-- Downloads module -->
+  <section id="downloads-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ downloads_ui }}
+    </div>
+  </section>
+
+  <!-- Map module -->
+  <section id="map-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ map_ui }}
+    </div>
+  </section>
+
+</body>
+</html>
