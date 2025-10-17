@@ -45,3 +45,33 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
 @media (max-width: 767.98px) {
   table.dataTable th, table.dataTable td { white-space: normal; } /* allow wrap on phones */
 }
+
+/* --- Responsive navbar logo --- */
+.navbar-logo {
+  height: 40px;          /* Default desktop size */
+  width: auto;           /* Maintain aspect ratio */
+  max-width: 100%;       /* Prevent overflow */
+  display: block;
+  object-fit: contain;   /* Prevent distortion */
+}
+
+/* Adjust size on tablets */
+@media (max-width: 992px) {
+  .navbar-logo {
+    height: 32px;
+  }
+}
+
+/* Adjust size on phones */
+@media (max-width: 576px) {
+  .navbar-logo {
+    height: 26px;
+  }
+}
+
+/* Keep the right logo vertically centered and tidy */
+.navbar .navbar-brand.m-0.p-0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
