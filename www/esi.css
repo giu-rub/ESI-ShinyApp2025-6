@@ -75,3 +75,11 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
   align-items: center;
   justify-content: center;
 }
+
+.download-preview {
+  max-width: 500px;        /* limit width on large screens */
+  width: 100%;             /* full width on small screens */
+  height: auto;            /* keep aspect ratio */
+  border-radius: 0.75rem;  /* rounded corners */
+  box-shadow: 0 rgba(0, 0, 0, 0.1); /* soft shadow */
+}
