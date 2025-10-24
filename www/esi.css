@@ -16,7 +16,7 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #fff; }
 #background-video { pointer-events: none; z-index: -1; }
 
 /* --- Images: never distort; scale nicely --- */
-img { max-width: 100%; height: auto; }
+img { max-width: 100%; height: relative; }
 img.responsive-graphic { width: 100%; max-width: 900px; height: auto; object-fit: contain; }
 img.download-preview   { width: 100%; max-width: 520px; height: auto; object-fit: contain; }
 
@@ -84,5 +84,77 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
   box-shadow: 0 rgba(0, 0, 0, 0.1); /* soft shadow */
 }
 
+/* Grid layout for download items */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  padding: 1.5rem 0;
+}
 
+/* Card styling (merged & normalized) */
+.download-card {
+  position: relative;                 /* for .download-ribbon */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;                   /* choose 320 or 420; set once */
+}
 
+/* Image inside a download card */
+.download-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;  /* keep straight edges inside rounded card */
+}
+
+/* Hover & focus */
+.download-card:hover,
+.download-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Badges/ribbons */
+.download-ribbon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #0072ce;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.download-badge {
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #0072ce;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Optional: if you also apply .download-preview class directly (non-img),
+   keep a soft presentation without forcing colors */
+.download-preview {
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .download-grid { grid-template-columns: 1fr; }
+}

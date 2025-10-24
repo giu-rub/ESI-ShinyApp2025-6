@@ -1,50 +1,46 @@
 mod_footer_ui <- function(id) {
   ns <- NS(id)
   tags$section(
-    class = "module-small custom-padding",
-    style = "background-color: #fff; color: #333;",  # white background + readable text
+    id = "footer-section",
+    role = "contentinfo",
+    style = "
+      background-color: #f7f4ef;
+      color: #333;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      min-height: 40vh;           /* makes the section fill the viewport */
+      display: flex;               /* optional: keeps content aligned nicely */
+      align-items: flex-start;     /* icons/text start at the top */
+    ",
     tags$div(
-      class = "container",
+      class = "container-lg px-3 px-md-5 py-4 text-start",
       tags$div(
-        class = "row",
-        tags$div(
-          class = "col-sm-12",
-          tags$div(
-            class = "widget",
-            tags$div(class = "spacer"),
-            tags$h5(class = "widget-title font-alt", "Site developed by"),
-            tags$p(
-              "Giorgio Parlato (Stockholm Resilience Center) and Giulia I. Rubin (Global Economic Dynamics and the Biosphere)."
-            ),
-            tags$p(
-              # LinkedIn
-              tags$a(
-                href = "https://www.linkedin.com/company/stockholm-resilience-centre/posts/?feedView=all",
-                target = "_blank", rel = "noopener",
-                tags$i(class = "fa fa-linkedin custom-icon")
-              ),
-              HTML("&nbsp;&nbsp;"),
-              # GitHub
-              tags$a(
-                href = "https://github.com/giorgioparlato/ESI_tool_live/tree/main",
-                target = "_blank", rel = "noopener",
-                tags$i(class = "fa fa-github custom-icon custom-icon-github")
-              ),
-              HTML("&nbsp;&nbsp;"),
-              # Instagram
-              tags$a(
-                href = "https://www.instagram.com/sthlmresilience/",
-                target = "_blank", rel = "noopener",
-                tags$i(class = "fa fa-instagram custom-icon")
-              ),
-              HTML("&nbsp;&nbsp;"),
-              # Email
-              tags$a(
-                href = "mailto:giorgio.parlato@su.se?subject=ESI%20Tool%20Inquiry",
-                title = "Email Giorgio Parlato",
-                tags$i(class = "fa fa-envelope custom-icon")
-              )
-            )
+        class = "widget",
+        tags$h5(class = "widget-title font-alt mb-1", "Site developed by"),
+        tags$p(
+          "Giorgio Parlato (Stockholm Resilience Center) and Giulia I. Rubin (Global Economic Dynamics and the Biosphere).",
+          style = "margin-bottom: 0.5rem;"
+        )
+      ),
+      tags$div(
+        tags$p(
+          tags$a(
+            href = "https://www.linkedin.com/company/stockholm-resilience-centre/posts/?feedView=all",
+            target = "_blank", rel = "noopener",
+            tags$i(class = "fa fa-linkedin custom-icon")
+          ),
+          HTML("&nbsp;&nbsp;"),
+          tags$a(
+            href = "https://github.com/giorgioparlato/ESI_tool_live/tree/main",
+            target = "_blank", rel = "noopener",
+            tags$i(class = "fa fa-github custom-icon custom-icon-github")
+          ),
+          HTML("&nbsp;&nbsp;"),
+          tags$a(
+            href = "https://www.instagram.com/sthlmresilience/",
+            target = "_blank", rel = "noopener",
+            tags$i(class = "fa fa-instagram custom-icon")
           )
         )
       )

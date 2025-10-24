@@ -1,70 +1,41 @@
 mod_downloads_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    # Keep external CSS if you have other styles
+    # Link the external stylesheet
     singleton(tags$head(
-      tags$link(rel = "stylesheet", href = "styles.css"),
-      # Inline CSS for the layout and user manual button
-      tags$style(HTML("
-        .download-buttons {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 20px;
-          margin-top: 20px;
-          flex-wrap: wrap;
-        }
-        .manual-button {
-          display: inline-block;
-          padding: 10px 16px;
-          background-color: #0d6efd;
-          color: #fff !important;
-          font-weight: 600;
-          border: none;
-          border-radius: 8px;
-          text-decoration: none;
-          transition: background-color 0.3s ease;
-        }
-        .manual-button:hover, .manual-button:focus {
-          background-color: #0b5ed7;
-          text-decoration: none;
-        }
-        .btn-primary.w-100 {
-          width: auto !important;
-          min-width: 220px;
-        }
-      "))
+      tags$link(rel = "stylesheet", href = "esi.css")
     )),
     
     h3("Downloads"),
+    p("Whether you are an investor or a company, you can download the ESI tool and test it offline. Click a card below to download or open the manual."),
     p(
-      "Whether you are an investor or a company, you can download the ESI tool and test it offline. Press the left button to download the excel sheet or the right one to consult the user manual.",
-    ),
-    p(
-      strong("Please note:"),
-      " the ESI metric is currently a prototype - use caution when interpreting the output."
+      strong("Please note:"), " the ESI metric is currently a prototype — use caution when interpreting the output."
     ),
     
-    # --- Buttons side by side ---
+    # Cards row
     div(
-      class = "download-buttons text-center",
+      class = "download-grid",
       
-      # Download Excel button
+      # Excel tool cover card (downloads the file)
       tags$a(
-        class = "btn btn-primary w-100",
+        class = "download-card",
         href = "ESI_prototype_tool.v1.1/ESI_prototype_tool.v1.1.xlsx",
-        download = "ESI_prototype_tool.v1.1/ESI_prototype_tool.v1.1.xlsx",
-        role = "button",
-        "Download Excel Tool (zip folder)"
+        download = "ESI_prototype_tool.v1.1.xlsx",
+        `aria-label` = "Download Excel Tool",
+        tags$img(src = "assets/images/esi_excel_cover.jpeg", alt = "Cover of the ESI Excel Tool"),
+        tags$span(class = "download-ribbon", "Excel"),
+        tags$span(class = "download-badge", "Download tool")
       ),
       
-      # User manual button
+      # User manual cover card (opens PDF in new tab)
       tags$a(
+        class = "download-card",
         href = "ESI_tool_manual.pdf#zoom=page-width",
-        target = "_blank",
-        rel = "noopener",
-        class = "manual-button",
-        "Open User Manual (PDF)"
+        target = "_blank", rel = "noopener",
+        `aria-label` = "Open User Manual PDF",
+        tags$img(src = "assets/images/esi_manual_cover.jpeg", alt = "Cover of the ESI User Manual"),
+        tags$span(class = "download-ribbon", "PDF"),
+        tags$span(class = "download-badge", "Open manual")
       )
     )
   )
