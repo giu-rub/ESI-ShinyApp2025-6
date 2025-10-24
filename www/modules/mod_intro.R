@@ -2,7 +2,7 @@ mod_intro_ui <- function(id) {
   ns <- NS(id)
   tagList(
     tags$div(
-      style = "position: relative; width: 100vw; height: 85vh; overflow: hidden; margin: 0; padding: 0;",
+      style = "position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0;",
       
       # Background video (fills the container)
       tags$video(
