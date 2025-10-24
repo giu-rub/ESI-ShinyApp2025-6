@@ -46,8 +46,8 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#welcome-section">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#showcase-section">Showcase</a></li>
-        <li class="nav-item"><a class="nav-link" href="#downloads-section">Downloads</a></li>
         <li class="nav-item"><a class="nav-link" href="#map-section">Map</a></li>
+        <li class="nav-item"><a class="nav-link" href="#downloads-section">Downloads</a></li>
       </ul>
     </div>
   </div>
@@ -59,13 +59,16 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   {{ intro_ui }}
 </section>
 
-
   <!-- Welcome -->
-  <section id="welcome-section" class="section">
-    <div class="container-lg px-3 px-md-5">
-      {{ welcome_ui }}
-    </div>
-  </section>
+<section id="welcome-section" class="section"
+ style="background-color: #f7f4ef;">
+  <br><br><br><br>
+  <div class="container-lg px-3 px-md-5">
+    {{ welcome_ui }}
+  </div>
+</section>
+  
+  <br><br><br><br>
   
     <!-- Disclaimer 
   <section id="disclaimer-section" class="section">
@@ -78,9 +81,11 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   <!-- Showcase / Table module -->
   <section id="showcase-section" class="section">
     <div class="container-lg px-3 px-md-5">
-      {{ table_ui }}
+      {{ showcase_ui }}
     </div>
   </section>
+  
+<br><br><br><br>
 
   <!-- Map module -->
   <section id="map-section" class="section">
@@ -89,12 +94,25 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </div>
   </section>
   
+  <br><br><br><br>
+  
     <!-- Downloads module -->
   <section id="downloads-section" class="section">
     <div class="container-lg px-3 px-md-5">
       {{ downloads_ui }}
     </div>
   </section>
-
+  
+<br><br><br><br>
+   
+    <!-- Footer module -->
+  <section id="footer-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ footer_ui }}
+    </div>
+  </section>
+  
+<br><br><br><br>
+   
 </body>
 </html>

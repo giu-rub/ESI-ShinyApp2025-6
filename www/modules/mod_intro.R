@@ -7,7 +7,7 @@ mod_intro_ui <- function(id) {
       # Background video (fills the screen)
       tags$video(
         id = ns("bg_video"),
-        src = "assets/images/intro_tunnel_clouds.mp4",
+        src = "assets/images/ss_sand.mov",
         autoplay = NA,
         muted = NA,
         loop = NA,
