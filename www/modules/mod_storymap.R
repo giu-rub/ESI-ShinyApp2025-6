@@ -3,7 +3,6 @@ mod_storymap_ui <- function(id) {
   ns <- NS(id)
   
   tagList(
-    # Load your global CSS + this module's scroll observer JS
     tags$head(
       tags$link(rel = "stylesheet", href = "esi.css"),
       tags$script(src = "assets/js/scroll-observer.js")
@@ -15,38 +14,37 @@ mod_storymap_ui <- function(id) {
       id = ns("root"),
       `data-ns` = ns(""),
       
-      # Two-column scrollytelling layout
+  
       div(class = "storymap-wrap",
-          
-          # LEFT: scrollable narrative (each .story-step needs a unique data-step)
+          # left column
           div(class = "story-column",
               div(class = "story-step", `data-step` = "intro",
                   div(
-                    h2("Welcome"),
-                    p("Scroll this left column. The right pane updates with the active step.")
+                    h2("Welcome!"),
+                    p("Welcome! The Global Economic Dynamics and the Biosphere programme (GEDB) invites you to explore the Earth System Impact (ESI) — a science-based tool launched in 2023 that shows how corporate and investment activities influence the planet’s interconnected systems of climate, land, and water.")
                   )
               ),
-              div(class = "story-step", `data-step` = "chart",
+              div(class = "story-step", `data-step` = "interactions",
                   div(
-                    h2("Chart scene"),
-                    p("When this step is most visible, we render a basic chart.")
+                    h2("Some science to keep in mind"),
+                    p("Here you can lear how the three systems interact on the planet")
                   )
               ),
               div(class = "story-step", `data-step` = "image",
                   div(
-                    h2("Image scene"),
-                    p("This step swaps in an image on the right.")
+                    h2("Planetary Boundaries"),
+                    p("Here you understand what the planetary consequences of not doing this are")
                   )
               ),
               div(class = "story-step", `data-step` = "closing",
                   div(
-                    h2("Closing"),
-                    p("Replace these scenes with your real modules and widgets.")
+                    h2("Hook to EU regulation"),
+                    p("Laws are changing, and so should your business accounting!")
                   )
               )
           ),
           
-          # RIGHT: sticky scene pane
+          # Right sticky pane
           div(class = "sticky-pane",
               div(class = "scene-frame",
                   uiOutput(ns("scene"))
@@ -66,28 +64,32 @@ mod_storymap_server <- function(id) {
       current_step(input$current_step)
     })
     
-    # Switch the right-side scene based on current step
+    #Right pane logic
     output$scene <- renderUI({
       step <- current_step()
       switch(step,
              "intro" = tags$div(
                h1("Intro scene"),
-               p("Right pane is sticky. It changes as you scroll the left column.")
+               p("maybe a map with 2d globe and pictures of who is wokring on this - some connections across the globe and little pop ups")
              ),
-             "chart" = tags$div(
-               plotOutput(session$ns("demo_plot"), height = "80vh")
+             "interactions" = tags$div(
+               tags$img(
+                 src = "assets/images/ESI_interactions_5.png",
+                 alt = "ESI interactions",
+                 style = "max-width:100%; max-height:80vh;"
+               )
              ),
              "image" = tags$div(
                # replace with your own asset in /www
                tags$img(
-                 src = "https://placekitten.com/1000/600",
-                 alt = "Example image",
+                 src = "assets/images/PBs.jpg",
+                 alt = "Planetary Boundaries",
                  style = "max-width:100%; max-height:80vh;"
                )
              ),
              "closing" = tags$div(
-               h2("All done!"),
-               p("Hook up your leaflet/ggplot modules here.")
+               h2("What can you do?"),
+               p("Assess your company's impact on the planet. Start from using the ESI tool.")
              ),
              # fallback
              tags$div(h2("Scene not found"))

@@ -213,29 +213,51 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
 }
 
 /* Mobile: collapse to one column */
+/* Each step's section height — controls scroll distance per step */
+.story-step {
+  min-height: 120vh;           /* longer = smoother scroll transitions */
+  display: flex;
+  align-items: center;          /* vertically center content */
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+/* Highlight for active step (JS adds .is-active) */
+.story-step.is-active {
+  outline: 2px solid #333;      /* visible focus without layout shift */
+  outline-offset: -8px;
+  border-radius: 12px;
+  transition: outline-color 0.3s ease;
+}
+
+/* Column container (scrollable) */
+.story-column {
+  height: 100vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+  border-right: 1px solid #eee;
+  scroll-behavior: smooth;
+}
+
+/* Optional: for mobile */
 @media (max-width: 992px) {
-  .storymap-wrap {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
   .story-column {
     height: auto;
     overflow: visible;
     border-right: none;
     border-bottom: 1px solid #eee;
-    padding-right: 0;
-    padding-bottom: 1rem;
-  }
-  .sticky-pane {
-    position: static;
-    height: auto;
   }
   .story-step {
-    min-height: 60vh;
+    min-height: 80vh;
   }
 }
+
+
+
 .transition1-banner {
   background: linear-gradient(to bottom, #bc8a5f, #f7f4ef);
   height: 25vh;
   width: 100%;
 }
+
+

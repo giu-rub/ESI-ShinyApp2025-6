@@ -31,10 +31,9 @@ mod_intro_ui <- function(id) {
           text-align: center; color: white; z-index: 1;
         ",
         h1("The Earth System Impact tool"),
-        p("A science-based framework to understand how financial and corporate activities influence the planet’s climate, land, and water systems.")
+        p("To measure how your corporate activities are impacting the planet.")
       ),
       
-      # Bottom-right credit ANCHORED TO THE VIDEO CONTAINER
       tags$h6(
         "Video credit: Ira Belsky",
         style = "
