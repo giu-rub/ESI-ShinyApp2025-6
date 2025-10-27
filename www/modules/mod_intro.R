@@ -31,7 +31,7 @@ mod_intro_ui <- function(id) {
           text-align: center; color: white; z-index: 1;
         ",
         h1("The Earth System Impact tool"),
-        p("What is the impact of your assets on the planet?")
+        p("A science-based framework to understand how financial and corporate activities influence the planet’s climate, land, and water systems.")
       ),
       
       # Bottom-right credit ANCHORED TO THE VIDEO CONTAINER
@@ -40,7 +40,7 @@ mod_intro_ui <- function(id) {
         style = "
           position: absolute;
           bottom: 10px;
-          right: 15px;
+          right: 25px;
           font-size: 0.6rem;
           color: white;
           opacity: 0.85;

@@ -158,3 +158,84 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
 @media (max-width: 768px) {
   .download-grid { grid-template-columns: 1fr; }
 }
+
+/* --- Scrollytelling layout (module-agnostic classes) --- */
+.storymap-wrap {
+  display: grid;
+  grid-template-columns: minmax(320px, 42ch) 1fr;
+  gap: 2rem;
+  height: 100vh;             /* full-viewport canvas */
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Left narrative column */
+.story-column {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 1rem;
+  border-right: 1px solid #eee;
+}
+
+/* Steps: tall so the observer can pick a clear "most visible" */
+.story-step {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Optional visual cue for active step (toggled by JS) */
+.story-step.is-active {
+  outline: 2px solid #222;
+  outline-offset: -8px;
+  border-radius: 12px;
+}
+
+/* Right sticky scene */
+.sticky-pane {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Center scene content safely */
+.scene-frame {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.scene-frame > * {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+/* Mobile: collapse to one column */
+@media (max-width: 992px) {
+  .storymap-wrap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .story-column {
+    height: auto;
+    overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+  .sticky-pane {
+    position: static;
+    height: auto;
+  }
+  .story-step {
+    min-height: 60vh;
+  }
+}
+.transition1-banner {
+  background: linear-gradient(to bottom, #bc8a5f, #f7f4ef);
+  height: 25vh;
+  width: 100%;
+}

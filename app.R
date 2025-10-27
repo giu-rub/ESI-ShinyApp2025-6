@@ -39,7 +39,8 @@ source("www/modules/mod_showcase.R")
 source("www/modules/mod_welcome.R")
 source("www/modules/mod_disclaimer.R")
 source("www/modules/mod_footer.R")
-
+source("www/modules/mod_storymap.R")
+source("www/modules/mod_transition1.R")
 
 # ---- THEME ----
 theme <- bs_theme(
@@ -118,7 +119,9 @@ ui <- htmlTemplate(
   map_ui         = mod_map_ui("map"),
   welcome_ui     = mod_welcome_ui("welcome"),
   disclaimer_ui  = mod_disclaimer_ui("disclaimer"),
-  footer_ui  = mod_footer_ui("footer")
+  footer_ui  = mod_footer_ui("footer"),
+  storymap_ui  = mod_storymap_ui("storymap"),
+  transition1_ui  = mod_transition1_ui("storymap")
   )
 
 server <- function(input, output, session) {
@@ -129,6 +132,8 @@ server <- function(input, output, session) {
   mod_welcome_server("welcome")
   mod_disclaimer_server("disclaimer")
   mod_footer_server("footer")
+  mod_storymap_server("storymap")
+  mod_transition1_server("transition1")
 }
 
 shinyApp(ui, server)
