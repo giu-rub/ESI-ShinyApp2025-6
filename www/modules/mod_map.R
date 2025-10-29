@@ -1,11 +1,7 @@
-# modules/mod_map.R
-
 mod_map_ui <- function(id) {
   ns <- NS(id)
   tagList(
     h3("ESI Dynamic Heatmap"),
-    p("Here you can input data of a hypothetical asset..."),
-    p("The panel on the bottom left of the map allows you to select the layer..."),
     div(
       class = "row g-4 align-items-start",
       div(
@@ -24,11 +20,6 @@ mod_map_ui <- function(id) {
             downloadButton(ns("download_csv"),   "Download ASC",   class="btn btn-primary"),
             downloadButton(ns("download_tiff"),  "Download TIFF",  class="btn btn-primary"),
             downloadButton(ns("download_netcdf"),"Download NetCDF",class="btn btn-primary")),
-        p(class="mt-3", "All download formats can be read by GIS applications."),
-        tags$ul(class="map-notes",
-                tags$li("ASC files are text files..."),
-                tags$li("TIFF files are image file formats..."),
-                tags$li("NetCDF includes all four layers...")),
         h5(class="mt-4", "Notes"),
         tags$ul(
           tags$li("ESI scores are scaled to planetary boundaries..."),

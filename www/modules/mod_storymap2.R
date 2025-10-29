@@ -1,4 +1,4 @@
-mod_storymap_ui <- function(id) {
+mod_storymap2_ui <- function(id) {
   ns <- NS(id)
   
   tagList(
@@ -62,7 +62,7 @@ mod_storymap_ui <- function(id) {
   )
 }
 
-mod_storymap_server <- function(id) {
+mod_storymap2_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     
     # Track current step (updated by JS via Shiny.setInputValue)

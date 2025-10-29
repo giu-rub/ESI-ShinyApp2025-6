@@ -44,10 +44,10 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </button>
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#welcome-section">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#showcase-section">Showcase</a></li>
-        <li class="nav-item"><a class="nav-link" href="#map-section">Map</a></li>
-        <li class="nav-item"><a class="nav-link" href="#downloads-section">Downloads</a></li>
+        <li class="nav-item"><a class="nav-link" href="#storymap-section">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transition2-section">SHOWCASE</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transition3-section">MAP</a></li>
+        <li class="nav-item"><a class="nav-link" href="#downloads-section">DOWNLOADS</a></li>
       </ul>
     </div>
   </div>
@@ -70,7 +70,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   
   <!-- Welcome -->
 <section id="welcome-section" class="section"
- style="background-color: #f7f4ef;">
+ style="background:linear-gradient(to bottom, #f7f4ef, #fff);">
   <br><br><br><br>
   <div class="container-lg px-3 px-md-5">
     {{ welcome_ui }}
@@ -85,7 +85,19 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </div>
   </section> 
   
-    <br><br><br><br>
+  <!-- Transition2 -->
+<section id="transition2-section" class="transition2-banner">
+  <div class="transition2-container">
+    {{ transition2_ui }}
+  </div>
+</section>
+
+    <!-- storymap2 -->
+  <section id="storymap2-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ storymap2_ui }}
+    </div>
+  </section> 
 
   <!-- Showcase / Table module -->
   <section id="showcase-section" class="section">
@@ -94,7 +106,19 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </div>
   </section>
   
-<br><br><br><br>
+  <!-- Transition3 -->
+<section id="transition3-section" class="transition3-banner">
+  <div class="transition3-container">
+    {{ transition3_ui }}
+  </div>
+</section>
+
+ <!-- storymap3 -->
+  <section id="storymap3-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ storymap3_ui }}
+    </div>
+  </section> 
 
   <!-- Map module -->
   <section id="map-section" class="section">
@@ -107,18 +131,19 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   
     <!-- Downloads module -->
   <section id="downloads-section" class="section">
-    <div class="container-lg px-3 px-md-5">
-      {{ downloads_ui }}
-    </div>
-  </section>
-  
-<br><br><br><br>
+  <div class="container-lg px-3 px-md-5">
+    {{ downloads_ui }}
+  </div>
+   </section>
+
+
    
- <section id="footer-section" class="section">
-  <div class="container-fluid px-0 py-4">
+<section id="footer-section" class="section" style="background-color: #f7f4ef;">
+  <div class="container-fluid px-0 py-0">
     {{ footer_ui }}
   </div>
 </section>
+
   
 <br><br><br><br>
    

@@ -8,9 +8,6 @@ mod_downloads_ui <- function(id) {
     
     h3("Downloads"),
     p("Whether you are an investor or a company, you can download the ESI tool and test it offline. Click a card below to download or open the manual."),
-    p(
-      strong("Please note:"), " the ESI metric is currently a prototype — use caution when interpreting the output."
-    ),
     
     # Cards row
     div(

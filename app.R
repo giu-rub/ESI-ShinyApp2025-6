@@ -40,7 +40,11 @@ source("www/modules/mod_welcome.R")
 source("www/modules/mod_disclaimer.R")
 source("www/modules/mod_footer.R")
 source("www/modules/mod_storymap.R")
+source("www/modules/mod_storymap2.R")
+source("www/modules/mod_storymap3.R")
 source("www/modules/mod_transition1.R")
+source("www/modules/mod_transition2.R")
+source("www/modules/mod_transition3.R")
 
 # ---- THEME ----
 theme <- bs_theme(
@@ -119,9 +123,13 @@ ui <- htmlTemplate(
   map_ui         = mod_map_ui("map"),
   welcome_ui     = mod_welcome_ui("welcome"),
   disclaimer_ui  = mod_disclaimer_ui("disclaimer"),
-  footer_ui  = mod_footer_ui("footer"),
-  storymap_ui  = mod_storymap_ui("storymap"),
-  transition1_ui  = mod_transition1_ui("storymap")
+  footer_ui      = mod_footer_ui("footer"),
+  storymap_ui    = mod_storymap_ui("storymap"),
+  storymap2_ui    = mod_storymap2_ui("storymap2"),
+  storymap3_ui    = mod_storymap3_ui("storymap3"),
+  transition1_ui  = mod_transition1_ui("transition1"),
+  transition2_ui  = mod_transition2_ui("transition2"),
+  transition3_ui  = mod_transition3_ui("transition3")
   )
 
 server <- function(input, output, session) {
@@ -133,7 +141,11 @@ server <- function(input, output, session) {
   mod_disclaimer_server("disclaimer")
   mod_footer_server("footer")
   mod_storymap_server("storymap")
+  mod_storymap2_server("storymap2")
+  mod_storymap3_server("storymap3")
   mod_transition1_server("transition1")
+  mod_transition2_server("transition2")
+  mod_transition3_server("transition3")
 }
 
 shinyApp(ui, server)
