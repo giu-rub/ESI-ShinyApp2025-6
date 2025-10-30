@@ -20,22 +20,22 @@ mod_storymap_ui <- function(id) {
           # 1) Visible welcome text (does NOT trigger the right pane)
           div(
             class = "story-step",
-            `data-step` = "intro_text",   # any unique id; server does not use it
+            `data-step` = "intro_text", 
             `data-pane` = "off",
             div(
               h2("Welcome!"),
-              p("Welcome! The Global Economic Dynamics and the Biosphere programme (GEDB) invites you to explore the Earth System Impact (ESI) — a science-based tool launched in 2023 that shows how corporate and investment activities influence the planet’s interconnected systems of climate, land, and water.")
-            )
-          ),
+              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) — a science-based tool launched in 2023 that helps highlight how corporate activities and investments influence the planet.")
+            ),
+            
           
-          # 2) The actual trigger for the INTRO scene on the right pane
-          #    Put this immediately after the welcome block so Intro scene
-          #    activates right after the welcome text.
+          # The actual trigger for the INTRO scene on the right pane
           div(
             class = "story-step intro-trigger",
             `data-step` = "intro",         # server already renders this scene id
             `data-pane` = "1",             # activates Pane 1
             `data-activate-frac` = "0.40", # smaller = earlier; tweak 0.35–0.55 to taste
+            `data-activate-anchor` = "top",
+            `data-activate-offset` = "-30",
             div()                          # empty/invisible
           ),
           
@@ -45,8 +45,11 @@ mod_storymap_ui <- function(id) {
             `data-step` = "interactions",
             `data-pane` = "1",
             div(
-              h2("Some science to keep in mind"),
-              p("Here you can learn how the three systems interact on the planet.")
+              h2("Climate, land and water: interconnected"),
+              p("the impacts we have on the Earth exacerbate both climate and nature-related risks. If we don't fully understand the impact of externalities its harder to mitigate these risks")
+            ),
+              p("While reducing emissions remains a priority, there are other biophysical processes that are essential to the resilience of the Earth System"
+                )
             )
           )
         ),
@@ -86,8 +89,10 @@ mod_storymap_server <- function(id) {
       switch(step,
              "intro" = tags$div(
                h1("Intro scene"),
-               p("Maybe a map with 2D globe and pictures of who is working on this — some connections across the globe and little pop-ups.")
+               p("We increasingly recognize nature-related risks, but the tools we use to capture environmental impact are lagging—too often reduced to either flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible.")
              ),
+            # p("If we don't fully understand the impact of externalities its harder to mitigate these risks."
+             #  ),
              "interactions" = tags$img(
                src = "assets/images/ESI_interactions_5.png",
                alt = "ESI interactions",

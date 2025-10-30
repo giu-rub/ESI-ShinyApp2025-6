@@ -176,7 +176,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 
 /* Steps control scroll pacing; top-align content */
 .story-step {
-  min-height: 120vh;
+  min-height: 200vh;
   display: block;
   padding: 2rem 0;
   box-sizing: border-box;
@@ -189,16 +189,12 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   transition: none;
 }
 
-.story-step.off-ramp { min-height: 60vh; padding: 0; }
+/* Invisible spacer steps to control timing */
+.story-step.on-ramp,
+.story-step.off-ramp { min-height: 40vh; padding: 0; }  /* adjust 40–100vh to taste */
+.story-step.on-ramp > *,
 .story-step.off-ramp > * { display: none; }
 
-/*.story-step.off-ramp { min-height: 90vh; padding: 0; }
-.story-step.off-ramp > * { display: none; }
-
- (optional if you used an on-ramp)
-.story-step.on-ramp { min-height: 60vh; padding: 0; }
-.story-step.on-ramp > * { display: none; }
-*/
 
 
 /* Lower only Pane 2’s scene vertically 
@@ -215,7 +211,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 
 /* Invisible trigger step for moving the “intro” activation */
 .story-step.intro-trigger {
-  min-height: 10vh;
+  min-height: 100vh;
   padding: 0;} 
 
 .story-step.intro-trigger > * { display: none; } 

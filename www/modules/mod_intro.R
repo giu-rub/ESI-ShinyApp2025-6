@@ -31,7 +31,8 @@ mod_intro_ui <- function(id) {
           text-align: center; color: white; z-index: 1;
         ",
         h1("The Earth System Impact tool"),
-        p("To measure how your corporate activities are impacting the planet.")
+        p("What is the impact of your activity on water, land and climate?")
+      
       ),
       
       tags$h6(

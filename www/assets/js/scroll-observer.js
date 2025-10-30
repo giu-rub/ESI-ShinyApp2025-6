@@ -36,8 +36,8 @@
 
     const state = { id: null, raf: null, started: false };
     const HYST = 12;             // step switch stickiness
-    const START_SCROLL = 700;    // turns ON once you scroll DOWN past this
-    const UNSTART_SCROLL = 600;  // turns OFF once you scroll UP above this
+    const START_SCROLL = 350;     // turns ON once you scroll DOWN past this
+    const UNSTART_SCROLL = 900;   // turns OFF once you scroll UP above this
 
     function setActivePane(paneId){
       // NEW: explicit "off" handling to untrigger everything
@@ -53,7 +53,7 @@
         return;
       }
 
-      // Normal behavior: activate matching pane, deactivate others
+      //Activate matching pane, deactivate others
       panes.forEach(p => {
         const pid = p.getAttribute('data-pane');
         if (pid === paneId) p.classList.add('is-active');
@@ -112,24 +112,46 @@
       });
       const candidates = visible.length ? visible : steps;
 
+      // -------- NEW: per-step activation anchor + offset support --------
       for (const s of candidates){
         const r = s.getBoundingClientRect();
-        // NEW: per-step activation anchor (defaults to 0.5 = 50% viewport)
-        const frac = parseFloat(s.getAttribute('data-activate-frac')) || 0.5;
-        const anchor = window.innerHeight * Math.min(Math.max(frac, 0), 1);
-        const dist = Math.abs((r.top + r.height/2) - anchor);
+
+        // anchor: top | center (default) | bottom
+        const mode = (s.getAttribute('data-activate-anchor') || 'center').toLowerCase();
+        const stepAnchor = mode === 'top'    ? r.top
+                          : mode === 'bottom' ? r.bottom
+                          : (r.top + r.height / 2);
+
+        const fracAttr = parseFloat(s.getAttribute('data-activate-frac'));
+        const frac     = Number.isFinite(fracAttr) ? fracAttr : 0.5; // default 50%
+        const offset   = parseFloat(s.getAttribute('data-activate-offset')) || 0;
+
+        const viewportAnchor = (window.innerHeight * Math.min(Math.max(frac, 0), 1)) + offset;
+
+        const dist = Math.abs(stepAnchor - viewportAnchor);
         if (dist < bestDist){ bestDist = dist; best = s; }
       }
       if (!best) return;
 
+      // Hysteresis check uses the same anchor/offset logic
       if (state.id){
         const cur = steps.find(s => s.getAttribute('data-step') === state.id);
         if (cur){
           const r = cur.getBoundingClientRect();
-          const fracCur = parseFloat(cur.getAttribute('data-activate-frac')) || 0.5;
-          const anchorCur = window.innerHeight * Math.min(Math.max(fracCur, 0), 1);
-          const curDist = Math.abs((r.top + r.height/2) - anchorCur);
-          if (bestDist >= curDist - HYST) return; // hysteresis
+
+          const mode = (cur.getAttribute('data-activate-anchor') || 'center').toLowerCase();
+          const stepAnchor = mode === 'top' ? r.top
+                            : mode === 'bottom' ? r.bottom
+                            : (r.top + r.height / 2);
+
+          const fracAttr = parseFloat(cur.getAttribute('data-activate-frac'));
+          const frac     = Number.isFinite(fracAttr) ? fracAttr : 0.5;
+          const offset   = parseFloat(cur.getAttribute('data-activate-offset')) || 0;
+
+          const viewportAnchor = (window.innerHeight * Math.min(Math.max(frac, 0), 1)) + offset;
+
+          const curDist = Math.abs(stepAnchor - viewportAnchor);
+          if (bestDist >= curDist - HYST) return; // keep current
         }
       }
       activate(best);
