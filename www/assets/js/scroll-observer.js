@@ -1,75 +1,123 @@
-// Simple, robust centerline step picker.
-// Uses a safe sender wrapper (waits for Shiny; falls back if needed).
-// Logs to console and forces 'intro' when at the very top.
-
+// Global scrollytelling manager across multiple modules
+// - Centerline step picking with hysteresis
+// - Sends current_step to the nearest .storymap-root namespace
+// - Cross-fades .sticky-pane by matching step's data-pane
+// - Start only after small scroll; hide again when user scrolls back up
 (function () {
   function ready(fn){
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   }
 
-  // ---- NEW: safe sender wrapper ----
   function sendStep(ns, id){
     if (!id) return;
-    // wait until Shiny is ready
     if (!window.Shiny) { setTimeout(() => sendStep(ns, id), 50); return; }
     if (typeof Shiny.setInputValue === 'function') {
       Shiny.setInputValue(ns + 'current_step', id, { priority: 'event' });
     } else if (typeof Shiny.onInputChange === 'function') {
       Shiny.onInputChange(ns + 'current_step', id);
     }
-    console.log('[storymap]', ns + 'current_step =', id);
   }
 
-  // Wait until the steps exist (Shiny can render after DOMContentLoaded)
-  function waitForSteps(root, tries=0){
-    const steps = root.querySelectorAll('.story-step');
-    if (steps.length) return steps;
-    if (tries > 50) return steps; // give up after ~1s
-    return setTimeout(() => waitForSteps(root, tries+1), 20);
+  function nearestRootNs(el){
+    const root = el.closest('.storymap-root');
+    return root ? (root.getAttribute('data-ns') || '') : '';
   }
 
-  function initRoot(root){
-    const ns = root.getAttribute('data-ns') || '';
-    let steps = root.querySelectorAll('.story-step');
-    if (!steps.length) {
-      // try delayed fetch if not yet in DOM
-      const t = waitForSteps(root);
-      if (!t || !t.length) return;
-      steps = t;
+  function collectAll(){
+    const steps = Array.from(document.querySelectorAll('.story-step'));
+    const panes = Array.from(document.querySelectorAll('.sticky-pane'));
+    return { steps, panes };
+  }
+
+  function bootGlobal(){
+    const { steps, panes } = collectAll();
+    if (!steps.length) { console.warn('[storymap] no .story-step found'); return; }
+
+    const state = { id: null, raf: null, started: false };
+    const HYST = 12;             // step switch stickiness
+    const START_SCROLL = 700;    // turns ON once you scroll DOWN past this
+    const UNSTART_SCROLL = 600;  // turns OFF once you scroll UP above this
+
+    function setActivePane(paneId){
+      // NEW: explicit "off" handling to untrigger everything
+      if (paneId === 'off' || paneId === 'none' || paneId === '0') {
+        panes.forEach(p => p.classList.remove('is-active'));
+        if (window.Shiny) {
+          if (typeof Shiny.setInputValue === 'function') {
+            Shiny.setInputValue('current_pane', null, {priority:'event'});
+          } else if (typeof Shiny.onInputChange === 'function') {
+            Shiny.onInputChange('current_pane', null);
+          }
+        }
+        return;
+      }
+
+      // Normal behavior: activate matching pane, deactivate others
+      panes.forEach(p => {
+        const pid = p.getAttribute('data-pane');
+        if (pid === paneId) p.classList.add('is-active');
+        else p.classList.remove('is-active');
+      });
+      if (window.Shiny) {
+        if (typeof Shiny.setInputValue === 'function') {
+          Shiny.setInputValue('current_pane', paneId, {priority:'event'});
+        } else if (typeof Shiny.onInputChange === 'function') {
+          Shiny.onInputChange('current_pane', paneId);
+        }
+      }
     }
-    steps = Array.from(steps);
 
-    const state = { id: null, raf: null };
-    const HYST = 12; // px
+    function clearActive(){
+      // remove active step and hide all panes
+      steps.forEach(s => s.classList.remove('is-active'));
+      panes.forEach(p => p.classList.remove('is-active'));
+      state.id = null;
+    }
 
     function activate(el){
       steps.forEach(s => s.classList.remove('is-active'));
       el.classList.add('is-active');
+
       const id = el.getAttribute('data-step');
+      const paneId = el.getAttribute('data-pane') || '1';
+
       if (id && id !== state.id) {
         state.id = id;
-        sendStep(ns, id); // <-- use wrapper
+        const ns = nearestRootNs(el);
+        sendStep(ns, id);
+        setActivePane(paneId);   // will also handle 'off' to clear panes
       }
     }
 
     function pick(){
-      // Force intro at the top
-      if (window.scrollY <= 1) { activate(steps[0]); return; }
+      // Turn OFF earlier on the way up
+      if (state.started && window.scrollY <= UNSTART_SCROLL) {
+        clearActive();
+        state.started = false;
+        return;
+      }
 
-      const centerY = window.innerHeight / 2;
+      // Not started yet? Only start once we pass START_SCROLL
+      if (!state.started) {
+        if (window.scrollY <= START_SCROLL) return; // keep hidden
+        state.started = true; // begin normal picking
+      }
 
       let best = null, bestDist = Infinity;
+
       const visible = steps.filter(s => {
         const r = s.getBoundingClientRect();
         return r.bottom > 0 && r.top < window.innerHeight;
       });
-
       const candidates = visible.length ? visible : steps;
 
       for (const s of candidates){
         const r = s.getBoundingClientRect();
-        const dist = Math.abs((r.top + r.height/2) - centerY);
+        // NEW: per-step activation anchor (defaults to 0.5 = 50% viewport)
+        const frac = parseFloat(s.getAttribute('data-activate-frac')) || 0.5;
+        const anchor = window.innerHeight * Math.min(Math.max(frac, 0), 1);
+        const dist = Math.abs((r.top + r.height/2) - anchor);
         if (dist < bestDist){ bestDist = dist; best = s; }
       }
       if (!best) return;
@@ -78,8 +126,10 @@
         const cur = steps.find(s => s.getAttribute('data-step') === state.id);
         if (cur){
           const r = cur.getBoundingClientRect();
-          const curDist = Math.abs((r.top + r.height/2) - centerY);
-          if (bestDist >= curDist - HYST) return; // keep current to avoid flip-flop
+          const fracCur = parseFloat(cur.getAttribute('data-activate-frac')) || 0.5;
+          const anchorCur = window.innerHeight * Math.min(Math.max(fracCur, 0), 1);
+          const curDist = Math.abs((r.top + r.height/2) - anchorCur);
+          if (bestDist >= curDist - HYST) return; // hysteresis
         }
       }
       activate(best);
@@ -90,24 +140,37 @@
       state.raf = requestAnimationFrame(pick);
     }
 
+    // --- Make Pane 2 fall behind Transition 2 when Transition 2 is in view ---
+    const pane2 = document.querySelector('.sticky-pane[data-pane="2"]');
+    const transition2 = document.querySelector('.transition2-banner'); // adjust if needed
+
+    if (pane2 && transition2 && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            pane2.classList.add('under-transition2');
+          } else {
+            pane2.classList.remove('under-transition2');
+          }
+        }
+      }, {
+        root: null,
+        threshold: 0,
+        // Drop Pane 2 behind a bit before Transition 2 touches the viewport
+        rootMargin: '10% 0px 10% 0px'
+      });
+
+      io.observe(transition2);
+    }
+
     window.addEventListener('scroll', schedule, {passive:true});
     window.addEventListener('resize', schedule);
 
-    // Initial selection after layout
-    requestAnimationFrame(() => { activate(steps[0]); pick(); });
+    // Initial pass: do nothing until user scrolls past START_SCROLL.
+    requestAnimationFrame(pick);
   }
 
-  function boot(){
-    console.log('[storymap] scroll-observer.js loaded');
-    const roots = document.querySelectorAll('.storymap-root');
-    if (!roots.length) {
-      console.warn('[storymap] no .storymap-root found');
-      return;
-    }
-    roots.forEach(initRoot);
-  }
-
-  // Ensure we try after DOM ready and after Shiny connects
+  function boot(){ bootGlobal(); }
   document.addEventListener('shiny:connected', boot);
   ready(boot);
 })();

@@ -36,7 +36,6 @@ source("www/modules/mod_intro.R")
 source("www/modules/mod_map.R")
 source("www/modules/mod_downloads.R")
 source("www/modules/mod_showcase.R")
-source("www/modules/mod_welcome.R")
 source("www/modules/mod_disclaimer.R")
 source("www/modules/mod_footer.R")
 source("www/modules/mod_storymap.R")
@@ -121,7 +120,6 @@ ui <- htmlTemplate(
   showcase_ui    = mod_showcase_ui("showcase"),
   downloads_ui   = mod_downloads_ui("downloads"),
   map_ui         = mod_map_ui("map"),
-  welcome_ui     = mod_welcome_ui("welcome"),
   disclaimer_ui  = mod_disclaimer_ui("disclaimer"),
   footer_ui      = mod_footer_ui("footer"),
   storymap_ui    = mod_storymap_ui("storymap"),
@@ -137,7 +135,6 @@ server <- function(input, output, session) {
   mod_showcase_server("showcase")
   mod_downloads_server("downloads")
   mod_map_server("map", r = r)
-  mod_welcome_server("welcome")
   mod_disclaimer_server("disclaimer")
   mod_footer_server("footer")
   mod_storymap_server("storymap")

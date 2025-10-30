@@ -45,196 +45,124 @@ img.download-preview   { width: 100%; max-width: 520px; height: auto; object-fit
 /* --- DataTables (DT) reliability + responsiveness --- */
 .dataTables_wrapper .dataTables_scrollBody { overflow-x: auto !important; }
 table.dataTable { width: 100% !important; }
-table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep columns tidy */
+table.dataTable th, table.dataTable td { white-space: nowrap; }
 @media (max-width: 767.98px) {
-  table.dataTable th, table.dataTable td { white-space: normal; } /* allow wrap on phones */
+  table.dataTable th, table.dataTable td { white-space: normal; }
 }
 
 /* --- Responsive navbar logo --- */
 .navbar-logo {
-  height: 40px;          /* Default desktop size */
-  width: auto;           /* Maintain aspect ratio */
-  max-width: 100%;       /* Prevent overflow */
+  height: 40px;
+  width: auto;
+  max-width: 100%;
   display: block;
-  object-fit: contain;   /* Prevent distortion */
+  object-fit: contain;
 }
-
 .navbar .nav-link {
   color: #000;
   text-decoration: none;
   transition: color 0.2s ease;
   padding: 0 1.5rem !important;
 }
-
 .navbar .nav-link:hover,
-.navbar .nav-link:focus {
-  color: #6ac0ed;
-  text-decoration: none;
-}
-
-.navbar .nav-link.active {
-  color: #6ac0ed;
-  font-weight: 600;
-}
-
-
+.navbar .nav-link:focus { color: #6ac0ed; text-decoration: none; }
+.navbar .nav-link.active { color: #6ac0ed; font-weight: 600; }
 
 /* Adjust size on tablets */
-@media (max-width: 992px) {
-  .navbar-logo {
-    height: 32px;
-  }
-}
-
+@media (max-width: 992px) { .navbar-logo { height: 32px; } }
 /* Adjust size on phones */
-@media (max-width: 576px) {
-  .navbar-logo {
-    height: 26px;
-  }
-}
+@media (max-width: 576px) { .navbar-logo { height: 26px; } }
 
 /* Keep the right logo vertically centered and tidy */
 .navbar .navbar-brand.m-0.p-0 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 
 .download-preview {
-  max-width: 500px;        /* limit width on large screens */
-  width: 100%;             /* full width on small screens */
-  height: auto;            /* keep aspect ratio */
-  border-radius: 0.75rem;  /* rounded corners */
-  box-shadow: 0 rgba(0, 0, 0, 0.1); /* soft shadow */
+  max-width: 500px; width: 100%; height: auto;
+  border-radius: 0.75rem; box-shadow: 0 rgba(0, 0, 0, 0.1);
 }
-
 
 /* Grid layout for download items */
 .download-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-  align-items: start;
-  padding: 0;
+  gap: 1.5rem; justify-items: center; align-items: start; padding: 0;
   background-color: #f7f4ef;
 }
 
-/* Card styling (merged & normalized) */
+/* Card styling */
 .download-card {
-  position: relative;                 /* for .download-ribbon */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  text-decoration: none; color: inherit; background-color: #fff;
+  border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  width: 100%;
-  max-width: 320px;                   /* choose 320 or 420; set once */
+  overflow: hidden; width: 100%; max-width: 320px;
 }
-
-/* Image inside a download card */
-.download-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;  /* keep straight edges inside rounded card */
+.download-card img { width: 100%; height: auto; display: block; border-radius: 0; }
+.download-card:hover, .download-card:focus {
+  transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
-
-/* Hover & focus */
-.download-card:hover,
-.download-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-/* Badges/ribbons */
 .download-ribbon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #0072ce;
-  color: #fff;
-  font-weight: 600;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
+  position: absolute; top: 10px; left: 10px; background-color: #0072ce; color: #fff;
+  font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.85rem;
 }
+.download-badge { margin: 1rem 0; font-weight: 600; color: #0072ce; text-transform: uppercase; letter-spacing: 0.05em; }
 
-.download-badge {
-  margin: 1rem 0;
-  font-weight: 600;
-  color: #0072ce;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+.download-preview { border-radius: 0.75rem; box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
+#downloads-section { background-color: #f7f4ef; }
 
-/* Optional: if you also apply .download-preview class directly (non-img),
-   keep a soft presentation without forcing colors */
-.download-preview {
-  border-radius: 0.75rem;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-}
-
-#downloads-section {
-  background-color: #f7f4ef;
-}
-
-/* ─────────────────────────────────────────────────────────────
-   Mobile utility (downloads)
-   ───────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .download-grid { grid-template-columns: 1fr; }
-}
+/* Mobile utility (downloads) */
+@media (max-width: 768px) { .download-grid { grid-template-columns: 1fr; } }
 
 /* ─────────────────────────────────────────────────────────────
    Scrollytelling layout
    ───────────────────────────────────────────────────────────── */
+
 /* Make intro step easier to “hit” */
 .story-step[data-step="intro"] {
-  min-height: 130vh;    /* taller so its center can pass through viewport center */
-  padding-top: 6rem;    /* some breathing room at top so text isn’t glued to the edge */
-  display: block;       /* ensure top flow (not vertically centered) */
+  min-height: 130vh;
+  padding-top: 6rem;
+  display: block;
 }
-   
+
 /* Wrapper no longer forces a two-column grid */
 .storymap-wrap {
-  display: block;                 /* was grid */
+  display: block;
   padding: 1rem 1.5rem;
   box-sizing: border-box;
   position: relative;
 }
 
-/* Right pane is a full-screen background */
+/* Fixed sticky panes (ALL panes), cross-fading */
 .sticky-pane {
   position: fixed;
   inset: 0;
   overflow: hidden;
   z-index: 0;               /* behind content */
-  pointer-events: none;
+  pointer-events: none;     /* disabled by default */
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.sticky-pane.is-active {
+  opacity: 1;
+  pointer-events: auto;     /* enable interactivity when active */
 }
 
-/* Scene content flows from the TOP, not centered,
-   and is offset to the RIGHT of the left column. */
+/* Scene content flows from the TOP, offset to the RIGHT of left column */
 .scene-frame {
   width: 100%;
   height: 100%;
-  display: block;           /* was grid with place-items:center */
+  display: block;
   box-sizing: border-box;
   padding: 2rem;
   padding-left: calc(var(--left-col-width) + var(--left-col-gap));
 }
-
-/* Let scene children size naturally (no 95% height cap) */
 .scene-frame > * {
   display: block;
   max-width: 95%;
   max-height: none;
-  margin: 8rem 5rem auto ;       /* left align inside the scene-frame */
+  margin: 12rem 8rem auto;
 }
 
 /* Left narrative column stays on top */
@@ -243,7 +171,6 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
   z-index: 1;
   max-width: var(--left-col-width);
   padding-right: 1rem;
-  border-right: none;
   background: transparent;
 }
 
@@ -255,199 +182,115 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }   /* keep column
   box-sizing: border-box;
 }
 
-/* Optional: narrower offset on mobile (or none) */
-@media (max-width: 992px) {
-  .scene-frame {
-    padding-left: 1rem;
-  }
-  .story-column {
-    max-width: 100%;
-    padding-right: 0;
-  }
-  .story-step {
-    min-height: 80vh;
-  }
-}
-
 /* Optional visual cue for active step (no layout shift) */
 .story-step.is-active {
-  outline: 2px solid transparent;
-  outline-offset: -8px;
-  border-radius: 12px;
-  transition: outline-color 0.3s ease;
+  outline: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.story-step.off-ramp { min-height: 60vh; padding: 0; }
+.story-step.off-ramp > * { display: none; }
+
+/*.story-step.off-ramp { min-height: 90vh; padding: 0; }
+.story-step.off-ramp > * { display: none; }
+
+ (optional if you used an on-ramp)
+.story-step.on-ramp { min-height: 60vh; padding: 0; }
+.story-step.on-ramp > * { display: none; }
+*/
+
+
+/* Lower only Pane 2’s scene vertically 
+.sticky-pane[data-pane="2"] .scene-frame {
+  padding-top: 20vh; 
+}  */
+
+.sticky-pane[data-pane="2"].under-transition2 {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 150ms ease; /* faster fade to hide the sliver */
+  pointer-events: none;
+}
+
+/* Invisible trigger step for moving the “intro” activation */
+.story-step.intro-trigger {
+  min-height: 10vh;
+  padding: 0;} 
+
+.story-step.intro-trigger > * { display: none; } 
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .scene-frame { padding-left: 1rem; }
+  .story-column { max-width: 100%; padding-right: 0; }
+  .story-step { min-height: 80vh; }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Responsive tweaks
+   Transitions & footer 
    ───────────────────────────────────────────────────────────── */
-@media (max-width: 992px) {
-  .story-column {
-    max-width: 100%;
-    padding-right: 0;
-    border-right: none;
-    border-bottom: none;
-  }
-  .story-step {
-    min-height: 80vh;
-  }
-}
-
-
 .transition1-banner {
-  background: linear-gradient(to bottom, #bc8a5f, #f7f4ef);
-  height: 25vh;
-  width: 100%;
+  background: linear-gradient(to bottom, #bc8a5f, #fff);
+  height: 25vh; width: 100%;
 }
 
-/* --- Transition 2 section with background video --- */
+/* Transition 2 */
 .transition2-banner {
-  position: relative;
-  width: 100%;
-  height: 50vh; /* adjust if you want shorter/longer section */
-  overflow: hidden;
-}
-
-/* the video itself */
-.transition2-banner .background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;      /* keeps aspect ratio while covering */
-  z-index: 1;
-  pointer-events: none;   /* makes it non-interactive */
-}
-
-/* overlay content (text, etc.) */
-.transition2-overlay {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-} 
-
-/* --- Transition 3 section with background video --- */
-.transition3-banner {
-  position: relative;
-  width: 100%;
-  height: 50vh; /* adjust if you want shorter/longer section */
-  overflow: hidden;
-}
-
-/* the video itself */
-.transition3-banner .background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;      /* keeps aspect ratio while covering */
-  z-index: 1;
-  pointer-events: none;   /* makes it non-interactive */
-}
-
-/* overlay content (text, etc.) */
-.transition3-overlay {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-} 
-
-.transition3-banner {
   position: relative;
   width: 100%;
   height: 50vh;
   overflow: hidden;
+  z-index: 2;           /* ensure it stacks above .sticky-pane (z-index:0) */
 }
-
-.transition3-banner .background-video {
+.transition2-banner .background-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: 1;          /* video below overlay text, above sticky panes when .under-transition2 is set */
   pointer-events: none;
 }
-
-.transition3-overlay {
+.transition2-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 3;          /* text above the video */
   color: white;
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.2rem;
+  padding: 1rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+
+/* Transition 3 */
+.transition3-banner { position: relative; width: 100%; height: 50vh; overflow: hidden; }
+.transition3-banner .background-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; pointer-events: none;
+}
+.transition3-overlay {
+  position: relative; z-index: 1; color: white; text-align: center;
+  top: 50%; transform: translateY(-50%); font-size: 1.2rem;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
+/* Footer */
 .footer-section {
-  background-color: #E68059;
-  color: #000;
-  width: 100%;
-  margin: 0;
-  padding: 40px 0;
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  background-color: #E68059; color: #000; width: 100%; margin: 0;
+  padding: 40px 0; min-height: 40vh; display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem;
 }
+.footer-left { flex: 1; padding-left: 5%; }
+.footer-right { flex: 1; display: flex; justify-content: center; align-items: center; padding-right: 5%; }
+.footer-image { max-width: 80%; height: auto; border-radius: 8px; }
 
-.footer-left {
-  flex: 1;
-  padding-left: 5%;
-}
-
-.footer-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 5%;
-}
-
-.footer-image {
-  max-width: 80%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Icon styling */
 .custom-icon {
-  color: #fff !important;
-  font-size: 26px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #fff !important; font-size: 26px; transition: color 0.3s ease, transform 0.3s ease;
 }
+.custom-icon:hover { color: #333; transform: scale(1.2); }
 
-.custom-icon:hover {
-  color: #333;
-  transform: scale(1.2);
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
-  .footer-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  .footer-left, .footer-right {
-    flex: none;
-    width: 100%;
-    padding: 0 24px;
-  }
+  .footer-section { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer-left, .footer-right { flex: none; width: 100%; padding: 0 24px; }
 }
-
-
