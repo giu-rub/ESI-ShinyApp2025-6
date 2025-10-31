@@ -1,5 +1,3 @@
-
-
 mod_transition2_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -20,9 +18,24 @@ mod_transition2_ui <- function(id) {
       
       # Overlay content
       div(
-       class = "transition2-overlay",
-        p("What happens to the climate, land and water next to your assets? ")
-     )
+        class = "transition2-overlay",
+        p("What happens to the climate, land and water by your assets?")
+      ),
+      
+      # Video credit
+      tags$h6(
+        "Video credit: Artlist",
+        style = "
+          position: absolute;
+          bottom: 10px;
+          right: 25px;
+          font-size: 0.6rem;
+          color: white;
+          opacity: 0.85;
+          margin: 0;
+          z-index: 2;
+        "
+      )
     )
   )
 }

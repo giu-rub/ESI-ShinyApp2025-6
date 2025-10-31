@@ -179,11 +179,35 @@
         root: null,
         threshold: 0,
         // Drop Pane 2 behind a bit before Transition 2 touches the viewport
-        rootMargin: '10% 0px 10% 0px'
+        rootMargin: '20% 0px 20% 0px'
       });
 
       io.observe(transition2);
     }
+    
+    // --- Make Pane 3 fall behind Transition 3 when Transition 3 is in view ---
+const pane3 = document.querySelector('.sticky-pane[data-pane="3"]');
+const transition3 = document.querySelector('.transition3-banner'); // adjust class if needed
+
+if (pane3 && transition3 && 'IntersectionObserver' in window) {
+  const io3 = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        pane3.classList.add('under-transition3');
+      } else {
+        pane3.classList.remove('under-transition3');
+      }
+    }
+  }, {
+    root: null,
+    threshold: 0,
+    // Drop Pane 3 behind slightly before Transition 3 touches the viewport
+    rootMargin: '20% 0px 20% 0px'
+  });
+
+  io3.observe(transition3);
+}
+
 
     window.addEventListener('scroll', schedule, {passive:true});
     window.addEventListener('resize', schedule);

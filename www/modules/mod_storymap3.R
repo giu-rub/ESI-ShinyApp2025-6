@@ -6,6 +6,8 @@ mod_storymap3_ui <- function(id) {
       class = "storymap-root",
       id = ns("root"),
       `data-ns` = ns(""),
+      `data-start-scroll` = "1700",      
+      `data-unstart-scroll` = "1500",
       
       div(
         class = "storymap-wrap",

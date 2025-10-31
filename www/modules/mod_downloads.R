@@ -5,7 +5,10 @@ mod_downloads_ui <- function(id) {
     singleton(tags$head(
       tags$link(rel = "stylesheet", href = "esi.css")
     )),
-    
+
+    div(
+      class = "downloads-section",
+      
     h3("Downloads"),
     p("Whether you are an investor or a company, you can download the ESI tool and test it offline. Click a card below to download or open the manual."),
     
@@ -34,6 +37,7 @@ mod_downloads_ui <- function(id) {
         tags$span(class = "download-ribbon", "PDF"),
         tags$span(class = "download-badge", "Open manual")
       )
+    )
     )
   )
 }

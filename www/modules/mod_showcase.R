@@ -1,12 +1,9 @@
-# www/modules/mod_showcase.R
-# Dependencies: shiny, bslib, DT, dplyr, tidyr, ggplot2, scales
-
-# ---------- Internal: body-only UI (works with your htmlTemplate placeholder) ----------
 .showcase_body_ui <- function(id) {
   ns <- NS(id)
   tagList(
     div(
       id = "showcase-content",
+      style = "padding-bottom: 4rem; padding-top:4rem; background-color: #E68059;",  
       bslib::page_sidebar(
         sidebar = bslib::sidebar(
           width = "30%",

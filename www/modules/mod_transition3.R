@@ -16,15 +16,15 @@ mod_transition3_ui <- function(id) {
         "Your browser does not support the video tag."
       ),
       
-      # 🧱 Overlay content
+      # Overlay content
       div(
         class = "transition3-overlay",
-        p("How do your impacts spread across the planet?")
+        p("What happens to the climate, land and water by your assets?")
       ),
       
       # Video credit
       tags$h6(
-        "Video credit: Dubassy",
+        "Video credit: adege",
         style = "
           position: absolute;
           bottom: 10px;

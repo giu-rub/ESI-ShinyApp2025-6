@@ -3,7 +3,7 @@ mod_transition1_ui <- function(id) {
   tagList(
     div(
       class = "transition1-banner",
-     )
+    )
   )
 }
 

@@ -30,8 +30,13 @@ mod_intro_ui <- function(id) {
           align-items: center; justify-content: center;
           text-align: center; color: white; z-index: 1;
         ",
-        h1("The Earth System Impact tool"),
-        p("What is the impact of your activity on water, land and climate?")
+        h1("The Earth System Impact tool", style = "
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  "),
+        p("What is the impact of your business or investments on water, land and climate?", style = "font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px;")
       
       ),
       

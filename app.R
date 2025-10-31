@@ -42,6 +42,8 @@ source("www/modules/mod_storymap.R")
 source("www/modules/mod_storymap2.R")
 source("www/modules/mod_storymap3.R")
 source("www/modules/mod_transition1.R")
+source("www/modules/mod_transition1b.R")
+source("www/modules/mod_transition1c.R")
 source("www/modules/mod_transition2.R")
 source("www/modules/mod_transition3.R")
 
@@ -126,6 +128,8 @@ ui <- htmlTemplate(
   storymap2_ui    = mod_storymap2_ui("storymap2"),
   storymap3_ui    = mod_storymap3_ui("storymap3"),
   transition1_ui  = mod_transition1_ui("transition1"),
+  transition1b_ui  = mod_transition1b_ui("transition1b"),
+  transition1c_ui  = mod_transition1c_ui("transition1c"),
   transition2_ui  = mod_transition2_ui("transition2"),
   transition3_ui  = mod_transition3_ui("transition3")
   )
@@ -141,6 +145,8 @@ server <- function(input, output, session) {
   mod_storymap2_server("storymap2")
   mod_storymap3_server("storymap3")
   mod_transition1_server("transition1")
+  mod_transition1b_server("transition1b")
+  mod_transition1c_server("transition1c")
   mod_transition2_server("transition2")
   mod_transition3_server("transition3")
 }

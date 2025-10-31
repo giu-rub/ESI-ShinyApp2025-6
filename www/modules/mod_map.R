@@ -1,8 +1,9 @@
 mod_map_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    h3("ESI Dynamic Heatmap"),
-    div(
+      div(
+        style = "padding-top: 2rem; padding-bottom: 4rem; background-color: #E68059;", 
+        h3("ESI Dynamic Heatmap"),
       class = "row g-4 align-items-start",
       div(
         class = "col-lg-5 col-xl-4 sidebar",
@@ -17,9 +18,9 @@ mod_map_ui <- function(id) {
         leaflet::leafletOutput(ns("world_map_plot"), height = 550),
         p(class="mt-3", "With the buttons below you can download the 'Total ESI' map..."),
         div(class="map-downloads d-flex flex-wrap gap-2",
-            downloadButton(ns("download_csv"),   "Download ASC",   class="btn btn-primary"),
-            downloadButton(ns("download_tiff"),  "Download TIFF",  class="btn btn-primary"),
-            downloadButton(ns("download_netcdf"),"Download NetCDF",class="btn btn-primary")),
+            downloadButton(ns("download_csv"),   "Download ASC",   class="btn btn-map"),
+            downloadButton(ns("download_tiff"),  "Download TIFF",  class="btn btn-map"),
+            downloadButton(ns("download_netcdf"),"Download NetCDF",class="btn btn-map")),
         h5(class="mt-4", "Notes"),
         tags$ul(
           tags$li("ESI scores are scaled to planetary boundaries..."),
@@ -156,4 +157,4 @@ mod_map_server <- function(id, r) {
       }
     )
   }) 
-} 
+}
