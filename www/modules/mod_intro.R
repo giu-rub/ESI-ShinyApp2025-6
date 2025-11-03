@@ -7,7 +7,7 @@ mod_intro_ui <- function(id) {
       # Background video (fills the container)
       tags$video(
         id = ns("bg_video"),
-        src = "assets/images/ss_sand.mov",
+        src = "assets/images/WM_intro.mov",
         autoplay = NA,
         muted = NA,
         loop = NA,
@@ -36,12 +36,12 @@ mod_intro_ui <- function(id) {
     line-height: 1.2;
     margin-bottom: 1rem;
   "),
-        p("What is the impact of your business or investments on water, land and climate?", style = "font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px;")
+        p("A prototype metric to assess the impact of your business on water, land and climate", style = "font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px;")
       
       ),
       
       tags$h6(
-        "Video credit: Ira Belsky",
+        "Video credit: Liran Friedman",
         style = "
           position: absolute;
           bottom: 10px;

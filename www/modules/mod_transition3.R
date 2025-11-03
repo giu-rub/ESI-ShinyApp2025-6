@@ -12,7 +12,7 @@ mod_transition3_ui <- function(id) {
         loop = NA,
         playsinline = NA,
         # optional: preload = "auto",
-        tags$source(src = "assets/images/cloud_formation.mov", type = "video/mp4"),
+        tags$source(src = "assets/images/ss_sand.mov", type = "video/mp4"),
         "Your browser does not support the video tag."
       ),
       

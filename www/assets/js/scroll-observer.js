@@ -35,8 +35,8 @@
     if (!steps.length) { console.warn('[storymap] no .story-step found'); return; }
 
     const state = { id: null, raf: null, started: false };
-    const HYST = 12;             // step switch stickiness
-    const START_SCROLL = 350;     // turns ON once you scroll DOWN past this
+    const HYST = 11;             // step switch stickiness
+    const START_SCROLL = 200;     // turns ON once you scroll DOWN past this
     const UNSTART_SCROLL = 900;   // turns OFF once you scroll UP above this
 
     function setActivePane(paneId){

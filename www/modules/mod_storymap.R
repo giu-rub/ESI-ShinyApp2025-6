@@ -24,19 +24,19 @@ mod_storymap_ui <- function(id) {
             `data-pane` = "off",
             div(
               h2("Welcome!"),
-              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) — a science-based tool launched in 2023 that helps highlight how corporate activities and investments influence the planet.")
-            ),
-            
+              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) tool: a science-based platform launched in 2023 that helps you assess how your corporate activities and investments influence water, land and climate across the planet.")
+            )
+          ),
           
           # The actual trigger for the INTRO scene on the right pane
           div(
             class = "story-step intro-trigger",
-            `data-step` = "intro",         # server already renders this scene id
-            `data-pane` = "1",             # activates Pane 1
-            `data-activate-frac` = "0.40", # smaller = earlier; tweak 0.35–0.55 to taste
+            `data-step` = "intro",         
+            `data-pane` = "1",             
+            `data-activate-frac` = "0.30", # smaller = earlier; tweak 0.35–0.55 to taste
             `data-activate-anchor` = "top",
             `data-activate-offset` = "-30",
-            div()                          # empty/invisible
+            div()                          
           ),
           
           # 3) The rest of Pane 1 content comes after Intro
@@ -46,10 +46,9 @@ mod_storymap_ui <- function(id) {
             `data-pane` = "1",
             div(
               h2("Climate, land and water: interconnected"),
-              p("the impacts we have on the Earth exacerbate both climate and nature-related risks. If we don't fully understand the impact of externalities its harder to mitigate these risks")
-            ),
-              p("While reducing emissions remains a priority, there are other biophysical processes that are essential to the resilience of the Earth System"
-                )
+              p("In order to stay within the 9 Planetary Boundaries, we need to reduce the impact of our economic activities on the Earth system. In finance, we increasingly recognize that externalities contribute to nature-related risk, but measuring their impact is still a global challenge."),
+              p("The tools we use to capture environmental impact are lagging behind, and they too often reduced to a single focus on carbon."),
+              p("While reducing CO2 emissions remains a priority, there are other biophysical processes that are essential to the resilience of the Earth System: Land and Water.")
             )
           )
         ),
@@ -86,19 +85,21 @@ mod_storymap_server <- function(id) {
       step <- current_step()
       if (is.null(step)) return(NULL)
       
-      switch(step,
-             "intro" = tags$div(
-               h1("Intro scene"),
-               p("We increasingly recognize nature-related risks, but the tools we use to capture environmental impact are lagging—too often reduced to either flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible.")
-             ),
-            # p("If we don't fully understand the impact of externalities its harder to mitigate these risks."
-             #  ),
-             "interactions" = tags$img(
-               src = "assets/images/ESI_interactions_5.png",
-               alt = "ESI interactions",
-               style = "max-width:100%; max-height:80vh;"
-             ),
-             NULL
+      switch(
+        step,
+        
+        "intro" = tags$div(
+          h1("Something"),
+          p("something else")
+        ),
+        
+        "interactions" = tags$img(
+          src = "assets/images/ESI_interactions_5.png",
+          alt = "Climate, land and water interactions.",
+          style = "max-width:100%; max-height:80vh;"
+        ),
+        
+        NULL
       )
     })
   })

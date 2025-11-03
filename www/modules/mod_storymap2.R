@@ -14,7 +14,7 @@ mod_storymap2_ui <- function(id) {
         div(
           class = "story-column",
           
-          # (Optional) ON-RAMP to delay Pane 2 turning on
+          # ON-RAMP to delay Pane 2 turning on
           # div(
           #   class = "story-step on-ramp",
           #   `data-step` = "pane2_onramp",
