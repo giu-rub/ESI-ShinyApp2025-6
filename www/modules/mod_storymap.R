@@ -93,10 +93,27 @@ mod_storymap_server <- function(id) {
           p("something else")
         ),
         
-        "interactions" = tags$img(
-          src = "assets/images/ESI_interactions_5.png",
-          alt = "Climate, land and water interactions.",
-          style = "max-width:100%; max-height:80vh;"
+        "interactions" = div(
+          style = "
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+          ",
+          tags$video(
+            autoplay = NA,
+            muted = NA,
+            loop = NA,
+            playsinline = NA,
+            src = 'assets/images/ESI_interactions_animated.mov',
+            alt = 'Climate, land and water interactions.',
+            style = '
+              width: 95%;
+              height: auto;
+              object-fit: contain;
+              max-height: 90vh;
+            '
+          )
         ),
         
         NULL

@@ -42,7 +42,6 @@
                 tags$li("Oceania AND warm OR cool climate grasslands"),
                 tags$li("Europe AND cool climate grasslands OR tropical forest")
               )),
-              p("If you encounter any other issues feel free to reach out to giorgio.parlato(at)su.se")
             )
           )
         ),
@@ -56,7 +55,7 @@
           bslib::card_header("ESI Breakdown"),
           checkboxInput(inputId = ns("show_carbon_emissions"), label = "Show/Hide Carbon Emissions Line", value = FALSE),
           plotOutput(ns("esi_breakdown_plot"), height = "60%"),
-          strong("[this disclaimer can become a pop up in the sotryline rather than static text]Disclaimer: This tool is currently a prototype. We advise caution when interpreting its results and it should not be used to replace regulatory requirements. Given its focus on planetary-scale impacts it also does not replace assessments of local environmental impacts, such as pollution or biodiversity impacts.")
+          strong("Disclaimer: This tool is a prototype. It does not replace regulatory requirements or assessments of local environmental impacts.")
         )
       )
     )

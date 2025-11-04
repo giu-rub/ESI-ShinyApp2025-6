@@ -40,8 +40,8 @@ mod_storymap2_ui <- function(id) {
             `data-step` = "halloween",
             `data-pane` = "2",
             div(
-              h2("Hook to EU regulation"),
-              p("Laws are changing, and so should your business accounting!")
+              h2("How do I use the ESI?"),
+              p("small explanation")
             )
           ),
           
@@ -87,9 +87,19 @@ mod_storymap2_server <- function(id) {
                  style = "max-width:100%; max-height:60vh;"
                )
              ),
-             "halloween" = tags$div(
-               h1("other addition"),
-               p("Maybe a halloween pumpkin")
+             "halloween" = tags$video(
+               autoplay = NA,
+               muted = NA,
+               loop = NA,
+               playsinline = NA,
+               src = 'assets/images/showcase_tablet_tutorial.mp4',
+               alt = 'tutorial',
+               style = '
+              width: 95%;
+              height: auto;
+              object-fit: contain;
+              max-height: 90vh;
+            '
              ),
              NULL
       )

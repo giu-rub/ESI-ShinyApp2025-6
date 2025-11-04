@@ -1,13 +1,28 @@
 mod_intro_ui <- function(id) {
   ns <- NS(id)
   tagList(
+    # Mobile override: allow h1 to wrap & scale down on small screens
+    tags$head(
+      tags$style(HTML("
+        @media (max-width: 600px) {
+          h1 {
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: clip !important;
+            font-size: clamp(1.4rem, 5vw, 2rem) !important;
+            line-height: 1.2 !important;
+          }
+        }
+      "))
+    ),
+    
     tags$div(
       style = "position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0;",
       
       # Background video (fills the container)
       tags$video(
         id = ns("bg_video"),
-        src = "assets/images/WM_intro.mov",
+        src = "assets/images/intro_es.mov",
         autoplay = NA,
         muted = NA,
         loop = NA,
@@ -26,22 +41,31 @@ mod_intro_ui <- function(id) {
       tags$div(
         style = "
           position: absolute; inset: 0;
-          display: flex; flex-direction: column;
-          align-items: center; justify-content: center;
-          text-align: center; color: white; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: flex-start;           /* left-align the block elements */
+    justify-content: center;           /* vertical centering; switch to flex-start for top-left */
+    color: white; z-index: 1;
+    padding: clamp(16px, 4vw, 48px);
+    text-align: left;
+    max-width: min(68ch, 92vw);
+    gap: clamp(8px, 1.5vw, 16px);
         ",
         h1("The Earth System Impact tool", style = "
     font-size: clamp(1.8rem, 5vw, 3.5rem);
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.15;
+    margin: 0;
+    white-space: nowrap;          
+    overflow: hidden;           
+    text-overflow: ellipsis;
   "),
         p("A prototype metric to assess the impact of your business on water, land and climate", style = "font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px;")
-      
+        
       ),
       
       tags$h6(
-        "Video credit: Liran Friedman",
+        "Video credit:  
+Bruno Tornielli",
         style = "
           position: absolute;
           bottom: 10px;

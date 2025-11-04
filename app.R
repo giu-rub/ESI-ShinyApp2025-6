@@ -49,10 +49,12 @@ source("www/modules/mod_transition3.R")
 
 # ---- THEME ----
 theme <- bs_theme(
-  bootswatch = "united",
-  font = font_google("Lato"),
-  primary = "#E68059"
+  bootswatch   = "united",
+  base_font    = font_google("PT Serif", wght = 400),  # body
+  heading_font = font_google("Fira Sans", wght = 700), # titles
+  primary      = "#E68059"
 )
+
 
 
 # ---- RASTER FOR MAP MODULE (robust loader) ----
