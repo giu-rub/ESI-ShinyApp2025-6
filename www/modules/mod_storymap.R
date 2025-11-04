@@ -111,7 +111,7 @@ mod_storymap_server <- function(id) {
               width: 95%;
               height: auto;
               object-fit: contain;
-              max-height: 90vh;
+              max-height: 70vh;
             '
           )
         ),

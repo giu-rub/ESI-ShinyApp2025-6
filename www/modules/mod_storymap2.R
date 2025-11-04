@@ -95,10 +95,11 @@ mod_storymap2_server <- function(id) {
                src = 'assets/images/showcase_tablet_tutorial.mp4',
                alt = 'tutorial',
                style = '
-              width: 95%;
+              width: 100%;
               height: auto;
-              object-fit: contain;
-              max-height: 90vh;
+              object-fit: cover;
+              max-height: 130vh;
+              transform: scale(1.4);
             '
              ),
              NULL
