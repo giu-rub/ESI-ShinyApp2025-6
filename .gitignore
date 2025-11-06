@@ -13,3 +13,7 @@ www/assets/images/*.mov
 
 # ignore large videos
 www/assets/images/*.mov
+
+# ignore large videos
+*.mov
+www/assets/images/*.mov
