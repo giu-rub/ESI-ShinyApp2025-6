@@ -3,8 +3,6 @@ mod_transition2_ui <- function(id) {
   tagList(
     div(
       class = "transition2-banner",
-      
-      # 🎥 Background video
       tags$video(
         class = "background-video",
         autoplay = NA,
@@ -19,7 +17,7 @@ mod_transition2_ui <- function(id) {
       # Overlay content
       div(
         class = "transition2-overlay",
-        p("What happens to the climate, land and water by your assets?")
+        p("How can science help you address financial risk?")
       ),
       
       # Video credit

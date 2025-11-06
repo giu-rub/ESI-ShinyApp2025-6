@@ -208,6 +208,31 @@ if (pane3 && transition3 && 'IntersectionObserver' in window) {
   io3.observe(transition3);
 }
 
+// --- Make Pane 4 fall behind while Pane 3 is in view ---
+const pane3_as_transition = document.querySelector('.sticky-pane[data-pane="3"]');
+const pane4_target = document.querySelector('.sticky-pane[data-pane="4"]');
+
+if (pane3_as_transition && pane4_target && 'IntersectionObserver' in window) {
+  const io4 = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        // Pane 3 visible -> push Pane 4 behind
+        pane4_target.classList.add('under-prev-pane');
+      } else {
+        // Pane 3 not visible -> restore Pane 4
+        pane4_target.classList.remove('under-prev-pane');
+      }
+    }
+  }, {
+    root: null,
+    threshold: 0,
+    // start pushing Pane 4 behind a bit before Pane 3 fully enters
+    rootMargin: '20% 0px 20% 0px'
+  });
+
+  io4.observe(pane3_as_transition);
+}
+
 
     window.addEventListener('scroll', schedule, {passive:true});
     window.addEventListener('resize', schedule);

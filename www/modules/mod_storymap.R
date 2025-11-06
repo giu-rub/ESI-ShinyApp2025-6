@@ -30,6 +30,27 @@ mod_storymap_ui <- function(id) {
          It is rooted in geo-specific data, and shows impact on the environment at the global scale.")
             )
           ),
+        
+        
+        
+          div(
+            class = "story-step",
+            `data-step` = "esi_financial",
+            `data-pane` = "1",
+            `data-activate-frac` = "0.5",
+            `data-activate-anchor` = "top",
+            div(
+              class = "esi-financial",
+              h2("Financial Risk in the Earth System"),
+              p("Corporations are responsible for a significant portion of impacts on the Earth system, 
+       including greenhouse gas emissions, water extraction, land use and other pressures on Nature."),
+              p("These increasing pressures contribute to exacerbating climate and nature-related financial risks. 
+       Yet, the tools used in business and finance to capture environmental impact are too often reduced to flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible."),
+              p("The ESI is a metric of environmental impact that addresses this gap by going beyond simple measures of carbon dioxide emissions and accounting for more of the complexity of the Earth System.")
+            )
+          ),
+          
+          
           
           # The actual trigger for the INTRO scene on the right pane
           div(
@@ -80,50 +101,23 @@ mod_storymap_server <- function(id) {
       switch(
         step,
         
-        "intro" = tags$div(
-          #style = "
-          #display: flex;
-          #flex-direction: column;
-          #align-items: center;
-          #justify-content: center;
-          #flex-wrap: wrap;
-          #gap: 2rem;
-          #width: 100%;
-          #padding: 2rem 1rem;
-          #box-sizing: border-box;
-          # ",
-          
-          # IMAGE on the LEFT
+        
+        "esi_financial" = div(
+          class = "esi-financial",
+          style = "display: flex; justify-content: center; align-items: center; width: 100%;",
           tags$img(
-           src = "assets/images/financial_risk.jpg",
-          alt = "Financial risk and the Earth System",
-           style = "
+            src = "assets/images/financial_risk.png",
+            alt = "Financial risk and the Earth System",
+            style = "
            flex: 1 1 300px;
           max-width: 100%;
            height: auto;
          object-fit: cover;
          border-radius: 0.75rem;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         "
-              ),
-          
-          # TEXT on the RIGHT
-          div(
-            style = "
-            flex: 1 1 300px;
-          text-align: left;
-          ",
-            h2("Financial Risk in the Earth System"),
-            p("Corporations are responsible for a significant portion of impacts on the Earth system, 
-       including greenhouse gas emissions, water extraction, land use and other pressures on Nature."),
-            p("These increasing pressures contribute to exacerbating climate and nature-related financial risks. 
-       Yet, the tools used in business and finance to capture environmental impact are too often reduced to flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible."),
-            p("The ESI is a metric of environmental impact that addresses this gap by going beyond simple measures of carbon dioxide emissions and accounting for more of the complexity of the Earth System.")
           )
         ),
-        
-        
-  
+      
         
         NULL
       )

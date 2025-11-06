@@ -28,15 +28,16 @@ mod_intro_ui <- function(id) {
         loop = NA,
         playsinline = NA,
         style = "
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          z-index: -1;
-        "
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    "
       ),
-      
+    
+  
       # Centered overlay content
       tags$div(
         style = "

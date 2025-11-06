@@ -102,18 +102,18 @@ mod_storymap2_server <- function(id) {
         current_step(),
         
         "image" = tags$div(
-          style = "margin-top: 10vh;",  
+          style = "margin-top: 30vh;",  
           tags$img(
             src = "assets/images/PBs.png",
             alt = "Planetary Boundaries",
             style = "max-width: 100%; height: auto; max-height: 80vh; object-fit: contain;"
           )
-        ), #i think this has to go after the ineractions section to render properly (check it later)
+        ), 
         
         "interactions" = div(
           style = "
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: center;
             width: 100%;
           ",
@@ -129,8 +129,7 @@ mod_storymap2_server <- function(id) {
               max-height: 70vh;
             ",
         
-            tags$source(src = "assets/images/ESI_interactions_animated.mov", type = "video/mov"),
-            tags$source(src = "assets/images/ESI_interactions_animated.webm", type = "video/webm"),
+            tags$source(src = "assets/images/ESI_interactions_animated.mp4", type = "video/mp4"),
             "Your browser does not support the video tag."
           )
         ),

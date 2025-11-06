@@ -3,6 +3,27 @@
   --left-col-gap: 2rem;    /* match your wrap gap/padding */
 }
 
+
+/* Make all media in right panes responsive and centered */
+.sticky-pane img,
+.sticky-pane video {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;          /* don't overflow viewport */
+  width: auto;
+  height: auto;
+  object-fit: contain;        /* keep aspect ratio, no cropping */
+  margin: 0 auto;
+}
+
+/* Optional: for a bit more space below on mobile */
+@media (max-width: 768px) {
+  .sticky-pane img,
+  .sticky-pane video {
+    max-height: 60vh;
+  }
+}
+
 /* --- Global / layout --- */
 body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #f9f5f1; }
 .section { padding: 0; position: relative; z-index: 1;}
@@ -136,7 +157,6 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 /* Mobile utility (downloads) */
 @media (max-width: 768px) { .download-grid { grid-template-columns: 1fr; } }
 
-
 /* ─────────────────────────────────────────────────────────────
    Scrollytelling layout
    ───────────────────────────────────────────────────────────── */
@@ -233,7 +253,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 
 /* Invisible trigger step for moving the “intro” activation */
 .story-step.intro-trigger {
-  min-height: 100vh;
+  min-height: 20vh;
   padding: 0;} 
 
 .story-step.intro-trigger > * { display: none; } 
@@ -250,17 +270,22 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 @media (max-width: 992px) {
   .scene-frame { padding-left: 1rem; }
   .story-column { max-width: 100%; padding-right: 0; }
-  .story-step { min-height: 80vh; }
+  .story-step { min-height: 40vh; }
 }
 
-.esi-video-section {
+/*.esi-section-thirdpane {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-}
+}*/
 
+/* ─────────────────────────────────────────────────────────────
+   Image rendering
+   ───────────────────────────────────────────────────────────── */
+   
 
+   
 /* ─────────────────────────────────────────────────────────────
    Background color of panes
    ───────────────────────────────────────────────────────────── */
@@ -299,6 +324,15 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   overflow: visible;          
   background: none;
 }
+
+/* Storymap 2: full-bleed background that stays behind content */
+.storymap-root[data-ns*="storymap3"] {
+  position: relative;
+  overflow: visible;          
+  background: none;
+}
+
+
 
 /* Full-width translucent background color (rgb 134, 159, 176) */
 .storymap-root[data-ns*="storymap2"]::before {
@@ -413,6 +447,21 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   visibility: hidden;
   z-index: 0;
   pointer-events: no*/
+
+/* baseline */
+.sticky-pane {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* when Pane 3 is visible, Pane 4 falls behind */
+.sticky-pane[data-pane="4"].under-prev-pane {
+  z-index: 5;          /* lower than Pane 3 */
+  opacity: 0.92;       /* optional, slight fade */
+  /* pointer-events: none;  // optional if you want to disable interaction while behind */
+}
+
 
 /* Footer */
 .footer-section {

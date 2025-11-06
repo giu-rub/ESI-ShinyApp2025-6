@@ -106,8 +106,7 @@ mod_storymap3_ui <- function(id) {
 
 mod_storymap3_server <- function(id) {
   moduleServer(id, function(input, output, session) {
-    
-    current_step <- reactiveVal("esi_intro")  # start on intro
+    current_step <- reactiveVal("esi_intro")
     
     observeEvent(input$current_step, ignoreInit = TRUE, {
       current_step(input$current_step)

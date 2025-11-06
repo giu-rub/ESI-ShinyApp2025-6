@@ -50,9 +50,7 @@ mod_storymap4_ui <- function(id) {
               class = "esi-section",
               h2("Engaging with the ESI score"),
               p("The ESI score can be used in different ways, depending on the purpose of use and the type of stakeholder."),
-              p("1. Comparing the total impact of different planned projects, assets, companies, or portfolios while identifying the main drivers contributing to the impact of a given asset/company/portfolio."),
-              p("2. Estimate the impacts of planned production sites or suppliers for sourcing materials (see map below)."),
-              p("3. Augmenting LCA analysis with an Earth System perspective.")
+              
             )
           ),
           
@@ -100,7 +98,7 @@ mod_storymap4_ui <- function(id) {
 mod_storymap4_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     
-    current_step <- reactiveVal("esi_intro_fourthpane")  # start on step 1
+    current_step <- reactiveVal(NULL)
     
     observeEvent(input$current_step, ignoreInit = TRUE, {
       current_step(input$current_step)
@@ -124,16 +122,14 @@ mod_storymap4_server <- function(id) {
           )
         ),
         
-        # Right pane for STEP 2
-        "esi_interpret" = div(
-          class = "esi-image-section",
-          style = "display: flex; justify-content: center; align-items: center; width: 100%;",
-          tags$img(
-            src = "assets/images/inter1.png",
-            alt = "Interpreting the ESI results pt.1",
-            style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 1rem;"
-          )
-        ),
+   #Right pane for STEP 2
+  
+      "esi_interpret" = div(
+    class = "esi-image-section",
+    p("1. Comparing the total impact of different planned projects, assets, companies, or portfolios while identifying the main drivers contributing to the impact of a given asset/company/portfolio."),
+    p("2. Estimate the impacts of planned production sites or suppliers for sourcing materials (see map below)."),
+    p("3. Augmenting LCA analysis with an Earth System perspective.")
+       ),
         
         # Right pane for STEP 3
         "esi_interpret2" = div(
