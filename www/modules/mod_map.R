@@ -3,7 +3,7 @@ mod_map_ui <- function(id) {
   tagList(
       div(
         style = "padding-top: 2rem; padding-bottom: 4rem; background-color: #E68059;", 
-        h3("ESI Dynamic Heatmap"),
+        h3("Try the ESI Dynamic Heatmap here"),
       class = "row g-4 align-items-start",
       div(
         class = "col-lg-5 col-xl-4 sidebar",

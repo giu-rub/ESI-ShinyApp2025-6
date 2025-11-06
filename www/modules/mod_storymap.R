@@ -24,7 +24,10 @@ mod_storymap_ui <- function(id) {
             `data-pane` = "off",
             div(
               h2("Welcome!"),
-              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) tool: a science-based platform launched in 2023 that helps you assess how your corporate activities and investments influence water, land and climate across the planet.")
+              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) tool: 
+         a science-based platform launched in 2023 made for investors committed to sustainable finance."),
+              p("The ESI metric offers a simple-to-use, integrated tool to measure impacts across different environmental dimensions. 
+         It is rooted in geo-specific data, and shows impact on the environment at the global scale.")
             )
           ),
           
@@ -33,24 +36,13 @@ mod_storymap_ui <- function(id) {
             class = "story-step intro-trigger",
             `data-step` = "intro",         
             `data-pane` = "1",             
-            `data-activate-frac` = "0.30", # smaller = earlier; tweak 0.35–0.55 to taste
+            `data-activate-frac` = "0.15", # smaller = earlier; tweak 0.35–0.55 to taste
             `data-activate-anchor` = "top",
             `data-activate-offset` = "-30",
             div()                          
           ),
           
-          # 3) The rest of Pane 1 content comes after Intro
-          div(
-            class = "story-step",
-            `data-step` = "interactions",
-            `data-pane` = "1",
-            div(
-              h2("Climate, land and water: interconnected"),
-              p("In order to stay within the 9 Planetary Boundaries, we need to reduce the impact of our economic activities on the Earth system. In finance, we increasingly recognize that externalities contribute to nature-related risk, but measuring their impact is still a global challenge."),
-              p("The tools we use to capture environmental impact are lagging behind, and they too often reduced to a single focus on carbon."),
-              p("While reducing CO2 emissions remains a priority, there are other biophysical processes that are essential to the resilience of the Earth System: Land and Water.")
-            )
-          )
+          
         ),
         
         # RIGHT FIXED STICKY PANE (Pane 1)
@@ -89,32 +81,49 @@ mod_storymap_server <- function(id) {
         step,
         
         "intro" = tags$div(
-          h1("Something"),
-          p("something else")
-        ),
-        
-        "interactions" = div(
-          style = "
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            width: 100%;
+          #style = "
+          #display: flex;
+          #flex-direction: column;
+          #align-items: center;
+          #justify-content: center;
+          #flex-wrap: wrap;
+          #gap: 2rem;
+          #width: 100%;
+          #padding: 2rem 1rem;
+          #box-sizing: border-box;
+          # ",
+          
+          # IMAGE on the LEFT
+          tags$img(
+           src = "assets/images/financial_risk.jpg",
+          alt = "Financial risk and the Earth System",
+           style = "
+           flex: 1 1 300px;
+          max-width: 100%;
+           height: auto;
+         object-fit: cover;
+         border-radius: 0.75rem;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        "
+              ),
+          
+          # TEXT on the RIGHT
+          div(
+            style = "
+            flex: 1 1 300px;
+          text-align: left;
           ",
-          tags$video(
-            autoplay = NA,
-            muted = NA,
-            loop = NA,
-            playsinline = NA,
-            src = 'assets/images/ESI_interactions_animated.mov',
-            alt = 'Climate, land and water interactions.',
-            style = '
-              width: 95%;
-              height: auto;
-              object-fit: contain;
-              max-height: 70vh;
-            '
+            h2("Financial Risk in the Earth System"),
+            p("Corporations are responsible for a significant portion of impacts on the Earth system, 
+       including greenhouse gas emissions, water extraction, land use and other pressures on Nature."),
+            p("These increasing pressures contribute to exacerbating climate and nature-related financial risks. 
+       Yet, the tools used in business and finance to capture environmental impact are too often reduced to flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible."),
+            p("The ESI is a metric of environmental impact that addresses this gap by going beyond simple measures of carbon dioxide emissions and accounting for more of the complexity of the Earth System.")
           )
         ),
+        
+        
+  
         
         NULL
       )

@@ -213,7 +213,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 
 /* Invisible spacer steps to control timing */
 .story-step.on-ramp,
-.story-step.off-ramp { min-height: 40vh; padding: 0; }  /* adjust 40–100vh to taste */
+.story-step.off-ramp { min-height: 10vh; padding: 0; }  /* adjust 40–100vh to taste */
 .story-step.on-ramp > *,
 .story-step.off-ramp > * { display: none; }
 
@@ -251,6 +251,13 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   .scene-frame { padding-left: 1rem; }
   .story-column { max-width: 100%; padding-right: 0; }
   .story-step { min-height: 80vh; }
+}
+
+.esi-video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 
@@ -312,7 +319,6 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   position: relative;
   z-index: 1;
 }
-
 
 
 /* ─────────────────────────────────────────────────────────────
