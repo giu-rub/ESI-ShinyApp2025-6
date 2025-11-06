@@ -10,3 +10,6 @@ www/assets/images/ss_sand.mov
 www/assets/images/ss_sand.mov
 www/assets/images/*.mov
 www/assets/images/*.mov
+
+# ignore large videos
+www/assets/images/*.mov
