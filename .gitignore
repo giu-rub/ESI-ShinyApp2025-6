@@ -17,3 +17,8 @@ www/assets/images/*.mov
 # ignore large videos
 *.mov
 www/assets/images/*.mov
+
+# ignore large movie assets
+www/assets/images/cloud_formation.mov
+www/assets/images/ss_sand.mov
+*.mov
