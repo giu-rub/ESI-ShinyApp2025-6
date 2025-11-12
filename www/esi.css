@@ -4,25 +4,6 @@
 }
 
 
-/* Make all media in right panes responsive and centered */
-.sticky-pane img,
-.sticky-pane video {
-  display: block;
-  max-width: 100%;
-  max-height: 80vh;          /* don't overflow viewport */
-  width: auto;
-  height: auto;
-  object-fit: contain;        /* keep aspect ratio, no cropping */
-  margin: 0 auto;
-}
-
-/* Optional: for a bit more space below on mobile */
-@media (max-width: 768px) {
-  .sticky-pane img,
-  .sticky-pane video {
-    max-height: 60vh;
-  }
-}
 
 /* --- Global / layout --- */
 body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #f9f5f1; }
