@@ -18,6 +18,6 @@ mod_team_ui <- function(id) {
 }
 
 
-mod_downloads_server <- function(id) {
+mod_team_server <- function(id) {
   moduleServer(id, function(input, output, session) { })
 }
