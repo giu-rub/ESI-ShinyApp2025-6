@@ -3,11 +3,6 @@
   --left-col-gap: 2rem;    /* match your wrap gap/padding */
 }
 
-/* match .story-column max-width */
-
-/*test
-
-
 
 
 /* --- Global / layout --- */
@@ -124,6 +119,51 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   padding-bottom: 4rem;
 }
 
+.intro-btn {
+  font-size: 1.8rem;
+  padding: 14px 28px;
+  min-width: 270px;
+  border-radius: 6px;
+}
+
+      .intro-bg 
+        {background: linear-gradient(135deg, #0b1f2a, #122f3a);
+        }
+
+        .btn-primary {
+          background-color: transparent;
+          color: #ffffff;
+          border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .btn-outline-light {
+          background: transparent;
+          color: #ffffff;
+          border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .btn-primary:hover,
+        .btn-outline-light:hover {
+          opacity: 0.85;
+        }
+
+.esi-btn {
+  background: transparent;
+  color: #000000;                     
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.esi-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 0, 0, 0.25);
+}
 
 .btn-map {
   background-color: #fff;
@@ -137,6 +177,84 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 .btn-map:hover {
   background-color: #000;
   color: #fff;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+Transition 1 panel 3 images features
+─────────────────────────────────────────────────────────────*/
+
+/* Card base: transparent with thick outline */
+.transition-card {
+  position: relative;
+  height: 415px;
+  border-radius: 16px;
+  background: transparent;
+  border: transparent;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  will-change: transform;
+}
+
+/* Glow + pop on hover */
+.transition-card:hover {
+  transform: scale(1.04);
+  /*border-color: rgba(120, 200, 255, 0.9);*/
+  box-shadow:
+    0 0 20px rgba(120, 200, 255, 0.9)
+    0 0 40px rgba(120, 200, 255, 0.9);
+  z-index: 2;
+}
+
+/* Overlay content */
+.transition-card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+/* Text */
+.transition-card-overlay h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  color: black;
+}
+
+.transition-card-overlay p {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: black;
+}
+
+/* Size images */
+.transition-card-overlay img {
+  width: 100%;
+  max-height: 100%;  
+  padding-top: 15px;
+  object-fit: contain;
+  align-self: center;
+  transition: transform 0.35s ease;
+}
+
+/* Image micro-zoom */
+.transition-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Disable hover on touch */
+@media (hover: none) {
+  .transition-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255,255,255,0.35);
+  }
 }
 
 
@@ -346,7 +464,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
    ───────────────────────────────────────────────────────────── */
 .transition1-banner {
   background: linear-gradient(to bottom,#bc8a5f,#f9f5f1);
-  height: 25vh; width: 100%;
+  height: 100vh; width: 100%;
 }
 
 .transition1b-banner {
@@ -448,6 +566,15 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   /* pointer-events: none;  // optional if you want to disable interaction while behind */
 }
 
+
+
+
+/* Team */
+.team-flex {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 
 /* Footer */
 .footer-section {

@@ -47,6 +47,7 @@ source("www/modules/mod_transition1b.R")
 source("www/modules/mod_transition1c.R")
 source("www/modules/mod_transition2.R")
 source("www/modules/mod_transition3.R")
+source("www/modules/mod_team.R")
 
 # ---- THEME ----
 theme <- bs_theme(
@@ -135,7 +136,8 @@ ui <- htmlTemplate(
   transition1b_ui  = mod_transition1b_ui("transition1b"),
   transition1c_ui  = mod_transition1c_ui("transition1c"),
   transition2_ui  = mod_transition2_ui("transition2"),
-  transition3_ui  = mod_transition3_ui("transition3")
+  transition3_ui  = mod_transition3_ui("transition3"),
+  team_ui  = mod_team_ui("team"),
   )
 
 server <- function(input, output, session) {
@@ -154,6 +156,7 @@ server <- function(input, output, session) {
   mod_transition1c_server("transition1c")
   mod_transition2_server("transition2")
   mod_transition3_server("transition3")
+  mod_team_server("team")
 }
 
 shinyApp(ui, server)

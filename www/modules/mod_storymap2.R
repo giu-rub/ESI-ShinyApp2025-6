@@ -94,7 +94,6 @@ mod_storymap2_server <- function(id) {
       current_step(input$current_step)
     })
     
-
     output$scene2 <- renderUI({
       if (identical(current_step(), "mod_storymap2.R_off")) return(NULL)
       
@@ -117,38 +116,17 @@ mod_storymap2_server <- function(id) {
             align-items: center;
             width: 100%;
           ",
-          tags$video(
-            autoplay = NA,
-            muted = NA,
-            loop = NA,
-            playsinline = NA,
+          tags$img(
+            src = "assets/images/ESI_interactions_5.png",
+            alt = "ESI interactions 5",
             style = "
-              width: 95%;
-              height: auto;
-              object-fit: contain;
-              max-height: 70vh;
-            ",
-        
-            tags$source(src = "assets/images/ESI_interactions_animated.mp4", type = "video/mp4"),
-            "Your browser does not support the video tag."
+    width: 95%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  "
           )
         ),
-        
-        # "halloween" = tags$video(
-        #   autoplay = NA,
-        #   muted = NA,
-        #   loop = NA,
-        #   playsinline = NA,
-        #   src = 'assets/images/showcase_tablet_tutorial.mp4',
-        #   alt = 'tutorial',
-        #   style = '
-        #     width: 100%;
-        #     height: auto;
-        #     object-fit: cover;
-        #     max-height: 130vh;
-        #     transform: scale(1.4);
-        #   '
-        # ),
         
         NULL
       )

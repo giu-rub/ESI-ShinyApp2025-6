@@ -22,13 +22,13 @@ mod_storymap_ui <- function(id) {
             class = "story-step",
             `data-step` = "intro_text", 
             `data-pane` = "off",
-            div(
-              h2("Welcome!"),
-              p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) tool: 
-         a science-based platform launched in 2023 made for investors committed to sustainable finance."),
-              p("The ESI metric offers a simple-to-use, integrated tool to measure impacts across different environmental dimensions. 
-         It is rooted in geo-specific data, and shows impact on the environment at the global scale.")
-            )
+           # div(
+            #  h2("Welcome!"),
+             # p("The Stockholm Resilience Center and the Australian National University invite you to explore the Earth System Impact (ESI) tool: 
+        # a science-based platform launched in 2023 made for investors committed to sustainable finance."),
+        #      p("The ESI metric offers a simple-to-use, integrated tool to measure impacts across different environmental dimensions. 
+       #  It is rooted in geo-specific data, and shows impact on the environment at the global scale.")
+         #   )
           ),
         
         

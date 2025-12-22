@@ -1,95 +1,118 @@
 mod_intro_ui <- function(id) {
   ns <- NS(id)
+  
   tagList(
-    # Mobile override: allow h1 to wrap & scale down on small screens
     tags$head(
       tags$style(HTML("
         @media (max-width: 600px) {
           h1 {
             white-space: normal !important;
-            overflow: visible !important;
-            text-overflow: clip !important;
             font-size: clamp(1.4rem, 5vw, 2rem) !important;
             line-height: 1.2 !important;
           }
+        }
+
+        .intro-bg {
+          background: linear-gradient(135deg, #0b1f2a, #122f3a);
+        }
+
+        .btn-primary {
+          background-color: transparent;
+          color: #ffffff;
+          border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .btn-outline-light {
+          background: transparent;
+          color: #ffffff;
+          border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .btn-primary:hover,
+        .btn-outline-light:hover {
+          opacity: 0.85;
         }
       "))
     ),
     
     tags$div(
-      style = "position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0;",
+      class = "intro-bg",
+      style = "
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: clamp(16px, 4vw, 48px);
+        color: white;
+      ",
       
-      # Background video (fills the container)
-      tags$video(
-        id = ns("bg_video"),
-        src = "assets/images/intro_es.mov",
-        autoplay = NA,
-        muted = NA,
-        loop = NA,
-        playsinline = NA,
-        style = "
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    "
-      ),
-    
-  
-      # Centered overlay content
+      # Content container
+      # Content container (wider)
       tags$div(
         style = "
-          position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: flex-start;           /* left-align the block elements */
-    justify-content: center;           /* vertical centering; switch to flex-start for top-left */
-    color: white; z-index: 1;
-    padding: clamp(16px, 4vw, 48px);
-    text-align: left;
-    max-width: min(68ch, 92vw);
-    gap: clamp(8px, 1.5vw, 16px);
-        ",
-        h1("The Earth System Impact tool", style = "
-    font-size: clamp(1.8rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin: 0;
-    white-space: nowrap;          
-    overflow: hidden;           
-    text-overflow: ellipsis;
-  "),
-        p("A prototype metric to assess the impact of your business on water, land and climate", style = "font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px;")
+    max-width: 1200px;
+    width: 100%;
+  ",
         
-      ),
-      
-      tags$h6(
-        "Video credit:  
-Bruno Tornielli",
-        style = "
-          position: absolute;
-          bottom: 10px;
-          right: 25px;
-          font-size: 0.6rem;
-          color: white;
-          opacity: 0.85;
+        tags$div(
+          style = "
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      width: 100%;
+    ",
+          
+          # Left: title + subtitle
+          tags$div(
+            style = "
+        flex: 1 1 auto;
+        min-width: 0;
+      ",
+            h1(
+              "The Earth System Impact tool",
+              style = "
+          font-size: clamp(1.8rem, 5vw, 3.5rem);
+          font-weight: 700;
+          line-height: 1.15;
           margin: 0;
-          z-index: 2;
         "
-      ),
+            ),
+            p(
+              "A prototype metric to assess the impact of your business on water, land and climate",
+              style = "
+          font-size: clamp(1rem, 2vw, 1.5rem);
+          margin: 12px 0 0 0;
+          max-width: 60ch;
+        "
+            )
+          ),
+          
+          # Right: stacked buttons
+          tags$div(
+            style = "
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex: 0 0 auto;
+    align-self: center;
+  ",
+            actionButton(
+              ns("test_tool"),
+              "TEST TOOL",
+              class = "btn-primary intro-btn"
+            ),
+            actionButton(
+              ns("explore"),
+              "EXPLORE",
+              class = "btn-outline-light intro-btn"
+            )
+          )
+        )
+      )
       
-      # Control playback speed
-      tags$script(HTML(sprintf("
-        document.addEventListener('DOMContentLoaded', function() {
-          var video = document.getElementById('%s');
-          if (video) video.playbackRate = 0.7;
-        });
-      ", ns("bg_video"))))
     )
   )
-}
-
-mod_intro_server <- function(id) {
-  moduleServer(id, function(input, output, session) {})
 }

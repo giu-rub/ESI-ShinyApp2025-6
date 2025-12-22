@@ -33,7 +33,7 @@ mod_storymap3_ui <- function(id) {
             `data-activate-anchor` = "top",
             div(
               class = "esi-section-thirdpane",
-              h2("The Earth System Impact (ESI) metric"),
+              h2("What does the ESI do?"),
               p("The Earth System Impact metric represents a step forward in environmental impact metrics, 
                 as it captures some of the complexity of the Earth System in the following four ways:"),
               p("1. Capture impacts on multiple Earth processes (i.e. climate, land and water)."),
@@ -44,6 +44,7 @@ mod_storymap3_ui <- function(id) {
               p("Using the ESI only requires four inputs of data."),
               )
           ),
+
           
           # STEP 2: Interpreting ESI pt1
           div(
@@ -93,7 +94,7 @@ mod_storymap3_ui <- function(id) {
           `data-pane` = "3",
           div(
             class = "scene-frame",
-            div(                       # <-- wrapper added
+            div(                       
               class = "esi-video-section",
               uiOutput(ns("scene3"))
             )
@@ -122,12 +123,25 @@ mod_storymap3_server <- function(id) {
         # Right pane content for ESI intro: VIDEO
         "esi_intro_thirdpane" = div(
           class = "esi-section-thirdpane",
-          style = "display: flex; justify-content: center; align-items: center; width: 100%;",
+          style = "display: flex; flex-direction: column; align-items: center; width: 100%; gap: 24px;",
+          
           tags$video(
             alt = "ESI input types",
-            autoplay = TRUE, muted = TRUE, loop = TRUE, playsinline = TRUE,
+            autoplay = TRUE,
+            muted = TRUE,
+            loop = TRUE,
+            playsinline = TRUE,
             style = "width: 95%; height: auto; object-fit: contain; max-height: 70vh;",
-            tags$source(src = "assets/images/ESI_data_inputs.mp4", type = "video/mp4"),
+            tags$source(
+              src = "assets/images/ESI_data_inputs.mp4",
+              type = "video/mp4"
+            )
+          ),
+          
+          tags$button(
+            type = "button",
+            class = "btn esi-btn intro-btn",
+            "TEST TOOL"
           )
         ),
         

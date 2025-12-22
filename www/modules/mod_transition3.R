@@ -3,8 +3,7 @@ mod_transition3_ui <- function(id) {
   tagList(
     div(
       class = "transition3-banner",
-      
-      # 🎥 Background video
+    
       tags$video(
         class = "background-video",
         autoplay = NA,
@@ -19,10 +18,10 @@ mod_transition3_ui <- function(id) {
       # Overlay content
       div(
         class = "transition3-overlay",
-        p("What happens to the climate, land and water by your assets?")
+        p("THE EARTH SYSTEM IMPACT TOOL")
       ),
       
-      # Video credit
+    
       tags$h6(
         "Video credit: adege",
         style = "
