@@ -8,7 +8,7 @@ mod_transition1_ui <- function(id) {
       
       # Title
       tags$h2(
-        "3 SCIENTIFIC ANCHORS",
+        "SCIENTIFIC ANCHORS",
         style = "
           margin-bottom: 40px;
           font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -43,11 +43,11 @@ mod_transition1_ui <- function(id) {
           ",
           tags$div(
             class = "transition-card-overlay",
-            tags$h4("Financial Risk"),
-            tags$p("double materiality and feedback loops"),
+            tags$h4("Why measuring corporate impacts on the Earth System is important"),
+            tags$p("some sort of text"),
             tags$img(
               src = "assets/images/financial_risk.png",
-              alt = "financial risk"
+              alt = "corporate impacts"
             )
           )
         ),

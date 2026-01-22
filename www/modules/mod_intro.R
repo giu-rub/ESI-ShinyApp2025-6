@@ -122,7 +122,7 @@ mod_intro_ui <- function(id) {
             ),
             
             tags$button(
-              "EXPLORE PROJECT",
+              "EXPLORE THE ESI",
               class = "btn-outline-light intro-btn",
               onclick = "
     const el = document.querySelector('[data-step=\"esi_tool_intro\"]');

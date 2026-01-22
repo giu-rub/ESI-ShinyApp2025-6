@@ -9,6 +9,7 @@ library(tidyterra)
 library(ncdf4)
 library(readr)
 library(tibble)
+library(blastula)
 
 options(shiny.resource.cache = FALSE)
 

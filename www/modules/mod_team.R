@@ -5,7 +5,7 @@ mod_team_ui <- function(id) {
     div(
       class = "team-section",
       
-      h2("OUR TEAM"),
+      h2("THE TEAM BEHIND ESI"),
       
       div(
         class = "team-flex team-grid",
