@@ -9,8 +9,8 @@ mod_downloads_ui <- function(id) {
     div(
       class = "downloads-section",
       
-    h3("Downloads"),
-    p("Whether you are an investor or a company, you can download the ESI tool and test it offline. Click a card below to download or open the manual."),
+    h2("RESOURCES"),
+    # p("Click a card below to download the offline version of the ESI tool, to consult the manual and to read academic papers on the ESI metric."),
     
     # Cards row
     div(

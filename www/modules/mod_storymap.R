@@ -103,21 +103,9 @@ mod_storymap_server <- function(id) {
         
         
         "esi_financial" = div(
-          class = "esi-financial",
-          style = "display: flex; justify-content: center; align-items: center; width: 100%;",
-          tags$img(
-            src = "assets/images/financial_risk.png",
-            alt = "Financial risk and the Earth System",
-            style = "
-           flex: 1 1 300px;
-          max-width: 100%;
-           height: auto;
-         object-fit: cover;
-         border-radius: 0.75rem;
-        "
-          )
+          class = "scene-bg scene-bg-financial"
         ),
-      
+        
         
         NULL
       )

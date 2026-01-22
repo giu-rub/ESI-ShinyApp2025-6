@@ -1,9 +1,10 @@
 mod_map_ui <- function(id) {
   ns <- NS(id)
   tagList(
+    h3("Visualise your impacts on water, climate and land across the Earth System"),
       div(
         style = "padding-top: 2rem; padding-bottom: 4rem; background-color: #E68059;", 
-        h3("Try the ESI Dynamic Heatmap here"),
+        
       class = "row g-4 align-items-start",
       div(
         class = "col-lg-5 col-xl-4 sidebar",
@@ -21,10 +22,10 @@ mod_map_ui <- function(id) {
             downloadButton(ns("download_csv"),   "Download ASC",   class="btn btn-map"),
             downloadButton(ns("download_tiff"),  "Download TIFF",  class="btn btn-map"),
             downloadButton(ns("download_netcdf"),"Download NetCDF",class="btn btn-map")),
-        h5(class="mt-4", "Notes"),
+        h5(class="mt-4", "Note"),
         tags$ul(
-          tags$li("ESI scores are scaled to planetary boundaries..."),
-          tags$li("ESI scores cannot currently be calculated for 'bare land'...")
+          tags$li("ESI scores are scaled to planetary boundaries."),
+          tags$li("ESI scores cannot currently be calculated for 'bare land'.")
         )
       )
     )

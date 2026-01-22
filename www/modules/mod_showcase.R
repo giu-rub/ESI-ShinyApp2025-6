@@ -1,13 +1,14 @@
 .showcase_body_ui <- function(id) {
   ns <- NS(id)
   tagList(
+    h3(
+      "Measure the impact of your assets on water, climate and land",
+      style = "color: black; text-align: center; margin-bottom: 1rem;"
+    ),
     div(
       id = "showcase-content",
       style = "padding-bottom: 4rem; padding-top:1rem; background-color: #E68059;", 
-      h3(
-        "Try the ESI tool here",
-        style = "color: black; text-align: center; margin-bottom: 1rem;"
-      ),
+      
       bslib::page_sidebar(
         sidebar = bslib::sidebar(
           width = "30%",

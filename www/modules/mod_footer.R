@@ -9,15 +9,15 @@ mod_footer_ui <- function(id) {
     class = "footer-section",
     
     # ---- Left side ----
-    tags$div(
+   tags$div(
       class = "footer-left",
-      tags$div(
-        class = "widget",
-        tags$h5(class = "widget-title font-alt mb-1", "Site developed by"),
-        tags$p(
-          "Giorgio Parlato (Stockholm Resilience Center) and Giulia I. Rubin (Global Economic Dynamics and the Biosphere).",
-          style = "margin-bottom: 10px;"
-        ),
+      #tags$div(
+      #  class = "widget",
+       # tags$h5(class = "widget-title font-alt mb-1", "Site developed by"),
+        #tags$p(
+         # "Giorgio Parlato (Stockholm Resilience Center) and Giulia I. Rubin (Global Economic Dynamics and the Biosphere).",
+         # style = "margin-bottom: 10px;"
+        #),
         tags$p(
           tags$a(
             href = "https://www.linkedin.com/company/stockholm-resilience-centre/posts/?feedView=all",
@@ -37,18 +37,18 @@ mod_footer_ui <- function(id) {
             tags$i(class = "fa fa-instagram fa-2x custom-icon")
           )
         )
-      )
+     # )
     ),
     
     # ---- Right side (image) ----
-    tags$div(
-      class = "footer-right",
-      tags$img(
-        src = "assets/images/ESI_logo_family.png",
-        alt = "ESI Logo",
-        class = "footer-image"
-      )
-    )
+   # tags$div(
+    #  class = "footer-right",
+     # tags$img(
+      #  src = "assets/images/ESI_logo_family.png",
+       # alt = "ESI Logo",
+        #class = "footer-image"
+      #)
+    #)
   )
 }
 

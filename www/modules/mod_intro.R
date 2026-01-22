@@ -12,19 +12,19 @@ mod_intro_ui <- function(id) {
           }
         }
 
-        .intro-bg {
-          background: linear-gradient(135deg, #0b1f2a, #122f3a);
-        }
+   .intro-bg {
+  background-attachment: fixed;
+}
 
         .btn-primary {
           background-color: transparent;
-          color: #ffffff;
+          color: #000;
           border: 1px solid rgba(255,255,255,0.8);
         }
 
         .btn-outline-light {
           background: transparent;
-          color: #ffffff;
+          color: #000;
           border: 1px solid rgba(255,255,255,0.8);
         }
 
@@ -45,11 +45,17 @@ mod_intro_ui <- function(id) {
         align-items: center;
         justify-content: flex-start;
         padding: clamp(16px, 4vw, 48px);
-        color: white;
+        color: black;
+    
+      
+        
+         background-image: url('assets/images/Glass1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
       ",
       
       # Content container
-      # Content container (wider)
       tags$div(
         style = "
     max-width: 1200px;
@@ -81,7 +87,7 @@ mod_intro_ui <- function(id) {
         "
             ),
             p(
-              "A prototype metric to assess the impact of your business on water, land and climate",
+              "Quantifying businesses' impacts on water, land and climate.",
               style = "
           font-size: clamp(1rem, 2vw, 1.5rem);
           margin: 12px 0 0 0;
@@ -99,20 +105,41 @@ mod_intro_ui <- function(id) {
     flex: 0 0 auto;
     align-self: center;
   ",
-            actionButton(
-              ns("test_tool"),
-              "TEST TOOL",
-              class = "btn-primary intro-btn"
+            tags$button(
+              "TEST TOOLS",
+              class = "btn-primary intro-btn ",
+              onclick = "
+    const el = document.querySelector('[data-step=\"esi_toolbox\"]');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    Shiny.setInputValue(
+      'intro-test_tool',
+      true,
+      { priority: 'event' }
+    );
+  "
             ),
-            actionButton(
-              ns("explore"),
-              "EXPLORE",
-              class = "btn-outline-light intro-btn"
+            
+            tags$button(
+              "EXPLORE PROJECT",
+              class = "btn-outline-light intro-btn",
+              onclick = "
+    const el = document.querySelector('[data-step=\"esi_tool_intro\"]');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    Shiny.setInputValue(
+      'intro-explore',
+      true,
+      { priority: 'event' }
+    );
+  "
             )
+            
           )
         )
       )
-      
     )
   )
 }

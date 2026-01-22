@@ -37,16 +37,7 @@ mod_storymap2_ui <- function(id) {
             )
           ),
           
-          # Second Pane-2 step (kept, commented)
-          # div(
-          #   class = "story-step",
-          #   `data-step` = "halloween",
-          #   `data-pane` = "2",
-          #   div(
-          #     h2("How do I use the ESI?"),
-          #     p("small explanation")
-          #   )
-          # ),
+      
           
           # Pane-2 interactions step trigger (you moved this from Pane 1)
           div(
@@ -95,41 +86,18 @@ mod_storymap2_server <- function(id) {
     })
     
     output$scene2 <- renderUI({
-      if (identical(current_step(), "mod_storymap2.R_off")) return(NULL)
+      step <- current_step()
+      if (is.null(step)) return(NULL)
+      if (identical(step, "mod_storymap2.R_off")) return(NULL)
       
       switch(
-        current_step(),
-        
-        "image" = tags$div(
-          style = "margin-top: 30vh;",  
-          tags$img(
-            src = "assets/images/PBs.png",
-            alt = "Planetary Boundaries",
-            style = "max-width: 100%; height: auto; max-height: 80vh; object-fit: contain;"
-          )
-        ), 
-        
-        "interactions" = div(
-          style = "
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            width: 100%;
-          ",
-          tags$img(
-            src = "assets/images/ESI_interactions_5.png",
-            alt = "ESI interactions 5",
-            style = "
-    width: 95%;
-    height: auto;
-    max-height: 70vh;
-    object-fit: contain;
-  "
-          )
-        ),
-        
+        step,
+        "image" = div(class = "scene-bg scene-bg-pane2-pbs"),
+        "interactions" = div(class = "scene-bg scene-bg-pane2-interactions"),
         NULL
       )
     })
+    
+    
   })
 }

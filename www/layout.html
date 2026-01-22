@@ -36,7 +36,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-lg px-3 px-md-5">
     <a class="navbar-brand" href="#intro-section">
-      <img src="assets/images/ESI_logo.png" alt="ESI Logo" height="80" class="d-inline-block align-top">
+      <img src="assets/images/esi-logo-new1.png" alt="ESI Logo" height="90" class="d-inline-block align-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav"
             aria-controls="topnav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,10 +44,11 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </button>
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC ANCHORS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transition1-section">3 SCIENTIFIC ANCHORS</a></li>
         <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li>
-        <li class="nav-item"><a class="nav-link" href="#downloads-section">DOWNLOADS</a></li>
-        <li class="nav-item"><a class="nav-link" href="#team-section">ABOUT US</a></li>
+        <li class="nav-item"><a class="nav-link" href="#downloads-section">RESOURCES</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team-section">OUR TEAM</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transition3-section">ESI TOOLBOX</a></li>
       </ul>
     </div>
   </div>
@@ -59,14 +60,12 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   {{ intro_ui }}
 </section>
 
-
   <!-- Transition1 -->
 <section id="transition1-section" class="transition1-banner">
   <div class="transition1-container">
     {{ transition1_ui }}
   </div>
-</section
-  
+</section>
   
     <!-- Storymap -->
   <section id="storymap-section" class="section">
@@ -98,13 +97,6 @@ Transition1b
     </div>
   </section> 
   
-  <!-- 
-  Transition3 
-<section id="transition3-section" class="transition3-banner">
-  <div class="transition3-container">
-    {{ transition3_ui }}
-  </div>
-</section> -->
 
  <!-- Transition1c -->
 <section id="transition1c-section" class="transition1c-banner">
@@ -120,13 +112,6 @@ Transition1b
     </div>
   </section> 
   
-  <!-- Showcase / Table module -->
-  <section id="showcase-section" class="section">
-    <div class="container-lg px-3 px-md-5">
-      {{ showcase_ui }}
-    </div>
-  </section>
-  
       <!-- storymap4 -->
   <section id="storymap4-section" class="section">
     <div class="container-lg px-3 px-md-5">
@@ -134,8 +119,22 @@ Transition1b
     </div>
   </section> 
   
+  
+<!-- Transition3 -->
+<section id="transition3-section" class="transition3-banner">
+  <div class="transition3-container">
+    {{ transition3_ui }}
+  </div>
+</section>
 
-  <!-- Map module -->
+<!-- Showcase / Table module -->
+  <section id="showcase-section" class="section">
+    <div class="container-lg px-3 px-md-5">
+      {{ showcase_ui }}
+    </div>
+  </section>
+   <br><br><br><br>
+<!-- Map module -->
 <section id="map-section" class="section">
   <div class="container-lg px-3 px-md-5">
     {{ map_ui }}
@@ -150,13 +149,16 @@ Transition1b
   </div>
    </section>
    
+   <br><br><br>
+   
     <!-- Team module -->
   <section id="team-section" class="section">
   <div class="container-lg px-3 px-md-5">
     {{ team_ui }}
   </div>
    </section>
-
+   
+   <br><br><br>
    
 <section id="footer-section" class="section" style="background-color: #f7f4ef;">
   <div class="container-fluid px-0 py-0">
