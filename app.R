@@ -10,6 +10,8 @@ library(ncdf4)
 library(readr)
 library(tibble)
 library(blastula)
+library(purrr)
+
 
 options(shiny.resource.cache = FALSE)
 
