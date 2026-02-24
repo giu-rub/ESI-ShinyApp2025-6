@@ -143,3 +143,7 @@ mod_intro_ui <- function(id) {
     )
   )
 }
+
+mod_intro_server <- function(id) {
+  moduleServer(id, function(input, output, session) { })
+}

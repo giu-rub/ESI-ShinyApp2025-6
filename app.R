@@ -136,9 +136,7 @@ ui <- htmlTemplate(
   storymap3_ui    = mod_storymap3_ui("storymap3"),
   storymap4_ui    = mod_storymap4_ui("storymap4"),
   transition1_ui  = mod_transition1_ui("transition1"),
-  transition1b_ui  = mod_transition1b_ui("transition1b"),
   transition1c_ui  = mod_transition1c_ui("transition1c"),
-  transition2_ui  = mod_transition2_ui("transition2"),
   transition3_ui  = mod_transition3_ui("transition3"),
   team_ui  = mod_team_ui("team"),
   )
@@ -155,9 +153,7 @@ server <- function(input, output, session) {
   mod_storymap3_server("storymap3")
   mod_storymap4_server("storymap4")
   mod_transition1_server("transition1")
-  mod_transition1b_server("transition1b")
   mod_transition1c_server("transition1c")
-  mod_transition2_server("transition2")
   mod_transition3_server("transition3")
   mod_team_server("team")
 }

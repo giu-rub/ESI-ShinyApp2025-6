@@ -78,7 +78,7 @@ mod_footer_ui <- function(id) {
     tags$div(
       class = "footer-right",
       tags$img(
-        src = "assets/images/esi-logo-new1.png",
+        src = "assets/images/esi-logo-new-dark.png",
       alt = "ESI Logo",
         class = "footer-image"
       )

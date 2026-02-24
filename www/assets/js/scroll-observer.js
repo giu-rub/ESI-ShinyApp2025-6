@@ -3,7 +3,7 @@
 // - Sends current_step to the nearest .storymap-root namespace
 // - Cross-fades .sticky-pane by matching step's data-pane
 // - Start only after small scroll; hide again when user scrolls back up
-(function () {
+ (function () {
   function ready(fn){
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
@@ -244,4 +244,4 @@ if (pane3_as_transition && pane4_target && 'IntersectionObserver' in window) {
   function boot(){ bootGlobal(); }
   document.addEventListener('shiny:connected', boot);
   ready(boot);
-})();
+})(); 

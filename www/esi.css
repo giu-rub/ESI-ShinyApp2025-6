@@ -7,9 +7,9 @@
 
 
 /* --- Global / layout --- */
-body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #FBFCFD;}
+body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;color: #FFF8F1; }
 .section { padding: 0; position: relative; z-index: 1;}
-.section + .section { border-top: 1px solid #FBFCFD; background: #FBFCFD;  }
+.section + .section { border-top: 1px solid #140A00; background: #140A00;}
 .section h2 { font-weight: 700; text-align: center;}
 .section h3 { font-weight: 700; text-align: center; margin-bottom: 3rem;}
 .sidebar { position: sticky; top: 1rem; }
@@ -22,7 +22,7 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #FBFCFD;}
 
 /* --- Navbar --- */
 .navbar {
-  background-color: rgba(230, 128, 89) !important;
+  background-color: #140A00 !important;
 
   /* Only top & bottom border */
   border-top: 1px solid rgba(230, 128, 89, 0.9);
@@ -40,7 +40,7 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #FBFCFD;}
 
 .navbar-brand {
   font-weight: 700;
-  color: #000000;
+  color: #FFF8F1;
 }
 
 .navbar-logo {
@@ -52,6 +52,35 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #FBFCFD;}
   .navbar-logo {
     height: 28px;
   }
+}
+
+.nav-link { position: relative; }
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #E68059;
+}
+
+.scroll-progress {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  z-index: 1040;
+  pointer-events: none;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #E68059; /* your accent */
+  transform-origin: left center;
 }
 
 /* --- Background video stays behind & non-interactive --- */
@@ -67,7 +96,7 @@ img.download-preview   { width: 100%; max-width: 520px; height: auto; object-fit
 .img-fit-cover   { width: 100%; height: 320px; object-fit: cover; }
 
 /* --- Text / misc --- */
-.disclaimer { font-size: 1rem; color: #000; }
+.disclaimer { font-size: 1rem; color: #FFF8F1; }
 .map-notes li + li { margin-top: 0.5rem; }
 .map-downloads .btn { min-width: 140px; }
 
@@ -97,7 +126,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   object-fit: contain;
 }
 .navbar .nav-link {
-  color: #000;
+  color: #FFF8F1;
   text-decoration: none;
   transition: color 0.2s ease;
   padding: 0 1.5rem !important;
@@ -126,13 +155,13 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem; justify-items: center; align-items: start; padding: 0;
-  background-color: #FBFCFD;
+  background-color: #140A00;
 }
 
 /* Card styling */
 .download-card {
   position: relative; display: flex; flex-direction: column; align-items: center;
-  text-decoration: none; color: inherit; background-color: #fff;
+  text-decoration: none; color: inherit; background-color: #140A00;
   border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden; width: 100%; max-width: 320px;
@@ -148,7 +177,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 .download-badge { margin: 1rem 0; font-weight: 600; color: #0072ce; text-transform: uppercase; letter-spacing: 0.05em; }
 
 .download-preview { border-radius: 0.75rem; box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
-#downloads-section { background-color: #FBFCFD; }
+#downloads-section { background-color: #140A00; }
 
 .downloads-section {
   padding-top: 4rem;
@@ -163,24 +192,24 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 }
 
       .intro-bg 
-        {background: linear-gradient(135deg, #0b1f2a, #122f3a);
+        {background: #140A00);
         }
 
         .btn-primary {
-          background-color: transparent;
+          background-color: #248352;
           color: #000;
           border: 1px solid #000;
         }
 
         .btn-outline-light {
-          background: transparent;
+          background: #E68059;
           color: #000;
           border: 1px solid #000;
         }
 
         .btn-primary:hover,
         .btn-outline-light:hover {
-          opacity: 0.85;
+          opacity: 0.8;
         }
 
 .esi-btn {
@@ -489,14 +518,8 @@ Transition 1 panel 3 images features
    Transitions & footer 
    ───────────────────────────────────────────────────────────── */
 .transition1-banner {
-  background: linear-gradient(to bottom,#f0f5f7, #FBFCFD);
+  background: #140A00;
   height: 100vh; width: 100%;
-}
-
-.transition1b-banner {
-  background: linear-gradient(to bottom,#f0f5f7,#FBFCFD);
-  height: 10vh;
-  width: 100%;
 }
 
 .transition1c-banner {
@@ -516,36 +539,6 @@ Transition 1 panel 3 images features
 }
 
 
-
-
-/* Transition 2 */
-.transition2-banner {
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  overflow: hidden;
-  z-index: 2;  
-}
-.transition2-banner .background-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 1;          /* video below overlay text, above sticky panes when .under-transition2 is set */
-  pointer-events: none;
-    opacity: 0.90;
-}
-.transition2-overlay {
-  position: relative;
-  z-index: 3;          
-  color: white;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  font-size: clamp(1rem, 2.5vw, 2rem);
-}
 /* --- Transition 3 --- */
 .transition3-banner {
   position: relative;
@@ -556,7 +549,7 @@ Transition 1 panel 3 images features
 
   /* Background & spacing */
   margin-top: 2rem;          /* creates space above */
-  background-color: #FBFCFD;
+  background-color: #140A00;
 }
 
 /* Background video fills container */
@@ -766,7 +759,7 @@ Transition 1 panel 3 images features
 
 /* Footer */
 .footer-section {
-  background-color: rgba(230, 128, 89); color: #000; width: 100%; margin: 0;
+  background-color: #140A00; color: #FFF8F1; width: 100%; margin: 0;
   padding: 40px 0; min-height: 40vh; display: flex; align-items: center;
   justify-content: space-between; gap: 2rem;
 }
@@ -775,9 +768,9 @@ Transition 1 panel 3 images features
 .footer-image { max-width: 80%; height: auto; border-radius: 8px; }
 
 .custom-icon {
-  color: #000 !important; font-size: 26px; transition: color 0.3s ease, transform 0.3s ease;
+  color: #FFF8F1 !important; font-size: 26px; transition: color 0.3s ease, transform 0.3s ease;
 }
-.custom-icon:hover { color: #333; transform: scale(1.2); }
+.custom-icon:hover { color: #E68059; transform: scale(1.2); }
 
 @media (max-width: 768px) {
   .footer-section { flex-direction: column; text-align: center; gap: 1rem; }
