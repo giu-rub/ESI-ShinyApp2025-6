@@ -725,7 +725,7 @@ Transition 1 panel 3 images features
 
 .scene-bg-financial {
   background-image: url("assets/images/financial_risk.png");
-  background-size: 60% auto;      /* ⬅️ half width, proportional height */
+  background-size: 60% auto;
   background-position: center;
   background-repeat: no-repeat;
   background-position: center;

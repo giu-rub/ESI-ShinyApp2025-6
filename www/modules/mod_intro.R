@@ -4,27 +4,20 @@ mod_intro_ui <- function(id) {
   tagList(
     tags$head(
       tags$style(HTML("
-        @media (max-width: 600px) {
-          h1 {
-            white-space: normal !important;
-            font-size: clamp(1.4rem, 5vw, 2rem) !important;
-            line-height: 1.2 !important;
+        @media (max-width: 768px) {
+          .intro-row {
+            flex-direction: column;
+            text-align: center;
+          }
+          .intro-buttons {
+            align-items: center !important;
           }
         }
 
-   .intro-bg {
-  background-attachment: fixed;
-}
-
-        .btn-primary {
-          background-color: transparent;
-          color: #000;
-          border: 1px solid rgba(255,255,255,0.8);
-        }
-
+        .btn-primary,
         .btn-outline-light {
-          background: transparent;
-          color: #000;
+          background-color: transparent;
+          color: #FFF8F1;
           border: 1px solid rgba(255,255,255,0.8);
         }
 
@@ -41,102 +34,118 @@ mod_intro_ui <- function(id) {
         position: relative;
         width: 100vw;
         height: 100vh;
+        overflow: hidden;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         padding: clamp(16px, 4vw, 48px);
-        color: black;
-    
-      
-        
-         background-image: url('assets/images/Glass1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+        color: #FFF8F1;
       ",
       
-      # Content container
+      # Background video
+      tags$video(
+        autoplay = NA,
+        muted = NA,
+        loop = NA,
+        playsinline = NA,
+        preload = "auto",
+        style = "
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+        ",
+        tags$source(
+          src = "assets/images/iceland_intro.mp4",
+          type = "video/mp4"
+        )
+      ),
+      
+      # Optional overlay for readability
       tags$div(
         style = "
-    max-width: 1200px;
-    width: 100%;
-  ",
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.35);
+          z-index: 1;
+        "
+      ),
+      
+      # Foreground content
+      tags$div(
+        style = "
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          max-width: 1200px;
+        ",
         
         tags$div(
+          class = "intro-row",
           style = "
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      width: 100%;
-    ",
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            width: 100%;
+          ",
           
-          # Left: title + subtitle
+          # Left side: title + subtitle
           tags$div(
             style = "
-        flex: 1 1 auto;
-        min-width: 0;
-      ",
+              flex: 1;
+              min-width: 0;
+            ",
             h1(
-              "The Earth System Impact tool",
+              "The Earth System Impact score",
               style = "
-          font-size: clamp(1.8rem, 5vw, 3.5rem);
-          font-weight: 700;
-          line-height: 1.15;
-          margin: 0;
-        "
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                font-weight: 700;
+                line-height: 1.15;
+                margin: 0;
+              "
             ),
             p(
               "Quantifying businesses' impacts on water, land and climate.",
               style = "
-          font-size: clamp(1rem, 2vw, 1.5rem);
-          margin: 12px 0 0 0;
-          max-width: 60ch;
-        "
+                font-size: clamp(1rem, 2vw, 1.5rem);
+                margin: 16px 0 0 0;
+                max-width: 70ch;
+              "
             )
           ),
           
-          # Right: stacked buttons
+          # Right side: stacked buttons
           tags$div(
+            class = "intro-buttons",
             style = "
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    flex: 0 0 auto;
-    align-self: center;
-  ",
+        flex: 0 0 260px;    
+        min-width: 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      ",
             tags$button(
-              "TEST TOOLS",
-              class = "btn-primary intro-btn ",
+              "TOOLBOX",
+              class = "btn-primary intro-btn",
               onclick = "
-    const el = document.querySelector('[data-step=\"esi_toolbox\"]');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    Shiny.setInputValue(
-      'intro-test_tool',
-      true,
-      { priority: 'event' }
-    );
-  "
+                const el = document.querySelector('[data-step=\"esi_toolbox\"]');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                Shiny.setInputValue('intro-test_tool', true, { priority: 'event' });
+              "
             ),
-            
             tags$button(
-              "EXPLORE THE ESI",
+              "THE ESI",
               class = "btn-outline-light intro-btn",
               onclick = "
-    const el = document.querySelector('[data-step=\"esi_tool_intro\"]');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    Shiny.setInputValue(
-      'intro-explore',
-      true,
-      { priority: 'event' }
-    );
-  "
+                const el = document.querySelector('[data-step=\"esi_tool_intro\"]');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                Shiny.setInputValue('intro-explore', true, { priority: 'event' });
+              "
             )
-            
           )
         )
       )
