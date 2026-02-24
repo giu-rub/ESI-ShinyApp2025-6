@@ -100,7 +100,7 @@ mod_transition1_ui <- function(id) {
             tags$h4("Climate, Water and Land"),
             tags$p("three crucial inputs are aggregated into a single metric."),
             tags$img(
-              src = "assets/images/ESI_interactions_5.png",
+              src = "assets/images/interactions-simple.png",
               alt = "interactions-static"
             )
           )

@@ -12,7 +12,7 @@ mod_transition1c_ui <- function(id) {
       
       
       tags$h2(
-        "THE EARTH SYSTEM IMPACT TOOL",
+        "THE ESI",
         style = "
           font-size: clamp(1.6rem, 3vw, 2.4rem);
           font-weight: 600;
