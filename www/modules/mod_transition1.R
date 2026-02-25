@@ -43,9 +43,9 @@ mod_transition1_ui <- function(id) {
           ",
           tags$div(
             class = "transition-card-overlay",
-            tags$h4("Why measuring corporate impacts on the Earth System is important"),
-            tags$p("some sort of text"),
-            tags$img(
+            tags$h2("Why is measuring corporate impacts on the Earth System important?"),
+            tags$p("lorem ipsum"),
+           tags$img(
               src = "assets/images/financial_risk.png",
               alt = "corporate impacts"
             )
@@ -70,11 +70,11 @@ mod_transition1_ui <- function(id) {
           ",
           tags$div(
             class = "transition-card-overlay",
-            tags$h4("Planetary Boundaries"),
+            tags$h2("How is the ESI related to the Planetary Boundaries?"),
             tags$p("the higher the ESI, the closer to the edge of the PB"),
-            tags$img(
-              src = "assets/images/PBs.png",
-              alt = "PBs"
+           tags$img(
+             src = "assets/images/PBs.png",
+             alt = "PBs"
             )
           )
         ),
@@ -97,11 +97,11 @@ mod_transition1_ui <- function(id) {
           ",
           tags$div(
             class = "transition-card-overlay",
-            tags$h4("Climate, Water and Land"),
+            tags$h2("How does the ESI consider Climate, Water and Land interactions?"),
             tags$p("three crucial inputs are aggregated into a single metric."),
             tags$img(
-              src = "assets/images/interactions-simple.png",
-              alt = "interactions-static"
+             src = "assets/images/interactions-simple.png",
+             alt = "interactions-static"
             )
           )
         )

@@ -48,6 +48,8 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;c
   width: auto;
 }
 
+
+
 @media (max-width: 575.98px) {
   .navbar-logo {
     height: 28px;
@@ -330,8 +332,6 @@ Transition 1 panel 3 images features
    Scrollytelling layout
    ───────────────────────────────────────────────────────────── */
 
-
-
 /* Make intro step easier to “hit” */
 .story-step[data-step="intro"] {
   min-height: 130vh;
@@ -439,12 +439,7 @@ Transition 1 panel 3 images features
   .story-step { min-height: 40vh; }
 }
 
-/*.esi-section-thirdpane {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}*/
+
 /* ─────────────────────────────────────────────────────────────
    Background color of panes
    ───────────────────────────────────────────────────────────── */
@@ -456,7 +451,6 @@ Transition 1 panel 3 images features
   background: none;
 }
 
-/* Full-width translucent background color (rgb 188, 138, 95) */
 .storymap-root[data-ns*="storymap"]::before {
   content: "";
   position: absolute;
@@ -465,7 +459,7 @@ Transition 1 panel 3 images features
   width: 100vw;              
   height: 100%;
   transform: translateX(-50%);
-  background-color: rgb(251, 252, 253);
+  background-color: #140A00;
   z-index: -1;                
   pointer-events: none;
 }
@@ -502,7 +496,7 @@ Transition 1 panel 3 images features
   width: 100vw;               
   height: 100%;
   transform: translateX(-50%);
-  background-color: rgb(251, 252, 253);
+  background-color: #140A00;
   z-index: -1;               
   pointer-events: none;
 }
@@ -527,7 +521,7 @@ Transition 1 panel 3 images features
   width: 100%;
   min-height:15vh;
   border-top: 1px solid rgba(230, 128, 89, 0.9);
-  border-bottom: 1px solid rgba(230, 128, 89, 0.9);
+  border-bottom: transparent;
   border-left: none;
   border-right: none;
 
@@ -576,13 +570,6 @@ Transition 1 panel 3 images features
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
   font-size: clamp(1rem, 2.5vw, 2rem);
 }
-
-/* Optional: if you ever hide pane 3 behind transition3 
-.sticky-pane[data-pane="3"].under-transition3 {
-  opacity: 0;
-  visibility: hidden;
-  z-index: 0;
-  pointer-events: no*/
 
 /* baseline */
 .sticky-pane {
@@ -795,3 +782,75 @@ Transition 1 panel 3 images features
 .footer-middle button {
   width: 100%;
 }
+
+
+
+/* ─────────────────────────────────────────────────────────────
+   Storymap 3 add-ons
+   ───────────────────────────────────────────────────────────── */
+
+.storymap3 .storymap-wrap{
+  display: grid !important;
+  grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+  gap: clamp(16px, 4vw, 56px);
+  align-items: start;
+  position: relative;
+}
+
+/* Left column always above */
+.storymap3 .story-column{
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: none !important;
+}
+
+/* Right pane becomes a REAL column (not a background layer) */
+.storymap3 .sticky-pane{
+  position: sticky !important;
+  inset: auto !important;            /* kills your global inset:0 */
+  top: 90px !important;              /* set to your navbar height */
+  height: calc(100vh - 90px) !important;
+  overflow: hidden !important;
+
+  opacity: 1 !important;             /* kills global fade */
+  pointer-events: auto !important;   /* kills global disable */
+  transition: none !important;
+
+  z-index: 3 !important;             /* ensure it never goes behind */
+  background: transparent;           /* set to #140A00 if you want solid */
+}
+
+/* Remove the global "push-right-with-padding-left" hack */
+.storymap3 .scene-frame{
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Don't apply the global huge margin */
+.storymap3 .scene-frame > *{
+  margin: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+
+.storymap3 .story-step{
+  min-height: 70vh;   /* try 60–90vh */
+}
+.storymap3 .story-step.on-ramp,
+.storymap3 .story-step.off-ramp{
+  min-height: 15vh;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 992px){
+  .storymap3 .storymap-wrap{ grid-template-columns: 1fr !important; }
+  .storymap3 .sticky-pane{
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+

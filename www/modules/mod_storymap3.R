@@ -2,7 +2,7 @@ mod_storymap3_ui <- function(id) {
   ns <- NS(id)
   tagList(
     div(
-      class = "storymap-root",
+      class = "storymap-root storymap3",
       id = ns("root"),
       `data-ns` = ns(""),
       `data-start-scroll` = "200",
@@ -29,8 +29,8 @@ mod_storymap3_ui <- function(id) {
             class = "story-step",
             `data-step` = "esi_intro_thirdpane",
             `data-pane` = "3",
-            `data-activate-frac` = "0.1",
-            `data-activate-anchor` = "top",
+            `data-activate-frac` = "0.35",
+            `data-activate-anchor` = "center",
             div(
               class = "esi-section-thirdpane",
               h2("What does the ESI do?"),
@@ -52,7 +52,7 @@ mod_storymap3_ui <- function(id) {
             `data-step` = "esi_interpret",
             `data-pane` = "3",
             `data-activate-frac` = "0.5",
-            `data-activate-anchor` = "top",
+            `data-activate-anchor` = "center",
             div(
               class = "esi-section",
               h2("Interpreting the ESI"),
@@ -67,8 +67,8 @@ mod_storymap3_ui <- function(id) {
             class = "story-step",
             `data-step` = "esi_interpret2",
             `data-pane` = "3",
-            `data-activate-frac` = "0.9",
-            `data-activate-anchor` = "top",
+            `data-activate-frac` = "0.5",
+            `data-activate-anchor` = "center",
             div(
               class = "esi-section2",
               p("The ESI score allows decision-makers to compare the (Earth System) impact of different investments. This could be done to decide in which kinds of projects to invest in, or to identify 
