@@ -22,20 +22,33 @@ mod_storymap_ui <- function(id) {
           text-align: center;
           display: flex;
           flex-direction: column;
-          gap: 40px;
+          gap: 70px;
         ",
         
         # ---- TEXT BLOCK ----
         div(
-          h2("Financial Risk in the Earth System"),
-          p("Corporations are responsible for a significant portion of impacts on the Earth system, including greenhouse gas emissions, water extraction, land use and other pressures on Nature."),
-          p("These increasing pressures contribute to exacerbating climate and nature-related financial risks. Yet, the tools used in business and finance to capture environmental impact are too often reduced to flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible."),
-          p("The ESI is a metric of environmental impact that addresses this gap by going beyond simple measures of carbon dioxide emissions and accounting for more of the complexity of the Earth System.")
+          style = "
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+          ",
+          
+          div(
+            style = "
+              text-align: justify;
+              text-justify: inter-word;
+              hyphens: auto;
+            ",
+            h2("Financial Risk in the Earth System"),
+            p("Corporations are responsible for a significant portion of impacts on the Earth system, including greenhouse gas emissions, water extraction, land use and other pressures on Nature."),
+            p("These increasing pressures contribute to exacerbating climate and nature-related financial risks. Yet, the tools used in business and finance to capture environmental impact are too often reduced to flawed ESG ratings or a single focus on carbon, leaving other important environmental dimensions invisible."),
+            p("The ESI is a metric of environmental impact that addresses this gap by going beyond simple measures of carbon dioxide emissions and accounting for more of the complexity of the Earth System.")
+          )
         ),
         
         # ---- IMAGE BELOW ----
         tags$img(
-          src = "assets/images/financial_risk.png",  # <-- adjust to your image path
+          src = "assets/images/financial_risk.png",
           style = "
             width: 100%;
             max-width: 700px;

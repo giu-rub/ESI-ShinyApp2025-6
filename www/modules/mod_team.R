@@ -105,12 +105,12 @@ mod_team_ui <- function(id) {
             
             tags$img(
               src = "assets/images/kendra-gonzales.jpg",
-              alt = "Kendra Gonzales"
+              alt = "C. Kendra Gotangco Gonzales"
             ),
             
             div(
               class = "team-grid-member-info color-white",
-              p(class = "name", "Kendra Gonzales"),
+              p(class = "name", "C. Kendra Gotangco Gonzales"),
               p(class = "title", "Researcher")
             )
           ),
@@ -135,16 +135,16 @@ mod_team_ui <- function(id) {
           # Member 8
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://fennerschool.anu.edu.au/people/aryanie-amellina",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Aryanie-Amellina.jpg",
               alt = "Aryanie Amellina"
             ),
             
             div(
               class = "team-grid-member-info color-white",
-              p(class = "name", "Aryanie Amellina"),
+              p(class = "name", "Aryanie-Amellina"),
               p(class = "title", "Researcher")
             )
           ),
@@ -152,58 +152,58 @@ mod_team_ui <- function(id) {
           # Member 9
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://www.stockholmresilience.org/meet-our-team/staff/2024-05-13-zoller.html",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Hannah-Zoller.jpg",
               alt = "Hannah Zoller"
             ),
             
             div(
               class = "team-grid-member-info color-white",
               p(class = "name", "Hannah Zoller"),
-              p(class = "title", "Postdoc researcher")
+              p(class = "title", "Postdoctoral Researcher")
             )
           ),
           # Member 10
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://www.stockholmresilience.org/meet-our-team/staff/2011-08-25-rocha.html",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Juan-Rocha.jpg",
               alt = "Juan Carlos Rocha Gordo"
             ),
             
             div(
               class = "team-grid-member-info color-white",
               p(class = "name", "Juan Carlos Rocha Gordo"),
-              p(class = "title", "Researcher")
+              p(class = "title", "Senior Researcher")
             )
           ),
           # Member 11
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://www.stockholmresilience.org/meet-our-team/staff/2013-10-23-wang-erlandsson.html",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Lan-Wang.jpg",
               alt = "Lan Wang Erlandsson"
             ),
             
             div(
               class = "team-grid-member-info color-white",
               p(class = "name", "Lan Wang Erlandsson"),
-              p(class = "title", "Researcher")
+              p(class = "title", "Senior Researcher")
             )
           ),
           # Member 12
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://research.unsw.edu.au/people/dr-tanya-fiedler",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Tanya-Fiedler.jpg",
               alt = "Tanya Fiedler"
             ),
             
@@ -216,10 +216,10 @@ mod_team_ui <- function(id) {
           # Member 13
           tags$a(
             class = "team-grid-member parallaxit",
-            href = "INSERT HERE",
+            href = "https://www.stockholmresilience.org/meet-our-team/staff/2025-06-09-vu.html",
             
             tags$img(
-              src = "assets/images/INSERT HERE.jpg",
+              src = "assets/images/Jeanne-Vu.jpg",
               alt = "Jeanne Vu"
             ),
             

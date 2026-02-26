@@ -147,12 +147,13 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   display: flex; align-items: center; justify-content: center;
 }
 
+/*
 .download-preview {
   max-width: 500px; width: 100%; height: auto;
   border-radius: 0.75rem; box-shadow: 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Grid layout for download items */
+
 .download-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -160,7 +161,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
   background-color: #140A00;
 }
 
-/* Card styling */
+
 .download-card {
   position: relative; display: flex; flex-direction: column; align-items: center;
   text-decoration: none; color: inherit; background-color: #140A00;
@@ -184,8 +185,125 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 .downloads-section {
   padding-top: 4rem;
   padding-bottom: 4rem;
+} */
+
+
+/* ===== RESOURCES: vertical horizontal-preview list ===== */
+
+#downloads-section { background-color: #140A00; }
+
+.downloads-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
+/* Stack vertically */
+.download-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  background-color: #140A00;
+}
+
+/* Whole row is a link */
+.resource-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  width: 100%;
+  text-decoration: none;
+  color: #FFF8F1;
+
+  background: rgba(255, 248, 241, 0.06);
+  border: 1px solid rgba(255, 248, 241, 0.18);
+  border-radius: 16px;
+
+  padding: 16px 18px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.resource-card:hover,
+.resource-card:focus {
+  transform: translateY(-2px);
+  background: rgba(255, 248, 241, 0.09);
+  border-color: rgba(230, 128, 89, 0.7);
+  outline: none;
+}
+
+/* Left text block */
+.resource-card__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.resource-card__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: #FFF8F1;
+}
+
+.resource-card__desc {
+  margin: 6px 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: rgba(255, 248, 241, 0.82);
+}
+
+/* Optional small tag */
+.resource-card__tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 241, 0.65);
+}
+
+/* Right icon */
+.resource-card__icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 248, 241, 0.10);
+  border: 1px solid rgba(255, 248, 241, 0.18);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.resource-card:hover .resource-card__icon {
+  background: rgba(230, 128, 89, 0.7);
+  transform: translateX(2px);
+}
+
+/* The arrow glyph */
+.resource-card__icon span {
+  font-size: 20px;
+  line-height: 1;
+  color: #FFF8F1;
+}
+
+
+
+/* Mobile comfort */
+@media (max-width: 575.98px) {
+  .resource-card {
+    padding: 14px 14px;
+  }
+  .resource-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
 .intro-btn {
   font-size: 1.8rem;
   padding: 14px 28px;
@@ -513,7 +631,7 @@ Transition 1 panel 3 images features
    ───────────────────────────────────────────────────────────── */
 .transition1-banner {
   background: #140A00;
-  height: 70vh; width: 100%;
+  height: 100vh; width: 100%;
 }
 
 .transition1c-banner {
