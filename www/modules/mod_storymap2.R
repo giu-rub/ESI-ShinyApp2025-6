@@ -40,11 +40,12 @@ mod_storymap2_ui <- function(id) {
               text-justify: inter-word;
               hyphens: auto;
             ",
-            h2("Planetary Boundaries", style = "text-align: center; margin: 0 0 1.25rem 0;"),
-            p("The Planetary Boundaries framework is a useful starting point to better grasp the complexity of how human pressures affect the Earth System."),
-            p("The Planetary Boundary framework sets ‘safe’ global limits across 9 key Earth System processes. Beyond these limits, the Earth may not be able to continue to self-regulate, and leave the period of stability of the Holocene, in which human society developed."),
-            p("Transgressing one or more planetary boundaries can increase the risk of triggering non-linear, abrupt and potentially irreversible environmental change, setting in motion self-reinforcing feedbacks that amplify each other and push the Earth towards increasingly warmer temperatures.")
-          ),
+            h2("ESI and a 'safe operating space'", style = "text-align: center; margin: 0 0 1.25rem 0;"),
+            p("The Planetary Boundary framework defines a scientific safe operating space for humanity by setting limits on nine critical Earth-system processes.
+Transgressing these limits increases the risk of triggering non-linear and potentially irreversible environmental change. This, in turn, risks affecting the Earth’s capacity to maintain stable conditions for human society to prosper and develop.
+The ESI captures impacts in relation to three Planetary Boundaries: climate change, land-system change, and freshwater change (blue water). This allows companies and investors to assess the planetary-scale impact of local economic activities across these three key dimensions.
+"),
+),
           
           tags$img(
             src = "assets/images/PBs.png",
@@ -73,20 +74,13 @@ mod_storymap2_ui <- function(id) {
               text-justify: inter-word;
               hyphens: auto;
             ",
-            h2("Climate, land and water: interconnected", style = "text-align: center; margin: 0 0 1.25rem 0;"),
-            p("But these boundaries are not isolated in siloes. They interact with each other and can amplify the effect of human impacts on the Earth System."),
-            p("For example, changes in climate and CO2 concentrations:"),
-            tags$ul(
-              style = "text-align: left; max-width: 65ch; margin: 0 auto;",
-              tags$li("impact the water cycle by affecting rainfall distributions"),
-              tags$li("affect vegetation through temperature and rainfall changes")
-            ),
-            p("Land degradation:"),
-            tags$ul(
-              style = "text-align: left; max-width: 65ch; margin: 0 auto;",
-              tags$li("impact the climate, through release of greenhouse gases"),
-              tags$li("affects water runoff, through changing soil penetration")
-            )
+            h2("Accounting for Earth System Interactions", style = "text-align: center; margin: 0 0 1.25rem 0;"),
+            p("Many planetary boundaries are interconnected and impacts on one can often affect others.
+
+For example, atmospheric CO2 concentrations and a changing climate influence temperature, which in turn affects water cycles, rainfall patterns and vegetation growth globally. 
+Land degradation on the other hand, affects the climate through vegetation that releases or stores carbon, and by altering the capacity of the soil to absorb and retain water
+The ESI accounts for four key interactions between climate, vegetation and fresh water.
+"),
           ),
           
           tags$img(

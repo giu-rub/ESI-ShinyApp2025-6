@@ -1,8 +1,9 @@
 mod_storymap4_ui <- function(id) {
   ns <- NS(id)
+  
   tagList(
     div(
-      class = "storymap-root",
+      class = "storymap-root storymap4",
       id = ns("root"),
       `data-ns` = ns(""),
       `data-start-scroll` = "200",
@@ -29,10 +30,10 @@ mod_storymap4_ui <- function(id) {
             class = "story-step",
             `data-step` = "esi_intro_fourthpane",
             `data-pane` = "4",
-            `data-activate-frac` = "0.1",
-            `data-activate-anchor` = "top",
+            `data-activate-frac` = "0.35",
+            `data-activate-anchor` = "center",
             div(
-              class = "esi-section-thirdpane",
+              class = "esi-section-fourthpane",
               h2("What is the added value of the ESI?"),
               p("We first tested the ESI on some of the largest mining companies in the world. One clear result was that using GHG emissions to identify the most harmful assets can lead to misleading results. Indeed, we see that the mines with the largest GHG emissions are not necessarily the most harmful ones from an Earth System perspective."),
               p("Indeed, in this figure we see that some of the most impactful mines in our sample look like average emitters, and their impact is driven primarily by land and/or water use.")
@@ -45,12 +46,11 @@ mod_storymap4_ui <- function(id) {
             `data-step` = "esi_interpret",
             `data-pane` = "4",
             `data-activate-frac` = "0.5",
-            `data-activate-anchor` = "top",
+            `data-activate-anchor` = "center",
             div(
               class = "esi-section",
               h2("Engaging with the ESI score"),
-              p("The ESI score can be used in different ways, depending on the purpose of use and the type of stakeholder."),
-              
+              p("The ESI score can be used in different ways, depending on the purpose of use and the type of stakeholder.")
             )
           ),
           
@@ -59,8 +59,8 @@ mod_storymap4_ui <- function(id) {
             class = "story-step",
             `data-step` = "esi_interpret2",
             `data-pane` = "4",
-            `data-activate-frac` = "0.9",
-            `data-activate-anchor` = "top",
+            `data-activate-frac` = "0.5",
+            `data-activate-anchor` = "center",
             div(
               class = "esi-section2",
               h2("Limitations of the ESI"),
@@ -87,18 +87,20 @@ mod_storymap4_ui <- function(id) {
           `data-pane` = "4",
           div(
             class = "scene-frame",
-            uiOutput(ns("scene4"))
+            div(
+              class = "esi-video-section",
+              uiOutput(ns("scene4"))
+            )
           )
         )
       )
     )
   )
 }
-
 mod_storymap4_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     
-    current_step <- reactiveVal(NULL)
+    current_step <- reactiveVal("esi_intro_fourthpane")
     
     observeEvent(input$current_step, ignoreInit = TRUE, {
       current_step(input$current_step)
@@ -111,27 +113,27 @@ mod_storymap4_server <- function(id) {
       switch(
         step,
         
-        # Right pane for STEP 1
+        # STEP 1: IMAGE
         "esi_intro_fourthpane" = div(
-          class = "esi-section-fourthpane",
+          class = "esi-image-section",
           style = "display: flex; justify-content: center; align-items: center; width: 100%;",
           tags$img(
             src = "assets/images/inter3.png",
-            alt = "ESI input types",
-            style = "width: 95%; height: auto; object-fit: contain; max-height: 70vh;"
+            alt = "ESI added value illustration",
+            style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain;"
           )
         ),
         
-   #Right pane for STEP 2
-  
-      "esi_interpret" = div(
-    class = "esi-image-section",
-    p("1. Comparing the total impact of different planned projects, assets, companies, or portfolios while identifying the main drivers contributing to the impact of a given asset/company/portfolio."),
-    p("2. Estimate the impacts of planned production sites or suppliers for sourcing materials (see map below)."),
-    p("3. Augmenting LCA analysis with an Earth System perspective.")
-       ),
+        # STEP 2: TEXT (right pane)
+        "esi_interpret" = div(
+          class = "esi-text-section",
+          style = "max-width: 900px; margin: 0 auto; padding: 1rem;",
+          p("1. Comparing the total impact of different planned projects, assets, companies, or portfolios while identifying the main drivers contributing to the impact of a given asset/company/portfolio."),
+          p("2. Estimate the impacts of planned production sites or suppliers for sourcing materials (see map below)."),
+          p("3. Augmenting LCA analysis with an Earth System perspective.")
+        ),
         
-        # Right pane for STEP 3
+        # STEP 3: TEXT
         "esi_interpret2" = div(
           class = "esi-text-section",
           style = "max-width: 900px; margin: 0 auto; padding: 1rem;",
@@ -144,4 +146,3 @@ mod_storymap4_server <- function(id) {
     })
   })
 }
-

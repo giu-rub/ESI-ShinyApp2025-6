@@ -68,6 +68,32 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;c
   background: #E68059;
 }
 
+.navbar-toolbox-btn{
+  border: 1px solid #248352;
+  color: #FFF8F1;
+  font-weight: 600;
+  padding: 6px 16px;
+  transition: all 0.2s ease;
+}
+
+.navbar-toolbox-btn:hover{
+  background-color: #248352;
+  color: #140A00;
+  border-color: #000;
+}
+
+.navbar-toolbox-btn::after {
+  content: " ↗";
+  margin-left: 6px;
+  font-size: 0.9em;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.navbar-toolbox-btn:hover::after {
+  transform: translateX(2px);
+}
+
 .scroll-progress {
   position: fixed;
   left: 0;
@@ -661,7 +687,7 @@ Transition 1 panel 3 images features
 .transition3-banner {
   position: relative;
   width: 100%;
-  height: 20vh;
+ /* height: 20vh;*/
   overflow: hidden;
   z-index: 2; 
 
@@ -774,13 +800,27 @@ Transition 1 panel 3 images features
   }
 }
 
+/* Tutorial video*/
+.video-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
 
-
+.responsive-video{
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
 
 
 .team-grid-wrapper{
   display: grid !important;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 36px;
   width: 100%;
   margin: 0;
@@ -976,4 +1016,70 @@ team-grid-member:hover{
   }
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Storymap 4 add-ons (match Storymap 3 layout)
+   ───────────────────────────────────────────────────────────── */
 
+.storymap4 .storymap-wrap{
+  display: grid !important;
+  grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+  gap: clamp(16px, 4vw, 56px);
+  align-items: start;
+  position: relative;
+}
+
+/* Left column always above */
+.storymap4 .story-column{
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: none !important;
+}
+
+/* Right pane becomes a REAL column (not a background layer) */
+.storymap4 .sticky-pane{
+  position: sticky !important;
+  inset: auto !important;            /* kills your global inset:0 */
+  top: 90px !important;              /* set to your navbar height */
+  height: calc(100vh - 90px) !important;
+  overflow: hidden !important;
+
+  opacity: 1 !important;             /* kills global fade */
+  pointer-events: auto !important;   /* kills global disable */
+  transition: none !important;
+
+  z-index: 3 !important;             /* ensure it never goes behind */
+  background: transparent;           /* set to #140A00 if you want solid */
+}
+
+/* Remove the global "push-right-with-padding-left" hack */
+.storymap4 .scene-frame{
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Don't apply the global huge margin */
+.storymap4 .scene-frame > *{
+  margin: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.storymap4 .story-step{
+  min-height: 70vh;   /* try 60–90vh */
+}
+.storymap4 .story-step.on-ramp,
+.storymap4 .story-step.off-ramp{
+  min-height: 15vh;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 992px){
+  .storymap4 .storymap-wrap{ grid-template-columns: 1fr !important; }
+  .storymap4 .sticky-pane{
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

@@ -1,10 +1,30 @@
 .showcase_body_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    h3(
-      "Measure the impact of your assets on water, climate and land",
-      style = "color: black; text-align: center; margin-bottom: 1rem;"
+    #
+    
+    div(
+      class = "video-wrapper",
+      
+      tags$video(
+        autoplay = TRUE,
+        muted = TRUE,
+        loop = TRUE,
+        playsinline = TRUE,
+        class = "responsive-video",
+        
+        tags$source(
+          src = "assets/images/showcase_tablet_tutorial.mp4",
+          type = "video/mp4"
+        )
+      )
     ),
+    
+    h3(
+       "Measure the impact of your assets on water, climate and land",
+      style = "color: #FFF8F1; text-align: center; margin-bottom: 1rem;"
+      ),
+    
     div(
       id = "showcase-content",
       style = "padding-bottom: 4rem; padding-top:1rem; background-color: #E68059;", 

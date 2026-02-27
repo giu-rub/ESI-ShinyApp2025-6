@@ -45,10 +45,54 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC ANCHORS</a></li>
-        <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li>
+       <!-- <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li> -->
+       <li class="nav-item dropdown">
+  <a 
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="esiDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    THE ESI
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="esiDropdown">
+    <li>
+      <a class="dropdown-item" href="#storymap3-root">
+        What does the ESI do?
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#storymap4-root">
+        What is the added value of the ESI?
+      </a>
+    </li>
+    <!-- <li>
+      <a class="dropdown-item" href="#storymap3-section">
+        How the ESI Works
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#storymap4-section">
+        Added Value & Limits
+      </a>
+    </li> -->
+  </ul>
+</li>
         <li class="nav-item"><a class="nav-link" href="#downloads-section">RESOURCES</a></li>
         <li class="nav-item"><a class="nav-link" href="#team-section">THE TEAM</a></li>
-        <li class="nav-item"><a class="nav-link" href="#transition3-section">ONLINE TOOLBOX</a></li>
+       <li class="nav-item ms-lg-3">
+  <a 
+    class="btn navbar-toolbox-btn"
+    href="/#transition3-section"
+    target="_blank"
+    rel="noopener"
+  >
+    TOOLBOX
+  </a>
+</li>
       </ul>
     </div>
   </div>
@@ -129,6 +173,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   </div>
 </section>
 
+<br><br><br><br><br><br>
   
     <!-- Downloads module -->
   <section id="downloads-section" class="section">
@@ -137,7 +182,8 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   </div>
    </section>
    
-   <br><br><br>
+   <br><br><br><br><br><br>
+   
    
     <!-- Team module -->
   <section id="team-section" class="section">
@@ -146,7 +192,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   </div>
    </section>
    
-   <br><br><br>
+<br><br><br><br><br><br><br>
 
 <section id="footer-section" class="section">
   <div class="container-fluid px-0 py-0">
