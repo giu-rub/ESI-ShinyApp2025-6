@@ -26,6 +26,7 @@ mod_storymap3_ui <- function(id) {
           
           # STEP 1: ESI intro
           div(
+            id = "storymap3-block-esi",
             class = "story-step",
             `data-step` = "esi_intro_thirdpane",
             `data-pane` = "3",
@@ -48,6 +49,7 @@ mod_storymap3_ui <- function(id) {
           
           # STEP 2: Interpreting ESI pt1
           div(
+            id = "storymap3-block-inter1",
             class = "story-step",
             `data-step` = "esi_interpret",
             `data-pane` = "3",
@@ -64,6 +66,7 @@ mod_storymap3_ui <- function(id) {
           
           # STEP 3: Interpreting ESI. pt2
           div(
+            id = "storymap3-block-inter2",
             class = "story-step",
             `data-step` = "esi_interpret2",
             `data-pane` = "3",

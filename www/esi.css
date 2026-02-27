@@ -94,6 +94,37 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;c
   transform: translateX(2px);
 }
 
+.navbar .dropdown-menu {
+  background-color: #248352 !important;
+  border: none !important;
+}
+
+/* Items: dark text for contrast */
+.navbar .dropdown-menu .dropdown-item {
+  color: #FFF8F1 !important;
+  font-weight: 600 !important;
+}
+
+/* Hover: faded orange */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background-color: rgba(230, 128, 89, 0.6) !important;
+  color: #140A00 !important;
+}
+
+/* Optional: remove Bootstrap's active blue */
+.navbar .dropdown-menu .dropdown-item.active,
+.navbar .dropdown-menu .dropdown-item:active {
+  background-color: rgba(230, 128, 89, 0.75) !important;
+  color: #140A00 !important;
+}
+
+@media (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;   /* prevents jump */
+  }
+}
 .scroll-progress {
   position: fixed;
   left: 0;

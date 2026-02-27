@@ -27,6 +27,7 @@ mod_storymap4_ui <- function(id) {
           
           # STEP 1
           div(
+            id = "storymap4-block-value",
             class = "story-step",
             `data-step` = "esi_intro_fourthpane",
             `data-pane` = "4",
@@ -42,6 +43,7 @@ mod_storymap4_ui <- function(id) {
           
           # STEP 2
           div(
+            id = "storymap4-block-engage",
             class = "story-step",
             `data-step` = "esi_interpret",
             `data-pane` = "4",
@@ -56,6 +58,7 @@ mod_storymap4_ui <- function(id) {
           
           # STEP 3
           div(
+            id = "storymap4-block-limit",
             class = "story-step",
             `data-step` = "esi_interpret2",
             `data-pane` = "4",

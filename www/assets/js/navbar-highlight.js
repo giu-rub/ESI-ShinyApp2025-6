@@ -6,13 +6,16 @@
 
   function initNavHighlight() {
     const navbar = document.querySelector(".navbar.fixed-top");
-    const links = Array.from(document.querySelectorAll(".navbar .nav-link"))
-      .filter(a => (a.getAttribute("href") || "").startsWith("#"));
+
+    // Include BOTH top-level nav links and dropdown items that point to #ids
+    const links = Array.from(
+      document.querySelectorAll(".navbar a.nav-link, .navbar .dropdown-menu a.dropdown-item")
+    ).filter(a => (a.getAttribute("href") || "").startsWith("#"));
 
     if (!links.length) return;
 
-    // Build targets from navbar links (id + element + link)
-    let targets = links
+    // Build targets from links -> { id, el, link }
+    const targets = links
       .map(a => {
         const hash = a.getAttribute("href");
         const id = hash.slice(1);
@@ -24,12 +27,19 @@
     if (!targets.length) return;
 
     function setActive(id) {
+      // Clear all active states first
       targets.forEach(t => t.link.classList.toggle("active", t.id === id));
+
+      // NEW: bubble active state up to dropdown toggles
+      document.querySelectorAll(".navbar .dropdown").forEach(drop => {
+        const toggle = drop.querySelector(".nav-link.dropdown-toggle");
+        const anyActiveItem = drop.querySelector(".dropdown-menu .dropdown-item.active");
+        if (toggle) toggle.classList.toggle("active", !!anyActiveItem);
+      });
     }
 
     function computeOffsetsSorted() {
-      // Sort by actual position on page, NOT navbar order
-      const sorted = targets
+      return targets
         .map(t => ({
           id: t.id,
           link: t.link,
@@ -37,8 +47,6 @@
           bottom: t.el.offsetTop + t.el.offsetHeight
         }))
         .sort((a, b) => a.top - b.top);
-
-      return sorted;
     }
 
     let offsets = computeOffsetsSorted();
@@ -52,14 +60,12 @@
       const navH = navbar ? navbar.offsetHeight : 0;
       const y = window.scrollY + navH + 1;
 
-      // Default to first visible section
       let current = offsets[0].id;
 
       for (let i = 0; i < offsets.length; i++) {
         const cur = offsets[i];
         const next = offsets[i + 1];
 
-        // Keep active until the next section (by page order) begins
         const start = cur.top;
         const end = next ? next.top : cur.bottom;
 
@@ -76,7 +82,6 @@
     window.addEventListener("resize", refresh);
     window.addEventListener("load", refresh);
 
-    // Shiny content can change heights after load; refresh a couple times
     setTimeout(refresh, 250);
     setTimeout(refresh, 1000);
 
