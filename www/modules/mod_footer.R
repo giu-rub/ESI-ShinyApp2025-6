@@ -1,5 +1,3 @@
-# ---- footer_module.R ----
-
 mod_footer_ui <- function(id) {
   ns <- NS(id)
   
@@ -75,14 +73,14 @@ mod_footer_ui <- function(id) {
    
    
     # ---- Right side (image) ----
-    tags$div(
+   tags$div(
       class = "footer-right",
-      tags$img(
-        src = "assets/images/esi-logo-new-dark.png",
-      alt = "ESI Logo",
-        class = "footer-image"
-      )
+       tags$img(
+         src = "assets/images/esi-logo-new-dark.png",
+           alt = "ESI Logo",
+            class = "footer-image"
     )
+   )
   )
 }
 

@@ -1,10 +1,8 @@
-<script>
-document.addEventListener("mousemove", function (e) {
+function initTeamParallax() {
   document.querySelectorAll(".parallaxit").forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
-    card.style.transform = `translate(${x}px, ${y}px)`;
+    card.style.transform = "none";   // remove any inline translate
   });
-});
-</script>
+}
+
+document.addEventListener("DOMContentLoaded", initTeamParallax);
+document.addEventListener("shiny:connected", initTeamParallax);

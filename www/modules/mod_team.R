@@ -4,11 +4,10 @@ mod_team_ui <- function(id) {
   tagList(
     div(
       class = "team-section",
-      
       h2("THE TEAM BEHIND ESI"),
       
-      div(
-        class = "team-flex team-grid",
+     div(
+       class = "team-flex team-grid",
         
         div(
           class = "team-grid-wrapper",
@@ -230,7 +229,7 @@ mod_team_ui <- function(id) {
             )
           )
         )
-      )
+     )
     )
   )
 }
