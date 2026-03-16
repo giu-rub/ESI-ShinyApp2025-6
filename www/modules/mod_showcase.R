@@ -87,12 +87,12 @@
   )
 }
 
-# ---------- (Optional) If you ever use a bslib navset, this returns a nav_panel wrapper ----------
+# ---------- (Optional) If we ever use a bslib navset, this returns a nav_panel wrapper ----------
 showcase_panel_ui <- function(id) {
   bslib::nav_panel("Showcase", .showcase_body_ui(id))
 }
 
-# ---------- Your app’s module API (keeps names used in app.R) ----------
+# ---------- app’s module API (keeps names used in app.R) ----------
 mod_showcase_ui <- function(id) {
   .showcase_body_ui(id)
 }

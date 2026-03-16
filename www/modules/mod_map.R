@@ -1,7 +1,7 @@
 mod_map_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    h3("Visualise your impacts on water, climate and land across the Earth System"),
+ #   h3("Visualise your impacts on water, climate and land across the Earth System"),
       div(
         style = "padding-top: 2rem; padding-bottom: 4rem; background-color: #E68059;", 
         

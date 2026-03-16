@@ -32,8 +32,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 
 
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-lg px-3 px-md-5">
     <a class="navbar-brand" href="#intro-section">
       <img src="assets/images/esi-logo-new-dark.png" alt="ESI Logo" height="90" class="d-inline-block align-top">
@@ -91,17 +90,26 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </li> 
   </ul>
 </li>
-        <li class="nav-item"><a class="nav-link" href="#downloads-section">RESOURCES</a></li>
-        <li class="nav-item"><a class="nav-link" href="#team-section">THE TEAM</a></li>
-       <li class="nav-item ms-lg-3">
-  <a 
-    class="btn navbar-toolbox-btn"
-    href="/#transition3-section"
-    target="_blank"
-    rel="noopener"
-  >
-    TOOLBOX
+      <!--  <li class="nav-item"><a class="nav-link" href="#downloads-section">RESOURCES</a></li> -->
+      <li class="nav-item">
+  <a class="nav-link" href="/?page=resources" target="_blank" rel="noopener">
+    RESOURCES
   </a>
+</li>
+  <li class="nav-item">
+  <a class="nav-link" href="?page=team" target="_blank" rel="noopener">
+    THE TEAM
+  </a>
+  </li>
+  <li class="nav-item ms-lg-3">
+<a 
+  class="btn navbar-toolbox-btn"
+  href="?page=toolbox"
+  target="_blank"
+  rel="noopener"
+>
+  TOOLBOX
+</a>
 </li>
       </ul>
     </div>
@@ -145,7 +153,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   <div class="transition1c-container">
     {{ transition1c_ui }}
   </div>
-</section
+</section>
 
  <!-- storymap3 -->
   <section id="storymap3-section" class="section">
@@ -161,48 +169,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </div>
   </section> 
   
-  
-<!-- Transition3 -->
-<section id="transition3-section" class="transition3-banner">
-  <div class="transition3-container">
-    {{ transition3_ui }}
-  </div>
-</section>
 
-<!-- Showcase / Table module -->
-  <section id="showcase-section" class="section">
-    <div class="container-lg px-3 px-md-5">
-      {{ showcase_ui }}
-    </div>
-  </section>
-   <br><br><br><br>
-<!-- Map module -->
-<section id="map-section" class="section">
-  <div class="container-lg px-3 px-md-5">
-    {{ map_ui }}
-  </div>
-</section>
-
-<br><br><br><br><br><br>
-  
-    <!-- Downloads module -->
-  <section id="downloads-section" class="section">
-  <div class="container-fluid px-3 px-md-5">
-    {{ downloads_ui }}
-  </div>
-   </section>
-   
-   <br><br><br><br><br><br>
-   
-   
-    <!-- Team module -->
-  <section id="team-section" class="section">
-  <div class="container-fluid px-3 px-md-5">
-    {{ team_ui }}
-  </div>
-   </section>
-   
-<br><br><br><br><br><br><br>
 
 <section id="footer-section" class="section">
   <div class="container-fluid px-0 py-0">
