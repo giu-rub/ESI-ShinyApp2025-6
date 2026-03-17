@@ -62,6 +62,147 @@ theme <- bs_theme(
   primary      = "#E68059"
 )
 
+# ---- SHARED NAVBAR ----
+app_navbar <- function(active = "") {
+  nav_link_class <- function(key) {
+    paste("nav-link", if (identical(active, key)) "active" else "")
+  }
+  
+  tags$nav(
+    class = "navbar navbar-expand-lg navbar-dark bg-primary fixed-top",
+    div(
+      class = "container-lg px-3 px-md-5",
+      
+      tags$a(
+        class = "navbar-brand",
+        href = "/#intro-section",
+        tags$img(
+          src = "assets/images/esi-logo-new-dark.png",
+          alt = "ESI Logo",
+          height = "90",
+          class = "d-inline-block align-top"
+        )
+      ),
+      
+      tags$button(
+        class = "navbar-toggler",
+        type = "button",
+        `data-bs-toggle` = "collapse",
+        `data-bs-target` = "#topnav",
+        `aria-controls` = "topnav",
+        `aria-expanded` = "false",
+        `aria-label` = "Toggle navigation",
+        tags$span(class = "navbar-toggler-icon")
+      ),
+      
+      div(
+        id = "topnav",
+        class = "collapse navbar-collapse",
+        
+        tags$ul(
+          class = "navbar-nav me-auto mb-2 mb-lg-0",
+          
+          tags$li(
+            class = "nav-item",
+            tags$a(
+              class = nav_link_class("anchors"),
+              href = "/#transition1-section",
+              "SCIENTIFIC ANCHORS"
+            )
+          ),
+          
+          tags$li(
+            class = "nav-item dropdown",
+            tags$a(
+              class = paste("nav-link dropdown-toggle", if (identical(active, "esi")) "active" else ""),
+              href = "#",
+              id = "esiDropdown",
+              role = "button",
+              `data-bs-toggle` = "dropdown",
+              `aria-expanded` = "false",
+              "THE ESI"
+            ),
+            tags$ul(
+              class = "dropdown-menu",
+              `aria-labelledby` = "esiDropdown",
+              
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap3-block-esi",
+                  "What does the ESI do?"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap3-block-inter1",
+                  "Interpreting the ESI pt.1"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap3-block-inter2",
+                  "Interpreting the ESI pt.2"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap4-block-value",
+                  "What is the added value of the ESI?"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap4-block-engage",
+                  "Engaging with the ESI score"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap4-block-limit",
+                  "Limitations of the ESI score"
+                )
+              )
+            )
+          ),
+          
+          tags$li(
+            class = "nav-item",
+            tags$a(
+              class = nav_link_class("resources"),
+              href = "?page=resources",
+              "RESOURCES"
+            )
+          ),
+          
+          tags$li(
+            class = "nav-item",
+            tags$a(
+              class = nav_link_class("team"),
+              href = "?page=team",
+              "THE TEAM"
+            )
+          ),
+          
+          tags$li(
+            class = "nav-item ms-lg-3",
+            tags$a(
+              class = if (identical(active, "toolbox")) "btn navbar-toolbox-btn active" else "btn navbar-toolbox-btn",
+              href = "?page=toolbox",
+              "TOOLBOX"
+            )
+          )
+        )
+      )
+    )
+  )
+}
+
 # ---- RASTER FOR MAP MODULE ----
 load_map_raster <- function(path = "data/df_esi_inner(withc_esi).csv") {
   if (!file.exists(path)) {
@@ -144,45 +285,40 @@ r <- load_map_raster("data/df_esi_inner(withc_esi).csv")
 
 # ---- PAGE BUILDERS ----
 landing_page_ui <- function() {
-  htmlTemplate(
-    filename = "www/layout.html",
-    page_title = "ESI prototype tool",
-    head_deps = tagList(bslib::bs_theme_dependencies(theme)),
-    intro_ui        = mod_intro_ui("intro"),
-    #showcase_ui     = mod_showcase_ui("showcase"),
-    #downloads_ui    = mod_downloads_ui("downloads"),
-    #map_ui          = mod_map_ui("map"),
-    disclaimer_ui   = mod_disclaimer_ui("disclaimer"),
-    footer_ui       = mod_footer_ui("footer"),
-    storymap_ui     = mod_storymap_ui("storymap"),
-    storymap2_ui    = mod_storymap2_ui("storymap2"),
-    storymap3_ui    = mod_storymap3_ui("storymap3"),
-    storymap4_ui    = mod_storymap4_ui("storymap4"),
-    transition1_ui  = mod_transition1_ui("transition1"),
-    transition1c_ui = mod_transition1c_ui("transition1c")
-    #transition3_ui  = mod_transition3_ui("transition3"),
-    #team_ui         = mod_team_ui("team")
+  tagList(
+    tags$head(
+      tags$title("ESI prototype tool"),
+      bslib::bs_theme_dependencies(theme),
+      tags$link(rel = "stylesheet", href = "esi.css")
+    ),
+    app_navbar(active = "home"),
+    htmlTemplate(
+      filename = "www/layout.html",
+      page_title = "ESI prototype tool",
+      intro_ui        = mod_intro_ui("intro"),
+      disclaimer_ui   = mod_disclaimer_ui("disclaimer"),
+      footer_ui       = mod_footer_ui("footer"),
+      storymap_ui     = mod_storymap_ui("storymap"),
+      storymap2_ui    = mod_storymap2_ui("storymap2"),
+      storymap3_ui    = mod_storymap3_ui("storymap3"),
+      storymap4_ui    = mod_storymap4_ui("storymap4"),
+      transition1_ui  = mod_transition1_ui("transition1"),
+      transition1c_ui = mod_transition1c_ui("transition1c")
+    )
   )
 }
 
-single_page_ui <- function(title, content) {
+single_page_ui <- function(title, content, active = "") {
   tagList(
     tags$head(
       tags$title(title),
       bslib::bs_theme_dependencies(theme),
       tags$link(rel = "stylesheet", href = "esi.css")
     ),
-    
+    app_navbar(active = active),
     div(
       class = "container-lg px-3 px-md-5 py-5",
-      div(
-        class = "mb-4",
-        tags$a(
-          href = "?",
-          class = "btn btn-outline-secondary",
-          "← Back to home"
-        )
-      ),
+      style = "margin-top: 120px;",
       content
     )
   )
@@ -195,18 +331,12 @@ toolbox_page_ui <- function() {
       bslib::bs_theme_dependencies(theme),
       tags$link(rel = "stylesheet", href = "esi.css")
     ),
+    app_navbar(active = "toolbox"),
     div(
       class = "py-4",
+      style = "margin-top: 120px;",
       div(
         class = "container-lg px-3 px-md-5",
-        div(
-          class = "mb-4",
-          tags$a(
-            href = "?",
-            class = "btn btn-outline-secondary",
-            "← Back to home"
-          )
-        ),
         mod_transition3_ui("transition3"),
         div(
           class = "mb-5",
@@ -217,18 +347,19 @@ toolbox_page_ui <- function() {
     )
   )
 }
-    
 
 get_page_ui <- function(page) {
   switch(
     page,
     "resources" = single_page_ui(
-      "Resources",
-      mod_downloads_ui("downloads")
+      title = "Resources",
+      content = mod_downloads_ui("downloads"),
+      active = "resources"
     ),
     "team" = single_page_ui(
-      "The Team Behind ESI",
-      mod_team_ui("team")
+      title = "The Team Behind ESI",
+      content = mod_team_ui("team"),
+      active = "team"
     ),
     "toolbox" = toolbox_page_ui(),
     landing_page_ui()

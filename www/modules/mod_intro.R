@@ -121,35 +121,35 @@ mod_intro_ui <- function(id) {
           tags$div(
             class = "intro-buttons",
             style = "
-        flex: 0 0 260px;    
-        min-width: 240px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: flex-start;
-      ",
-            tags$button(
+    flex: 0 0 260px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  ",
+            
+            tags$a(
               "TOOLBOX",
-              class = "btn-primary intro-btn",
+              class = "btn btn-primary intro-btn",
+              href = "?page=toolbox",
               onclick = "
-                const el = document.querySelector('[data-step=\"esi_toolbox\"]');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                Shiny.setInputValue('intro-test_tool', true, { priority: 'event' });
-              "
+      Shiny.setInputValue('intro-test_tool', Date.now(), { priority: 'event' });
+    "
             ),
-            tags$button(
+            
+            tags$a(
               "THE ESI",
-              class = "btn-outline-light intro-btn",
+              class = "btn btn-outline-light intro-btn",
+              href = "/#transition1c-section",
               onclick = "
-                const el = document.querySelector('[data-step=\"esi_tool_intro\"]');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                Shiny.setInputValue('intro-explore', true, { priority: 'event' });
-              "
+      Shiny.setInputValue('intro-explore', Date.now(), { priority: 'event' });
+    "
             )
           )
         )
-      )
     )
+  )
   )
 }
 
