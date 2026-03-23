@@ -44,7 +44,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC ANCHORS</a></li>
-       <!-- <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li> -->
+    <!--   <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li> -->
        <li class="nav-item dropdown">
   <a 
     class="nav-link dropdown-toggle"
@@ -59,32 +59,32 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 
   <ul class="dropdown-menu" aria-labelledby="esiDropdown">
     <li>
-      <a class="dropdown-item" href="#storymap3-block-esi">
+      <a class="dropdown-item" href="/#storymap3-block-esi">
         What does the ESI do?
       </a>
     </li>
     <li>
-      <a class="dropdown-item" href="#storymap3-block-inter1">
+      <a class="dropdown-item" href="/#storymap3-block-inter1">
         Interpreting the ESI pt.1
       </a>
     </li>
     <li>
-      <a class="dropdown-item" href="#storymap3-block-inter2">
-       Interpreting the ESI pt.1
+      <a class="dropdown-item" href="/#storymap3-block-inter2">
+       Interpreting the ESI pt.2
       </a>
     </li>
   <li>
-      <a class="dropdown-item" href="#storymap4-block-value">
-        What is the added value of teh ESI?
+      <a class="dropdown-item" href="/#storymap4-block-value">
+        What is the added value of the ESI?
       </a>
     </li> 
     <li>
-      <a class="dropdown-item" href="#storymap4-block-engage">
+      <a class="dropdown-item" href="/#storymap4-block-engage">
         Engaging with the ESI score
       </a>
     </li> 
     <li>
-      <a class="dropdown-item" href="#storymap4-block-limit">
+      <a class="dropdown-item" href="/#storymap4-block-limit">
         Limitations of the ESI score
       </a>
     </li> 
@@ -169,8 +169,16 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </div>
   </section> 
   
+<br><br><br><br><br><br>
 
+     <!-- Message -->
+<section id="message-section" class="section">
+  <div class="container-fluid px-3 px-md-5">
+    {{ message_ui }}
+  </div>
+</section>
 
+<br><br><br><br><br><br>
 <section id="footer-section" class="section">
   <div class="container-fluid px-0 py-0">
     {{ footer_ui }}

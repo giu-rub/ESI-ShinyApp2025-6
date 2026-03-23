@@ -25,6 +25,15 @@ mod_storymap2_ui <- function(id) {
           gap: 70px;
           color: #FFF8F1;
         ",
+ #here i added this div
+        div(
+          id = "storymap2-safe-space",
+          style = "
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            scroll-margin-top: 140px;
+          ",
         
         # -------- BLOCK 1: Planetary Boundaries --------
         div(
@@ -59,6 +68,15 @@ The ESI captures impacts in relation to three Planetary Boundaries: climate chan
             "
           )
         ),
+
+div(
+  id = "storymap2-interactions",
+  style = "
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            scroll-margin-top: 140px;
+          ",
         
         # -------- BLOCK 2: Interactions --------
         div(
@@ -97,6 +115,8 @@ The ESI accounts for four key interactions between climate, vegetation and fresh
         )
       )
     )
+      )
+   )
   )
 }
 

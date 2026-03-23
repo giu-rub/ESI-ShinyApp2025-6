@@ -25,6 +25,18 @@ mod_storymap_ui <- function(id) {
           gap: 70px;
         ",
         
+        #here i added this div
+        div(
+          id = "storymap-impact-importance",
+          style = "
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            scroll-margin-top: 140px;
+          ",
+        
+        
+        
         # ---- TEXT BLOCK ----
         div(
           style = "
@@ -58,6 +70,7 @@ mod_storymap_ui <- function(id) {
             margin: 0 auto;
             display: block;
           "
+         )
         )
       )
     )

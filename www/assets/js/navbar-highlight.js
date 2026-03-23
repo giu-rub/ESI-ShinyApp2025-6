@@ -1,5 +1,3 @@
-
-
 (function () {
   function ready(fn) {
     if (document.readyState !== "loading") fn();
@@ -9,30 +7,43 @@
   function initNavHighlight() {
     const navbar = document.querySelector(".navbar.fixed-top");
 
-    // Include BOTH top-level nav links and dropdown items that point to #ids
     const links = Array.from(
       document.querySelectorAll(".navbar a.nav-link, .navbar .dropdown-menu a.dropdown-item")
-    ).filter(a => (a.getAttribute("href") || "").startsWith("#"));
+    ).filter(a => {
+      const href = a.getAttribute("href") || "";
+      return href.includes("#");
+    });
 
     if (!links.length) return;
 
-    // Build targets from links -> { id, el, link }
     const targets = links
       .map(a => {
-        const hash = a.getAttribute("href");
-        const id = hash.slice(1);
+        const href = a.getAttribute("href") || "";
+        const hashIndex = href.indexOf("#");
+        if (hashIndex === -1) return null;
+
+        const id = href.slice(hashIndex + 1);
         const el = document.getElementById(id);
+
         return el ? { id, el, link: a } : null;
       })
       .filter(Boolean);
 
     if (!targets.length) return;
 
-    function setActive(id) {
-      // Clear all active states first
-      targets.forEach(t => t.link.classList.toggle("active", t.id === id));
+    function clearActive() {
+      targets.forEach(t => t.link.classList.remove("active"));
+      document.querySelectorAll(".navbar .dropdown").forEach(drop => {
+        const toggle = drop.querySelector(".nav-link.dropdown-toggle");
+        if (toggle) toggle.classList.remove("active");
+      });
+    }
 
-      // NEW: bubble active state up to dropdown toggles
+    function setActive(id) {
+      targets.forEach(t => {
+        t.link.classList.toggle("active", t.id === id);
+      });
+
       document.querySelectorAll(".navbar .dropdown").forEach(drop => {
         const toggle = drop.querySelector(".nav-link.dropdown-toggle");
         const anyActiveItem = drop.querySelector(".dropdown-menu .dropdown-item.active");
@@ -59,10 +70,18 @@
     }
 
     function onScroll() {
+      if (!offsets.length) return;
+
       const navH = navbar ? navbar.offsetHeight : 0;
       const y = window.scrollY + navH + 1;
 
-      let current = offsets[0].id;
+      // Before first tracked section: nothing active
+      if (y < offsets[0].top) {
+        clearActive();
+        return;
+      }
+
+      let current = null;
 
       for (let i = 0; i < offsets.length; i++) {
         const cur = offsets[i];
@@ -77,7 +96,8 @@
         }
       }
 
-      setActive(current);
+      if (current) setActive(current);
+      else clearActive();
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });

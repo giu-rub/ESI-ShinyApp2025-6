@@ -42,7 +42,6 @@ source("www/modules/mod_intro.R")
 source("www/modules/mod_map.R")
 source("www/modules/mod_downloads.R")
 source("www/modules/mod_showcase.R")
-source("www/modules/mod_disclaimer.R")
 source("www/modules/mod_footer.R")
 source("www/modules/mod_storymap.R")
 source("www/modules/mod_storymap2.R")
@@ -53,6 +52,7 @@ source("www/modules/mod_transition1c.R")
 source("www/modules/mod_transition2.R")
 source("www/modules/mod_transition3.R")
 source("www/modules/mod_team.R")
+source("www/modules/mod_message.R")
 
 # ---- THEME ----
 theme <- bs_theme(
@@ -296,14 +296,14 @@ landing_page_ui <- function() {
       filename = "www/layout.html",
       page_title = "ESI prototype tool",
       intro_ui        = mod_intro_ui("intro"),
-      disclaimer_ui   = mod_disclaimer_ui("disclaimer"),
       footer_ui       = mod_footer_ui("footer"),
       storymap_ui     = mod_storymap_ui("storymap"),
       storymap2_ui    = mod_storymap2_ui("storymap2"),
       storymap3_ui    = mod_storymap3_ui("storymap3"),
       storymap4_ui    = mod_storymap4_ui("storymap4"),
       transition1_ui  = mod_transition1_ui("transition1"),
-      transition1c_ui = mod_transition1c_ui("transition1c")
+      transition1c_ui = mod_transition1c_ui("transition1c"),
+      message_ui = mod_message_ui("message")
     )
   )
 }
@@ -387,7 +387,6 @@ server <- function(input, output, session) {
   mod_showcase_server("showcase")
   mod_downloads_server("downloads")
   mod_map_server("map", r = r)
-  mod_disclaimer_server("disclaimer")
   mod_footer_server("footer")
   mod_storymap_server("storymap")
   mod_storymap2_server("storymap2")
@@ -397,6 +396,7 @@ server <- function(input, output, session) {
   mod_transition1c_server("transition1c")
   mod_transition3_server("transition3")
   mod_team_server("team")
+  mod_message_server("message")
 }
 
 shinyApp(ui, server)
