@@ -3,6 +3,7 @@ mod_transition1c_ui <- function(id) {
   
   tagList(
     tags$div(
+      id = "transition1c-section",
       class = "transition1c-banner",
       `data-step` = "esi_tool_intro",
       style = "

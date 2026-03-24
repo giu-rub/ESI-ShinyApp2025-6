@@ -1,115 +1,90 @@
 (function () {
   function ready(fn) {
-    if (document.readyState !== "loading") fn();
-    else document.addEventListener("DOMContentLoaded", fn);
+    if (document.readyState !== "loading") {
+      fn();
+    } else {
+      document.addEventListener("DOMContentLoaded", fn);
+    }
   }
 
-  function initNavHighlight() {
-    const navbar = document.querySelector(".navbar.fixed-top");
+  ready(function () {
+    const ACTIVE_CLASS = "nav-link-underline-active";
 
-    const links = Array.from(
-      document.querySelectorAll(".navbar a.nav-link, .navbar .dropdown-menu a.dropdown-item")
-    ).filter(a => {
-      const href = a.getAttribute("href") || "";
-      return href.includes("#");
-    });
-
-    if (!links.length) return;
-
-    const targets = links
-      .map(a => {
-        const href = a.getAttribute("href") || "";
-        const hashIndex = href.indexOf("#");
-        if (hashIndex === -1) return null;
-
-        const id = href.slice(hashIndex + 1);
-        const el = document.getElementById(id);
-
-        return el ? { id, el, link: a } : null;
-      })
-      .filter(Boolean);
-
-    if (!targets.length) return;
-
-    function clearActive() {
-      targets.forEach(t => t.link.classList.remove("active"));
-      document.querySelectorAll(".navbar .dropdown").forEach(drop => {
-        const toggle = drop.querySelector(".nav-link.dropdown-toggle");
-        if (toggle) toggle.classList.remove("active");
-      });
+    function getScientificLink() {
+      return document.querySelector('.navbar .nav-link[href="#transition1-section"]');
     }
 
-    function setActive(id) {
-      targets.forEach(t => {
-        t.link.classList.toggle("active", t.id === id);
-      });
-
-      document.querySelectorAll(".navbar .dropdown").forEach(drop => {
-        const toggle = drop.querySelector(".nav-link.dropdown-toggle");
-        const anyActiveItem = drop.querySelector(".dropdown-menu .dropdown-item.active");
-        if (toggle) toggle.classList.toggle("active", !!anyActiveItem);
-      });
+    function getEsiLink() {
+      return document.getElementById("esiDropdown");
     }
 
-    function computeOffsetsSorted() {
-      return targets
-        .map(t => ({
-          id: t.id,
-          link: t.link,
-          top: t.el.offsetTop,
-          bottom: t.el.offsetTop + t.el.offsetHeight
-        }))
-        .sort((a, b) => a.top - b.top);
+    function getTransition1Section() {
+      return document.getElementById("transition1-section");
     }
 
-    let offsets = computeOffsetsSorted();
-
-    function refresh() {
-      offsets = computeOffsetsSorted();
-      onScroll();
+    function getTransition1cSection() {
+      return document.getElementById("transition1c-section");
     }
 
-    function onScroll() {
-      if (!offsets.length) return;
+    function getAbsoluteTop(el) {
+      return el.getBoundingClientRect().top + window.scrollY;
+    }
 
-      const navH = navbar ? navbar.offsetHeight : 0;
-      const y = window.scrollY + navH + 1;
+    function clearHighlights() {
+      const scientificLink = getScientificLink();
+      const esiLink = getEsiLink();
 
-      // Before first tracked section: nothing active
-      if (y < offsets[0].top) {
-        clearActive();
+      if (scientificLink) scientificLink.classList.remove(ACTIVE_CLASS);
+      if (esiLink) esiLink.classList.remove(ACTIVE_CLASS);
+    }
+
+    function updateNavbarHighlight() {
+      const scientificLink = getScientificLink();
+      const esiLink = getEsiLink();
+      const transition1Section = getTransition1Section();
+      const transition1cSection = getTransition1cSection();
+      const navbar = document.querySelector(".navbar");
+
+      clearHighlights();
+
+      if (!navbar) return;
+
+      const triggerLine = window.scrollY + navbar.offsetHeight + 20;
+
+      const transition1Top = transition1Section ? getAbsoluteTop(transition1Section) : Infinity;
+      const transition1cTop = transition1cSection ? getAbsoluteTop(transition1cSection) : Infinity;
+
+      if (triggerLine >= transition1cTop) {
+        if (esiLink) esiLink.classList.add(ACTIVE_CLASS);
         return;
       }
 
-      let current = null;
-
-      for (let i = 0; i < offsets.length; i++) {
-        const cur = offsets[i];
-        const next = offsets[i + 1];
-
-        const start = cur.top;
-        const end = next ? next.top : cur.bottom;
-
-        if (y >= start && y < end) {
-          current = cur.id;
-          break;
-        }
+      if (triggerLine >= transition1Top) {
+        if (scientificLink) scientificLink.classList.add(ACTIVE_CLASS);
       }
-
-      if (current) setActive(current);
-      else clearActive();
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", refresh);
-    window.addEventListener("load", refresh);
+    let ticking = false;
 
-    setTimeout(refresh, 250);
-    setTimeout(refresh, 1000);
+    function requestUpdate() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          updateNavbarHighlight();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
 
-    onScroll();
-  }
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("load", requestUpdate);
 
-  ready(initNavHighlight);
-  document.addEventListener("shiny:connected", initNavHighlight);
+    setTimeout(updateNavbarHighlight, 100);
+    setTimeout(updateNavbarHighlight, 500);
+    setTimeout(updateNavbarHighlight, 1000);
+
+    updateNavbarHighlight();
+  });
 })();
+
