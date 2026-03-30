@@ -7,15 +7,16 @@
 
 
 /* --- Global / layout --- */
-body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;color: #FFF8F1; }
+body { font-family: 'Lato', sans-serif; font-size: 25px; padding-top: 72px; background: #140A00;color: #FFF8F1; }
 .section { padding: 0; position: relative; z-index: 1;}
 .section + .section { border-top: 1px solid #140A00; background: #140A00;}
-.section h2 { font-weight: 700; text-align: center;}
+.section h2 { font-weight: 700; text-align: center; }
 .section h3 { font-weight: 700; text-align: center; margin-bottom: 3rem;}
 .sidebar { position: sticky; top: 1rem; }
 @media (max-width: 991.98px) { .sidebar { position: static; } }
 
 /* --- Navbar --- */
+.navbar {font-size: 16px;}
 .navbar-brand { font-weight: 700;color:#fff; }
 .navbar-logo { height: 36px; width: auto; }
 @media (max-width: 575.98px) { .navbar-logo { height: 28px; } }
@@ -105,7 +106,7 @@ body { font-family: 'Lato', sans-serif; padding-top: 72px; background: #140A00;c
 .navbar-toolbox-btn::after {
   content: " ↗";
   margin-left: 6px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   display: inline-block;
   transition: transform 0.15s ease;
 }
@@ -532,7 +533,7 @@ Transition 1 panel 3 images features
 
 .transition-card-overlay p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.4rem;
   line-height: 1.4;
   color: #FFF8F1;
 }

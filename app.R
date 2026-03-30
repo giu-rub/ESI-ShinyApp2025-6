@@ -52,6 +52,7 @@ source("www/modules/mod_transition1c.R")
 source("www/modules/mod_transition2.R")
 source("www/modules/mod_transition3.R")
 source("www/modules/mod_team.R")
+#source("www/modules/mod_cases.R")
 source("www/modules/mod_message.R")
 
 # ---- THEME ----
@@ -107,7 +108,7 @@ app_navbar <- function(active = "") {
             tags$a(
               class = nav_link_class("anchors"),
               href = "/#transition1-section",
-              "SCIENTIFIC ANCHORS"
+              "SCIENTIFIC FOUNDATIONS"
             )
           ),
           
@@ -185,7 +186,16 @@ app_navbar <- function(active = "") {
             tags$a(
               class = nav_link_class("team"),
               href = "?page=team",
-              "THE TEAM"
+              "OUR TEAM"
+            )
+          ),
+          
+          tags$li(
+            class = "nav-item",
+            tags$a(
+              class = "nav-link",
+              href = "/#contact",
+              "CONTACT US"
             )
           ),
           
@@ -303,6 +313,7 @@ landing_page_ui <- function() {
       storymap4_ui    = mod_storymap4_ui("storymap4"),
       transition1_ui  = mod_transition1_ui("transition1"),
       transition1c_ui = mod_transition1c_ui("transition1c"),
+     # cases_ui = mod_cases_ui("cases"),
       message_ui = mod_message_ui("message")
     )
   )
@@ -396,6 +407,7 @@ server <- function(input, output, session) {
   mod_transition1c_server("transition1c")
   mod_transition3_server("transition3")
   mod_team_server("team")
+ # mod_cases_server("cases")
   mod_message_server("message")
 }
 

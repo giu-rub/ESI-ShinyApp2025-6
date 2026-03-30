@@ -43,7 +43,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
     </button>
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC ANCHORS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC FOUNDATIONS</a></li>
     <!--   <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li> -->
        <li class="nav-item dropdown">
   <a 
@@ -98,9 +98,21 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 </li>
   <li class="nav-item">
   <a class="nav-link" href="/?page=team">
-    THE TEAM
+    OUR TEAM
   </a>
   </li>
+  
+ <!--  <li class="nav-item">
+  <a class="nav-link" href="/?page=cases">
+    USE CASES
+  </a>
+  </li> -->
+  
+  <li class="nav-item">
+  <a class="nav-link" href="/#contact">
+    CONTACT US
+  </a>
+  </li> 
   <li class="nav-item ms-lg-3">
 <a 
   class="btn navbar-toolbox-btn"
@@ -108,9 +120,11 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
   target="_blank"
   rel="noopener"
 >
-  TOOLBOX
+  ESI TOOLBOX
 </a>
 </li>
+
+
       </ul>
     </div>
   </div>
@@ -180,7 +194,7 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 
 <br><br><br><br><br><br>
 <section id="footer-section" class="section">
-  <div class="container-fluid px-0 py-0">
+  <div id="contact" class="container-fluid px-0 py-0">
     {{ footer_ui }}
   </div>
 </section>

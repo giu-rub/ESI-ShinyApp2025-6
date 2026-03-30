@@ -130,7 +130,7 @@ mod_intro_ui <- function(id) {
   ",
             
             tags$a(
-              "TOOLBOX",
+              "TRY ESI TOOLBOX",
               class = "btn btn-primary intro-btn",
               href = "?page=toolbox",
               onclick = "
@@ -139,7 +139,7 @@ mod_intro_ui <- function(id) {
             ),
             
             tags$a(
-              "THE ESI",
+              "ABOUT THE ESI",
               class = "btn btn-outline-light intro-btn",
               href = "/#transition1c-section",
               onclick = "

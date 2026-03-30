@@ -42,7 +42,7 @@ mod_footer_ui <- function(id) {
    tags$div(
      class = "footer-middle",
      
-     tags$h5("Contact us! (now the destination email is giulia's but esi shoudl create its own and change the email in the code)"),
+     tags$h5("Contact us! (now the destination email is giorgio's)"),
      
      textInput(
        ns("name"),
@@ -104,8 +104,8 @@ mod_footer_server <- function(id) {
       
       blastula::smtp_send(
         email,
-        to = "giulia.rubin@su.se",
-        from = "giulia.rubin@su.se",
+        to = "giorgio.parlato@su.se",
+        from = "giorgio.parlato@su.se",
         subject = "New message from footer contact form",
         credentials = blastula::creds_file("~/.smtp_creds_su")
       )
