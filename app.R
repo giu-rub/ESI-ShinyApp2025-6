@@ -40,6 +40,7 @@ Water_ESI_matrix <- water_df |>
 # ---- MODULES ----
 source("www/modules/mod_intro.R")
 source("www/modules/mod_map.R")
+source("www/modules/mod_about.R")
 source("www/modules/mod_downloads.R")
 source("www/modules/mod_showcase.R")
 source("www/modules/mod_footer.R")
@@ -204,7 +205,7 @@ app_navbar <- function(active = "") {
             tags$a(
               class = if (identical(active, "toolbox")) "btn navbar-toolbox-btn active" else "btn navbar-toolbox-btn",
               href = "?page=toolbox",
-              "TOOLBOX"
+              "ESI TOOLBOX"
             )
           )
         )
@@ -307,6 +308,7 @@ landing_page_ui <- function() {
       page_title = "ESI prototype tool",
       intro_ui        = mod_intro_ui("intro"),
       footer_ui       = mod_footer_ui("footer"),
+      about_ui       = mod_about_ui("about"),
       storymap_ui     = mod_storymap_ui("storymap"),
       storymap2_ui    = mod_storymap2_ui("storymap2"),
       storymap3_ui    = mod_storymap3_ui("storymap3"),
@@ -397,6 +399,7 @@ server <- function(input, output, session) {
   mod_intro_server("intro")
   mod_showcase_server("showcase")
   mod_downloads_server("downloads")
+  mod_about_server("about")
   mod_map_server("map", r = r)
   mod_footer_server("footer")
   mod_storymap_server("storymap")

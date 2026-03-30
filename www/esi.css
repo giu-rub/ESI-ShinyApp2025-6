@@ -289,6 +289,35 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 } */
 
 
+/*about section*/
+#about-section ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#about-section ol li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  margin-bottom: 1rem;
+}
+
+#about-section ol li strong {
+  display: inline-block;
+  margin-bottom: 0.2rem;
+}
+
+#about-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+#about-section img {
+  max-width: 75%;
+  height: auto;
+}
+
 /* ===== RESOURCES: vertical horizontal-preview list ===== */
 
 #downloads-section { background-color: #140A00; }

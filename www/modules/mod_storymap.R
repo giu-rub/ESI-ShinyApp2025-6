@@ -51,18 +51,34 @@ mod_storymap_ui <- function(id) {
               text-justify: inter-word;
               hyphens: auto;
             ",
-            h2("Why measuring corporate impacts on the Earth System is important"),
-            p("Economic activities contribute substantially to the environmental pressures on the planet. Combined, these impacts can exacerbate climate and nature-related financial risks by threatening the stability of the Earth System.
-            So what can investors and businesses do?
-            Understanding and reducing impacts is key to managing increasing risks. Until recently, corporate environmental performance indicators focused primarily on GHG emissions, often neglecting other environmental aspects, such as water and land use, and ignoring the importance of localized impact. 
-            The ESI metric addresses this gap by measuring the global Earth System impact of local business or other human activities. It extends beyond carbon emissions to also include the effects of water and land use, as well as how the interactions between climate, water and land use affect environmental outcomes.
-            "),
+            h2("Estimating global effects of local impacts"),
+            
+            tags$div(
+              style = "
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  ",
+              
+              p("Global environmental effects of local pressures can vary dramatically depending on where they occur. For example:"),
+              
+              p("Tropical forests store large amounts of above-ground carbon, which is released into the atmosphere when they are cleared. So, land use in those areas generally leads to higher interaction impacts on climate."),
+              
+              p("At the same time, if the area of a particular type of vegetation is very small, such as cool grasslands in Africa, further land use in those regions will lead to higher impacts, since it risks leading to the loss of that ecosystem."),
+              
+              p("Similarly, water consumption can have a larger impact in arid regions already experiencing water scarcity than in water-abundant locations."),
+              
+              p(
+                "By capturing spatial differences in impacts, total availability, and the interactions between water use, land use, and climate, the ",
+                tags$strong("ESI provides a way to assess how companies' local environmental impacts translate into global Earth System effects.")
+              )
+            )
           )
         ),
         
         # ---- IMAGE BELOW ----
         tags$img(
-          src = "assets/images/financial_risk.png",
+          src = "assets/images/location-new.png",
           style = "
             width: 100%;
             max-width: 700px;
