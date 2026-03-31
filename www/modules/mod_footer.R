@@ -42,7 +42,7 @@ mod_footer_ui <- function(id) {
    tags$div(
      class = "footer-middle",
      
-     tags$h5("Contact us! (now the destination email is giorgio's)"),
+     tags$h5("Contact us! (now the destination email is giorgio's, but access is still needed in order for emails to go through)"),
      
      textInput(
        ns("name"),

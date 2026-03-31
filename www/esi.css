@@ -437,7 +437,7 @@ table.dataTable th, table.dataTable td { white-space: nowrap; }
 .intro-btn {
   font-size: 1.8rem;
   padding: 14px 28px;
-  min-width: 270px;
+  min-width: 400px;
   border-radius: 6px;
 }
 
@@ -612,7 +612,7 @@ Transition 1 panel 3 images features
 .sticky-pane {
   position: fixed;
   inset: 0;
-  overflow: hidden;
+  overflow: visible;
   z-index: 0;               /* behind content */
   pointer-events: none;     /* disabled by default */
   opacity: 0;
@@ -629,6 +629,7 @@ Transition 1 panel 3 images features
   height: 100%;
   display: block;
   box-sizing: border-box;
+  overflow: visible;
   padding: 2rem;
  padding-left: calc(var(--left-col-width) + var(--left-col-gap));
 }
@@ -1061,8 +1062,8 @@ team-grid-member:hover{
   display: grid !important;
   grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
   gap: clamp(16px, 4vw, 56px);
-  align-items: start;
-  position: relative;
+  align-items: self-start;
+  position: sticky;
 }
 
 /* Left column always above */
@@ -1125,7 +1126,6 @@ team-grid-member:hover{
 /* ─────────────────────────────────────────────────────────────
    Storymap 4 add-ons (match Storymap 3 layout)
    ───────────────────────────────────────────────────────────── */
-
 .storymap4 .storymap-wrap{
   display: grid !important;
   grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
@@ -1144,17 +1144,17 @@ team-grid-member:hover{
 /* Right pane becomes a REAL column (not a background layer) */
 .storymap4 .sticky-pane{
   position: sticky !important;
-  inset: auto !important;            /* kills your global inset:0 */
-  top: 90px !important;              /* set to your navbar height */
+  inset: auto !important;            
+  top: 90px !important;              
   height: calc(100vh - 90px) !important;
   overflow: hidden !important;
 
-  opacity: 1 !important;             /* kills global fade */
-  pointer-events: auto !important;   /* kills global disable */
+  opacity: 1 !important;             
+  pointer-events: auto !important;   
   transition: none !important;
 
-  z-index: 3 !important;             /* ensure it never goes behind */
-  background: transparent;           /* set to #140A00 if you want solid */
+  z-index: 3 !important;             
+  background: transparent;           
 }
 
 /* Remove the global "push-right-with-padding-left" hack */
@@ -1166,7 +1166,6 @@ team-grid-member:hover{
 
 /* Don't apply the global huge margin */
 .storymap4 .scene-frame > *{
-  margin: 0 !important;
   max-width: 100% !important;
   max-height: 100% !important;
 }
@@ -1190,11 +1189,19 @@ team-grid-member:hover{
   }
 }
 
-.message-module {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* horizontal center */
-  justify-content: center; /* vertical center (if height allows) */
-  text-align: center;
-  min-height: 300px; /* optional, gives vertical space */
+
+/* toolbox adjustments*/
+
+.toolbox-wide {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+.toolbox-wide .dataTables_wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.toolbox-wide table.dataTable {
+  width: 100% !important;
 }

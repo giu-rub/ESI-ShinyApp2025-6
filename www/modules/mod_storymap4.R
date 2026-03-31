@@ -4,12 +4,12 @@ mod_storymap4_ui <- function(id) {
   tagList(
     tags$head(
       tags$style(HTML("
-    .story-static-section {
-      margin-top: 100px;
-    }
-  "))
+        .story-static-section {
+          margin-top: 100px;
+        }
+      "))
     ),
-  
+    
     div(
       class = "storymap-root storymap4",
       id = ns("root"),
@@ -18,6 +18,9 @@ mod_storymap4_ui <- function(id) {
         class = "storymap-wrap",
         
         # LEFT COLUMN: static text sections
+        div(
+          class = "story-column",
+          
           div(
             id = "storymap4-block-limit",
             class = "story-static-section",
@@ -31,6 +34,8 @@ mod_storymap4_ui <- function(id) {
               p("1. The ESI is regionally aggregated and focuses on impacts at a planetary scale. It can (and should) not replace local environmental impact assessments, since it cannot capture important considerations such as water and air pollution, or local biodiversity impacts."),
               p("2. The score captures three Earth System components, and four of their interactions. Many other dimensions could be included, and work is ongoing to further develop the metric."),
               p("3. The ESI score could underestimate the impact in regions close to their tipping points, since it does not account for the potential effect of tipping points in accelerating environmental change."),
+              p("Despite these limitations, the ESI represents an important step forward in allowing companies and financial actors capture the impact of their assets in a more comprehensive way.
+If you would like to test the use of ESI in your organization – feel free to reach out!")
             )
           )
         ),
@@ -45,17 +50,17 @@ mod_storymap4_ui <- function(id) {
               tags$img(
                 src = "assets/images/limit.png",
                 alt = "ESI limitations",
-                style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain;"
+                style = "max-width: 100%; height: auto; object-fit: contain;"
               )
             )
           )
         )
       )
     )
+  )
 }
 
 mod_storymap4_server <- function(id) {
   moduleServer(id, function(input, output, session) {
-    # no server logic needed
   })
 }

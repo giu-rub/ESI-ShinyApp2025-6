@@ -1,9 +1,32 @@
 mod_map_ui <- function(id) {
   ns <- NS(id)
   tagList(
- #   h3("Visualise your impacts on water, climate and land across the Earth System"),
+    h3(
+      "Try the ESI Map",
+      style = "color: #FFF8F1; text-align: center; margin-bottom: 1rem;"
+    ),
+    tags$div(
+      class = "container-fluid px-3 px-md-5 toolbox-wide",
+      style = "
+          margin-top: 70px;
+          text-align: justify;
+        ",
+      tags$p(
+        "This map shows how, given certain environmental pressures, impacts across the Earth System vary in different locations. Higher ESI values represent more harmful impacts on the Earth System. To better understand how to use and interpret ESI scores, access our resources.",
+        style = "
+            margin: 0;
+            line-height: 1.6;
+          "
+      )
+    ),
+    
+    div(
+      class = "container-fluid px-3 px-md-5 toolbox-wide",
+      style = "padding-top: 2rem; padding-bottom: 4rem;", 
+    ),
+    
       div(
-        style = "padding-top: 2rem; padding-bottom: 4rem; background-color: #E68059;", 
+        style = "padding-top: 2rem; padding-bottom: 4rem;background-color: #E68059;", 
         
       class = "row g-4 align-items-start",
       div(

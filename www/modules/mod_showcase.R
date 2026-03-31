@@ -3,31 +3,31 @@
   tagList(
     #
     
-    div(
-      class = "video-wrapper",
+    #div(
+    #  class = "video-wrapper",
       
-      tags$video(
-        autoplay = TRUE,
-        muted = TRUE,
-        loop = TRUE,
-        playsinline = TRUE,
-        class = "responsive-video",
+    #  tags$video(
+    #    autoplay = TRUE,
+    #    muted = TRUE,
+    #   loop = TRUE,
+    #   playsinline = TRUE,
+    #   class = "responsive-video",
         
-        tags$source(
-          src = "assets/images/showcase_tablet_tutorial.mp4",
-          type = "video/mp4"
-        )
-      )
-    ),
+    #   tags$source(
+    #     src = "assets/images/showcase_tablet_tutorial.mp4",
+    #     type = "video/mp4"
+    #   )
+    #  )
+    # ),
     
     h3(
-       "Measure the impact of your assets on water, climate and land",
+       "Try the ESI Table",
       style = "color: #FFF8F1; text-align: center; margin-bottom: 1rem;"
       ),
     
     div(
       id = "showcase-content",
-      style = "padding-bottom: 4rem; padding-top:1rem; background-color: #E68059;", 
+      style = "padding-bottom: 4rem; padding-top:1rem;", 
       
       bslib::page_sidebar(
         sidebar = bslib::sidebar(
@@ -70,7 +70,7 @@
             )
           )
         ),
-        h5("Asset List"),
+        h5("Asset List",style = "color:#FFF8F1;"),
         column(
           width = 12,
           DT::dataTableOutput(ns("esi_output")),

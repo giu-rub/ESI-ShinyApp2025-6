@@ -77,7 +77,8 @@ mod_storymap3_ui <- function(id) {
             id = "storymap3-block-value",
             class = "story-static-section",
             style = "scroll-margin-top: 140px;",
-            div(class = "esi-section",
+            div(
+              class = "esi-section",
               h2("The added value of the ESI"),
               ("An analysis of the ESI impact of some large mining companies shows that carbon-focused impact assessments may provide misleading results and may miss important nature-related impacts and risks."),
               p("Indeed, the graph to the right (bottom) shows clearly that the most impactful mines (from a total ESI perspective) would only be perceived as having intermediate or relatively low carbon intensity."),
@@ -103,21 +104,59 @@ mod_storymap3_ui <- function(id) {
           ),
           
           div(
+            class = "esi-image-section",
+            div(
+              style = "
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    ",
+              
+              tags$a(
+                href = "?page=toolbox",
+                class = "btn btn-primary btn-lg",
+                "Try the ESI Map"
+              )
+            )
+          ),
+          
+          div(
             id = "storymap3-block-why",
             class = "story-static-section",
             style = "scroll-margin-top: 140px;",
+            
             div(
-              class = "esi-section",
-              h2("Why measuring corporate impacts on the Earth System is important"),
-              p("Economic activities contribute substantially to the environmental pressures on the planet. Combined, these impacts can exacerbate climate and nature-related financial risks by threatening the stability of the Earth System."),
-              p("So what can investors and businesses do?"),
-              p("Understanding and reducing impacts is key to managing increasing risks. Until recently, corporate environmental performance indicators focused primarily on GHG emissions, often neglecting other environmental aspects, such as water and land use, and ignoring the importance of localized impact."),
-              p("The ESI metric addresses this gap by measuring the global Earth System impact of local business or other human activities. It extends beyond carbon emissions to also include the effects of water and land use, as well as how the interactions between climate, water and land use affect environmental outcomes.")
+              id = "storymap3-block-why",
+              class = "story-static-section",
+              style = "scroll-margin-top: 140px;",
+              
+              div(
+                class = "esi-section",
+                
+                h2("Why measuring corporate impacts on the Earth System is important"),
+                
+                p("Economic activities contribute substantially to the environmental pressures on the planet. Combined, these impacts can exacerbate climate and nature-related financial risks by threatening the stability of the Earth System."),
+                
+                p("So what can investors and businesses do?"),
+                
+                p("Understanding and reducing impacts is key to managing increasing risks. Until recently, corporate environmental performance indicators focused primarily on GHG emissions, often neglecting other environmental aspects, such as water and land use, and ignoring the importance of localized impact."),
+                
+                p("The ESI metric addresses this gap by measuring the global Earth System impact of local business or other human activities. It extends beyond carbon emissions to also include the effects of water and land use, as well as how the interactions between climate, water and land use affect environmental outcomes.")
+              ),
+              div(
+                class = "esi-image-section",
+                
+                tags$img(
+                  src = "assets/images/financial_risk.png",
+                  alt = "Measuring corporate impacts",
+                  style = "max-width: 85%; height: auto; object-fit: contain; margin-top: 2rem; margin-left: 6rem;"
+                )
+              )
             )
           )
         ),
-        
-        
         
         # RIGHT COLUMN: matching media blocks
         div(
@@ -149,62 +188,36 @@ mod_storymap3_ui <- function(id) {
                 class = "btn btn-primary btn-lg",
                 "Try the ESI"
               )
-            ),
-            
-         #   div(
-          #    class = "esi-image-section",
-           #   tags$img(
-            #    src = "assets/images/inter1.png",
-            #    alt = "Interpreting the ESI metric part 1",
-             #   style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
-              #)
-            #),
-            
-           # div(
-            #  class = "esi-image-section",
-             # tags$img(
-              #  src = "assets/images/inter2.png",
-               # alt = "Interpreting the ESI metric part 2",
-                #style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
-            #  )
-          #  ),
-            
-            div(
-              class = "esi-image-section",
-              tags$img(
-                src = "assets/images/giorgio-parlato.jpg",
-                alt = "The added value of ESI",
-                style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
-              )
-            ),
-            
-         div(
-           class = "esi-image-section",
-           div(
-             style = "
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 200px;
-    ",
-             
-             tags$a(
-               href = "?page=toolbox",
-               class = "btn btn-primary btn-lg",
-               "Try the ESI Map"
-             )
-           )
-         ),
-            
-            div(
-              class = "esi-image-section",
-              tags$img(
-                src = "assets/images/financial_risk.png",
-                alt = "Measuring corporate impacts",
-                style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
-              )
             )
+            
+            #   div(
+            #     class = "esi-image-section",
+            #     tags$img(
+            #       src = "assets/images/inter1.png",
+            #       alt = "Interpreting the ESI metric part 1",
+            #       style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
+            #     )
+            #   ),
+            
+            #   div(
+            #     class = "esi-image-section",
+            #     tags$img(
+            #       src = "assets/images/inter2.png",
+            #       alt = "Interpreting the ESI metric part 2",
+            #       style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
+            #     )
+            #   ),
+            
+            #   div(
+            #     class = "esi-image-section",
+            #     tags$img(
+            #       src = "assets/images/picture.jpg",
+            #       alt = "The added value of ESI",
+            #       style = "max-width: 95%; height: auto; max-height: 70vh; object-fit: contain; margin-top: 2rem;"
+            #     )
+            #   ),
+            
+           
           )
         )
       )

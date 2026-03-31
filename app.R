@@ -54,7 +54,7 @@ source("www/modules/mod_transition2.R")
 source("www/modules/mod_transition3.R")
 source("www/modules/mod_team.R")
 #source("www/modules/mod_cases.R")
-source("www/modules/mod_message.R")
+
 
 # ---- THEME ----
 theme <- bs_theme(
@@ -132,35 +132,42 @@ app_navbar <- function(active = "") {
                 tags$a(
                   class = "dropdown-item",
                   href = "/#storymap3-block-esi",
-                  "What does the ESI do?"
+                  "How does the ESI work?"
                 )
               ),
               tags$li(
                 tags$a(
                   class = "dropdown-item",
                   href = "/#storymap3-block-inter1",
-                  "Interpreting the ESI pt.1"
+                  "Interpreting the ESI (pt.1)"
                 )
               ),
               tags$li(
                 tags$a(
                   class = "dropdown-item",
                   href = "/#storymap3-block-inter2",
-                  "Interpreting the ESI pt.2"
+                  "Interpreting the ESI (pt.2)"
                 )
               ),
               tags$li(
                 tags$a(
                   class = "dropdown-item",
-                  href = "/#storymap4-block-value",
+                  href = "/#storymap3-block-value",
                   "What is the added value of the ESI?"
                 )
               ),
               tags$li(
                 tags$a(
                   class = "dropdown-item",
-                  href = "/#storymap4-block-engage",
-                  "Engaging with the ESI score"
+                  href = "/#storymap3-block-using",
+                  "How do I use the ESI score?"
+                )
+              ),
+              tags$li(
+                tags$a(
+                  class = "dropdown-item",
+                  href = "/#storymap3-block-why",
+                  "Why does the ESI score matter?"
                 )
               ),
               tags$li(
@@ -316,7 +323,7 @@ landing_page_ui <- function() {
       transition1_ui  = mod_transition1_ui("transition1"),
       transition1c_ui = mod_transition1c_ui("transition1c"),
      # cases_ui = mod_cases_ui("cases"),
-      message_ui = mod_message_ui("message")
+      
     )
   )
 }
@@ -348,13 +355,23 @@ toolbox_page_ui <- function() {
     div(
       class = "py-4",
       style = "margin-top: 120px;",
+      
       div(
         class = "container-lg px-3 px-md-5",
-        mod_transition3_ui("transition3"),
-        div(
-          class = "mb-5",
-          mod_showcase_ui("showcase")
-        ),
+        mod_transition3_ui("transition3")
+      ),
+      
+      div(
+        class = "container-fluid px-3 px-md-5 toolbox-wide",
+        mod_showcase_ui("showcase")
+      ),
+      #this is just to make some space
+      div( 
+        class = "container-fluid px-3 px-md-5 toolbox-wide",
+      ),
+      
+      div(
+        class = "container-fluid px-3 px-md-5 toolbox-wide",
         mod_map_ui("map")
       )
     )
@@ -411,7 +428,7 @@ server <- function(input, output, session) {
   mod_transition3_server("transition3")
   mod_team_server("team")
  # mod_cases_server("cases")
-  mod_message_server("message")
+  
 }
 
 shinyApp(ui, server)
