@@ -34,96 +34,114 @@ Shiny.addCustomMessageHandler("dt-adjust", function(x){
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-lg px-3 px-md-5">
+
     <a class="navbar-brand" href="#intro-section">
       <img src="assets/images/esi-logo-new-dark.png" alt="ESI Logo" height="90" class="d-inline-block align-top">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav"
-            aria-controls="topnav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#topnav"
+      aria-controls="topnav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="topnav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#transition1-section">SCIENTIFIC FOUNDATIONS</a></li>
-    <!--   <li class="nav-item"><a class="nav-link" href="#transition1c-section">THE ESI</a></li> -->
-       <li class="nav-item dropdown">
-  <a 
-    class="nav-link dropdown-toggle"
-    href="#"
-    id="esiDropdown"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    THE ESI
-  </a>
 
-  <ul class="dropdown-menu" aria-labelledby="esiDropdown">
-    <li>
-      <a class="dropdown-item" href="/#storymap3-block-esi">
-        What does the ESI do?
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="/#storymap3-block-inter1">
-        Interpreting the ESI pt.1
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="/#storymap3-block-inter2">
-       Interpreting the ESI pt.2
-      </a>
-    </li>
-  <li>
-      <a class="dropdown-item" href="/#storymap4-block-value">
-        What is the added value of the ESI?
-      </a>
-    </li> 
-    <li>
-      <a class="dropdown-item" href="/#storymap4-block-engage">
-        Engaging with the ESI score
-      </a>
-    </li> 
-    <li>
-      <a class="dropdown-item" href="/#storymap4-block-limit">
-        Limitations of the ESI score
-      </a>
-    </li> 
-  </ul>
-</li>
-      <!--  <li class="nav-item"><a class="nav-link" href="#downloads-section">RESOURCES</a></li> -->
-      <li class="nav-item">
-  <a class="nav-link" href="/?page=resources">
-    RESOURCES
-  </a>
-</li>
-  <li class="nav-item">
-  <a class="nav-link" href="/?page=team">
-    OUR TEAM
-  </a>
-  </li>
-  
- <!--  <li class="nav-item">
-  <a class="nav-link" href="/?page=cases">
-    USE CASES
-  </a>
-  </li> -->
-  
-  <li class="nav-item">
-  <a class="nav-link" href="/#contact">
-    CONTACT US
-  </a>
-  </li> 
-  <li class="nav-item ms-lg-3">
-<a 
-  class="btn navbar-toolbox-btn"
-  href="?page=toolbox"
-  target="_blank"
-  rel="noopener"
->
-  ESI TOOLBOX
-</a>
-</li>
+        <li class="nav-item">
+          <a class="nav-link" href="#transition1-section">
+            SCIENTIFIC FOUNDATIONS
+          </a>
+        </li>
 
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="esiDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            THE ESI
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="esiDropdown">
+
+            <li>
+              <a class="dropdown-item" href="#storymap3-block-esi">
+                How does the ESI work?
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap3-block-inter1">
+                Interpreting the ESI (pt.1)
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap3-block-inter2">
+                Interpreting the ESI (pt.2)
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap3-block-value">
+                What is the added value of the ESI?
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap3-block-using">
+                How do I use the ESI score?
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap4-block-why">
+                Why does the ESI score matter?
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#storymap4-block-limit">
+                Limitations of the ESI score
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="?page=resources">
+            RESOURCES
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="?page=team">
+            OUR TEAM
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">
+            CONTACT US
+          </a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <a class="btn navbar-toolbox-btn" href="?page=toolbox">
+            ESI TOOLBOX
+          </a>
+        </li>
 
       </ul>
     </div>

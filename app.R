@@ -166,7 +166,7 @@ app_navbar <- function(active = "") {
               tags$li(
                 tags$a(
                   class = "dropdown-item",
-                  href = "/#storymap3-block-why",
+                  href = "/#storymap4-block-why",
                   "Why does the ESI score matter?"
                 )
               ),

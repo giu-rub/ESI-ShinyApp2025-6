@@ -27,7 +27,7 @@
     
     div(
       id = "showcase-content",
-      style = "padding-bottom: 4rem; padding-top:1rem;", 
+      style = "padding-bottom: 4rem; padding-top:1rem;background-color: #248352;", 
       
       bslib::page_sidebar(
         sidebar = bslib::sidebar(

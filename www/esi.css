@@ -1193,8 +1193,9 @@ team-grid-member:hover{
 /* toolbox adjustments*/
 
 .toolbox-wide {
-  max-width: 2500px;
+  max-width: 1500px;
   margin: 0 auto;
+  font-size: 16px;
 }
 
 .toolbox-wide .dataTables_wrapper {
