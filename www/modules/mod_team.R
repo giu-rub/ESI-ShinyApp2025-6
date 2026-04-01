@@ -227,6 +227,22 @@ mod_team_ui <- function(id) {
               p(class = "name", "Jeanne Vu"),
               p(class = "title", "Research Assistant")
             )
+          ),
+          # Member 14
+          tags$a(
+            class = "team-grid-member parallaxit",
+            href = "https://www.cec.lu.se/nitin-chaudhary",
+            
+            tags$img(
+              src = "assets/images/Nitin-Chaudhary.jpg", #we actually dont have a picture yet
+              alt = "Nitin Chaudhary"
+            ),
+            
+            div(
+              class = "team-grid-member-info color-white",
+              p(class = "name", "Nitin Chaudhary"),
+              p(class = "title", "Postdoctoral Researcher")
+            )
           )
         )
      )
