@@ -99,7 +99,3 @@ mod_about_ui <- function(id) {
 mod_about_server <- function(id) {
   moduleServer(id, function(input, output, session) { })
 }
-
-mod_about_server <- function(id) {
-  moduleServer(id, function(input, output, session) { })
-}
