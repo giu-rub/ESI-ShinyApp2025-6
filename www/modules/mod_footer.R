@@ -83,7 +83,7 @@ mod_footer_ui <- function(id) {
    )
   )
 }
-
+ #Here you still have to adjust the text to your email and give access through a pw
 mod_footer_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     

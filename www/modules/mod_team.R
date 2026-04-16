@@ -238,6 +238,7 @@ mod_team_ui <- function(id) {
               alt = "Nitin Chaudhary"
             ),
             
+            #we still need a picture of Nitin 
             div(
               class = "team-grid-member-info color-white",
               p(class = "name", "Nitin Chaudhary"),

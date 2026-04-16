@@ -108,7 +108,6 @@ mod_transition1_ui <- function(id) {
           tags$div(
             class = "transition-card-overlay",
             tags$h2("Impacts on the Earth System are determined by location"),
-           # tags$p("lorem ipsum"),
             tags$img(
               src = "assets/images/location-new.png",
               alt = "corporate impacts"

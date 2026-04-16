@@ -1,24 +1,6 @@
 .showcase_body_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    #
-    
-    #div(
-    #  class = "video-wrapper",
-      
-    #  tags$video(
-    #    autoplay = TRUE,
-    #    muted = TRUE,
-    #   loop = TRUE,
-    #   playsinline = TRUE,
-    #   class = "responsive-video",
-        
-    #   tags$source(
-    #     src = "assets/images/showcase_tablet_tutorial.mp4",
-    #     type = "video/mp4"
-    #   )
-    #  )
-    # ),
     
     h3(
        "Try the ESI Table",
@@ -87,12 +69,12 @@
   )
 }
 
-# ---------- (Optional) If we ever use a bslib navset, this returns a nav_panel wrapper ----------
+# ----------  If we ever use a bslib navset, this returns a nav_panel wrapper ----------
 showcase_panel_ui <- function(id) {
   bslib::nav_panel("Showcase", .showcase_body_ui(id))
 }
 
-# ---------- app’s module API (keeps names used in app.R) ----------
+# ---------- app’s module API ----------
 mod_showcase_ui <- function(id) {
   .showcase_body_ui(id)
 }

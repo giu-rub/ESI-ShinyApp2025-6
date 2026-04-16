@@ -9,7 +9,6 @@ mod_transition2_ui <- function(id) {
         muted = NA,
         loop = NA,
         playsinline = NA,
-        # optional: preload = "auto",
         tags$source(src = "assets/images/iceland_midpage.mp4", type = "video/mp4"),
         "Your browser does not support the video tag."
       ),
